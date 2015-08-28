@@ -4,6 +4,7 @@ class ScenesController < ApplicationController
   end
 
   def show
+    puts params
     @scene = OrgScene.find(params[:id])
   end
 

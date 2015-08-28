@@ -1,14 +1,10 @@
 <h1>Scenes#show</h1>
-<html>
-<head>
-  <title></title>
- <h1> <%= @scene.title%> <h1>
 
-</head>
-<body>
+ <h1> <%= @scene.title %> <h1>
+
   <div class="scene-body">
-    <image src="<% @scene.img %>">
-    <%= @scene.guidelines%>
+      <p> Scene-id: <%= @scene.id %> </p>
+      <p> Scene-title:  <%=  @scene.title %> </p>
+      <img src=" <%=  @scene.img %> ">
+      <p> Scene-guidelines: <%=  @scene.guidelines %></p>
   </div>
-</body>
-</html>
