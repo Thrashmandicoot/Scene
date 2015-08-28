@@ -1,7 +1,6 @@
-<h1>Organizations#show</h1>
-<p>Find me in app/views/organizations/show.html.erb</p>
-<h3>Name: <%= @organization.name %></h3>
-<h3>Avatar: <img src="<%= @organization.avatar %>"></h3>
+<h1><%= @organization.name %></h1>
+
+<img src="<%= @organization.avatar %>">
 <h3>Address: <%= @organization.address %></h3>
 <h3>Bio: <%= @organization.bio %></h3>
 <ul>Scenes
@@ -15,3 +14,6 @@
 </ul>
 
 <h3>Email: <%= @organization.email %></h3>
+
+<!-- if logged in... -->
+<%= link_to "edit", edit_organization_path %>
