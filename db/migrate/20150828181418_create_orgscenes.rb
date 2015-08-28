@@ -1,6 +1,6 @@
-class CreateOrgScenes < ActiveRecord::Migration
+class CreateOrgscenes < ActiveRecord::Migration
   def change
-    create_table :org_scenes do |t|
+    create_table :orgscenes do |t|
       t.string :img
       t.string :title
       t.text :guidelines

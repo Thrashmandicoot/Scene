@@ -1,4 +1,4 @@
-class ScenesController < ApplicationController
+class OrgscenesController < ApplicationController
   def index
    @scenes = OrgScene.all
   end
