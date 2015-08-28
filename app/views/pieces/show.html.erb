@@ -6,4 +6,4 @@
 <p>Description: </p>
 <p><%= @piece.description %></p>
 <p>Piece by:</p>
-<p><%= @artist.name %></p>
+<p><%= link_to @artist.name, artist_path(@artist) %></p>

@@ -4,9 +4,11 @@
 <% @pieces.each do |piece| %>
   <ul>
     <li>
-      <img src="<%= piece.img %>" alt="Artist's Piece.img" height='100' width'120'>
+      <div><%= link_to image_tag(piece.img), artist_piece_path(piece.artist_id, piece) %></div>
       <p>Title: <%= piece.title %></p>
       <p><%= piece.description %></p>
     </li>
   </ul>
 <% end %>
+
+
