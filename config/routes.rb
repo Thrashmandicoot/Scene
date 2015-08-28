@@ -1,4 +1,60 @@
 Rails.application.routes.draw do
+  get 'scenes/index'
+
+  get 'scenes/show'
+
+  get 'scenes/new'
+
+  get 'scenes/create'
+
+  get 'scenes/edit'
+
+  get 'scenes/update'
+
+  get 'scenes/destroy'
+
+  get 'organizations/index'
+
+  get 'organizations/show'
+
+  get 'organizations/new'
+
+  get 'organizations/create'
+
+  get 'organizations/edit'
+
+  get 'organizations/update'
+
+  get 'organizations/destroy'
+
+  get 'pieces/index'
+
+  get 'pieces/show'
+
+  get 'pieces/new'
+
+  get 'pieces/create'
+
+  get 'pieces/edit'
+
+  get 'pieces/update'
+
+  get 'pieces/destroy'
+
+  get 'artists/index'
+
+  get 'artists/show'
+
+  get 'artists/new'
+
+  get 'artists/edit'
+
+  get 'artists/create'
+
+  get 'artists/update'
+
+  get 'artists/destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
