@@ -12,7 +12,7 @@ class OrganizationsController < ApplicationController
   def create
     @organization = Organization.new(organization_params)
     if @organization.save
-      redirect_to organizations_path
+      redirect_to organization_path(@organization)
     else
       render 'new'
     end
@@ -37,6 +37,6 @@ class OrganizationsController < ApplicationController
   private
 
   def organization_params
-    params.require(:organizations).permit(:name, :avatar, :bio, :address, :email, :password, :twitter, :facebook, :website)
+    params.require(:organization).permit(:name, :email, :password)
   end
 end
