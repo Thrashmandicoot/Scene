@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   get 'scenes/index'
 
   get 'scenes/show'
@@ -43,6 +45,15 @@ Rails.application.routes.draw do
   get 'artists/destroy'
 
   resources :pieces
+
+  resources :sessions
+
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    post 'logout' => :destroy
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
