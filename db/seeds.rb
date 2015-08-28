@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+10.times do
+  OrgScene.create(image: Faker::Avatar.image, title: Faker::Name.title, guidelines: Faker::Lorem.sentence )
+end

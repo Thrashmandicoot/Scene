@@ -1,8 +1,10 @@
 class ScenesController < ApplicationController
   def index
+   @scenes = OrgScene.all
   end
 
   def show
+    @scene = OrgScene.find(params[:id])
   end
 
   def new
@@ -18,5 +20,11 @@ class ScenesController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def scene_params
+    params.require(:OrgScene).permit(:img, :title, :guidelines, :organization_id)
   end
 end

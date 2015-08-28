@@ -1,2 +1,14 @@
 <h1>Scenes#show</h1>
-<p>Find me in app/views/scenes/show.html.erb</p>
+<html>
+<head>
+  <title></title>
+ <h1> <%= @scene.title%> <h1>
+
+</head>
+<body>
+  <div class="scene-body">
+    <image src="<% @scene.img %>">
+    <%= @scene.guidelines%>
+  </div>
+</body>
+</html>
