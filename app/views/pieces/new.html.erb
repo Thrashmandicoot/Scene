@@ -1,2 +1,15 @@
 <h1>Pieces#new</h1>
 <p>Find me in app/views/pieces/new.html.erb</p>
+
+<p>form for creating a new piece</p>
+
+<%= form_for ([@artist, @artist.pieces.build]) do |f| %>
+  <p>Image URL</p>
+  <%= f.text_field :img %>
+  <p>Title</p>
+  <%= f.text_field :title %>
+  <p>Description</p>
+  <%= f.text_field :description %>
+  <p><%= f.submit %></p>
+
+<% end %>
