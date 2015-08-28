@@ -1,0 +1,32 @@
+<%= form_for @organization do |f| %>
+
+<%= f.label :avatar %>
+<%= f.url_field :avatar %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label :email %>
+<%= f.email_field :email %>
+
+<%= f.label :password %>
+<%= f.text_field :password %>
+
+<%= f.label :address %>
+<%= f.text_field :address %>
+
+<%= f.label :facebook %>
+<%= f.url_field :facebook %>
+
+<%= f.label :twitter %>
+<%= f.url_field :twitter %>
+
+<%= f.label :website %>
+<%= f.url_field :website %>
+
+<%= f.label :bio %>
+<%= f.text_field :bio %>
+
+<%= f.submit %>
+
+<% end %>
