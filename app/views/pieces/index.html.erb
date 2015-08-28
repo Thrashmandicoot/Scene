@@ -1,2 +1,12 @@
 <h1>Pieces#index</h1>
 <p>Find me in app/views/pieces/index.html.erb</p>
+
+<% @pieces.each do |piece| %>
+  <ul>
+    <li>
+      <img src="<%= piece.img %>" alt="Artist's Piece.img" height='100' width'120'>
+      <p>Title: <%= piece.title %></p>
+      <p><%= piece.description %></p>
+    </li>
+  </ul>
+<% end %>
