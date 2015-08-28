@@ -1,13 +1,2 @@
-<h1>Scenes#index</h1>
 
-
-<% @scenes.each do |scene|%>
-
- <div class="scene-container">
-     <p> <%= link_to scene.title, organization_scene_path( scene.organization_id, scene.id) %> </p>
-     <p> Scene-id: <%= scene.id %> </p>
-     <%= link_to image_tag( scene.img ), organization_scene_path( scene.organization_id, scene.id ) %>
-     <p> Scene-guidelines: <%=  scene.guidelines %></p>
-  </div>
- <% end %>
 
