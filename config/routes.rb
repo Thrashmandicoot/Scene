@@ -1,49 +1,21 @@
 Rails.application.routes.draw do
-  get 'scenes/index'
+  resources :organizations do
+    resources :scenes
+  end
 
-  get 'scenes/show'
+  resources :artists do
+    resources :pieces
+  end
 
-  get 'scenes/new'
+  resources :sessions
 
-  get 'scenes/create'
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    post 'logout' => :destroy
+  end
 
-  get 'scenes/edit'
-
-  get 'scenes/update'
-
-  get 'scenes/destroy'
-
-  get 'organizations/index'
-
-  get 'organizations/show'
-
-  get 'organizations/new'
-
-  get 'organizations/create'
-
-  get 'organizations/edit'
-
-  get 'organizations/update'
-
-  get 'organizations/destroy'
-
-
-  get 'artists/index'
-
-  get 'artists/show'
-
-  get 'artists/new'
-
-  get 'artists/edit'
-
-  get 'artists/create'
-
-  get 'artists/update'
-
-  get 'artists/destroy'
-
-  resources :pieces
-
+end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -98,4 +70,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
