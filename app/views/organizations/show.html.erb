@@ -15,7 +15,7 @@
 
 <h3>Email: <%= @organization.email %></h3>
 
-<!-- if logged in... -->
+<!-- <% current_user.id equal to @organization.id %> -->
 <%= link_to "edit", edit_organization_path %>
 <%= link_to "destroy", @organization, method: :delete %>
-<!-- if logged in... -->
+<!-- <% %> -->

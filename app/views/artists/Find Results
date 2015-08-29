@@ -1,0 +1,127 @@
+Searching 245 files for "module"
+
+/Users/apprentice/Desktop/Scene/app/controllers/Find Results:
+   12
+   13  /Users/apprentice/Desktop/Scene/app/helpers/scenes_helper.rb:
+   14:     1: module ScenesHelper
+   15      2  end
+   16      3
+   ..
+  140
+  141  /Users/apprentice/Desktop/Scene/app/helpers/spaces_helper.rb:
+  142:     1: module SpacesHelper
+  143      2  end
+  144      3
+  ...
+  216      7  Bundler.require(*Rails.groups)
+  217      8
+  218:     9: module Scene
+  219     10    class Application < Rails::Application
+  220     11      # Settings in config/environments/* take precedence over those specified here.
+
+/Users/apprentice/Desktop/Scene/app/helpers/application_helper.rb:
+    1: module ApplicationHelper
+    2  end
+    3
+
+/Users/apprentice/Desktop/Scene/app/helpers/artists_helper.rb:
+    1: module ArtistsHelper
+    2  end
+    3
+
+/Users/apprentice/Desktop/Scene/app/helpers/organizations_helper.rb:
+    1: module OrganizationsHelper
+    2  end
+    3
+
+/Users/apprentice/Desktop/Scene/app/helpers/pieces_helper.rb:
+    1: module PiecesHelper
+    2  end
+    3
+
+/Users/apprentice/Desktop/Scene/app/helpers/scenes_helper.rb:
+    1: module ScenesHelper
+    2  end
+    3
+
+/Users/apprentice/Desktop/Scene/app/helpers/sessions_helper.rb:
+    1: module SessionsHelper
+    2
+    3  	def login(user)
+
+/Users/apprentice/Desktop/Scene/app/helpers/spaces_helper.rb:
+    1: module SpacesHelper
+    2  end
+    3
+
+/Users/apprentice/Desktop/Scene/app/views/artists/Find Results:
+    1: Searching 244 files for "module"
+    2
+    3  /Users/apprentice/Desktop/Scene/app/controllers/Find Results:
+    4     12
+    5     13  /Users/apprentice/Desktop/Scene/app/helpers/scenes_helper.rb:
+    6:    14:     1: module ScenesHelper
+    7     15      2  end
+    8     16      3
+    .
+   10    140
+   11    141  /Users/apprentice/Desktop/Scene/app/helpers/spaces_helper.rb:
+   12:   142:     1: module SpacesHelper
+   13    143      2  end
+   14    144      3
+   ..
+   16    216      7  Bundler.require(*Rails.groups)
+   17    217      8
+   18:   218:     9: module Scene
+   19    219     10    class Application < Rails::Application
+   20    220     11      # Settings in config/environments/* take precedence over those specified here.
+   21
+   22  /Users/apprentice/Desktop/Scene/app/helpers/application_helper.rb:
+   23:     1: module ApplicationHelper
+   24      2  end
+   25      3
+   26
+   27  /Users/apprentice/Desktop/Scene/app/helpers/artists_helper.rb:
+   28:     1: module ArtistsHelper
+   29      2  end
+   30      3
+   31
+   32  /Users/apprentice/Desktop/Scene/app/helpers/organizations_helper.rb:
+   33:     1: module OrganizationsHelper
+   34      2  end
+   35      3
+   36
+   37  /Users/apprentice/Desktop/Scene/app/helpers/pieces_helper.rb:
+   38:     1: module PiecesHelper
+   39      2  end
+   40      3
+   41
+   42  /Users/apprentice/Desktop/Scene/app/helpers/scenes_helper.rb:
+   43:     1: module ScenesHelper
+   44      2  end
+   45      3
+   46
+   47  /Users/apprentice/Desktop/Scene/app/helpers/sessions_helper.rb:
+   48:     1: module SessionsHelper
+   49      2
+   50      3  	def login(user)
+   51
+   52  /Users/apprentice/Desktop/Scene/app/helpers/spaces_helper.rb:
+   53:     1: module SpacesHelper
+   54      2  end
+   55      3
+   ..
+   58      7  Bundler.require(*Rails.groups)
+   59      8
+   60:     9: module Scene
+   61     10    class Application < Rails::Application
+   62     11      # Settings in config/environments/* take precedence over those specified here.
+
+/Users/apprentice/Desktop/Scene/config/application.rb:
+    7  Bundler.require(*Rails.groups)
+    8
+    9: module Scene
+   10    class Application < Rails::Application
+   11      # Settings in config/environments/* take precedence over those specified here.
+
+23 matches across 10 files
