@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class OrgSceneTest < ActiveSupport::TestCase
+class SpaceTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
