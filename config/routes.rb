@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'spaces/create'
+
+  get 'spaces/destroy'
+
+  get 'spaces/edit'
+
+  get 'spaces/index'
+
+  get 'spaces/new'
+
+  get 'spaces/show'
+
+  get 'spaces/update'
+
   resources :organizations do
     resources :scenes
   end
