@@ -1,14 +1,21 @@
 Rails.application.routes.draw do
 
+  root 'galleryhomepage#index'
+  get 'galleryhomepage/index'
+
   resources :organizations do
     resources :spaces
+  end
+
+  controller :spaces do
+    get 'spaces' => 'spaces#all_spaces'
   end
 
   resources :artists do
     resources :pieces
   end
 
-  resources :sessions
+  resources :sessions, only: [:new, :create, :destroy]
 
   controller :sessions do
     get 'login' => :new
@@ -21,7 +28,6 @@ end
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
