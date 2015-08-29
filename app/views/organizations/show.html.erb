@@ -4,7 +4,7 @@
 <h3>Address: <%= @organization.address %></h3>
 <h3>Bio: <%= @organization.bio %></h3>
 <ul>Scenes
-  <% @organization.orgscenes.each do |scene| %>
+  <% @organization.spaces.each do |scene| %>
   <li><img src="<%= scene.img %>"></li>
   <% end %>
 </ul>

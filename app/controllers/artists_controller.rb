@@ -12,7 +12,7 @@ class ArtistsController < ApplicationController
 
   def create
     @artist = Artist.new(artist_params)
-    if @arist.save
+    if @artist.save
       redirect_to artist_path(@artist)
     else
       render 'new'
@@ -40,7 +40,7 @@ class ArtistsController < ApplicationController
 
   private
 
-  def organization_params
+  def artist_params
     params.require(:artist).permit(:name, :email, :password, :address, :facebook, :twitter, :website, :bio, :avatar)
   end
 end
