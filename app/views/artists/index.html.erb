@@ -1,2 +1,22 @@
-<h1>Artists#index</h1>
-<p>Find me in app/views/artists/index.html.erb</p>
+<h1>Artists In Your Area</h1>
+
+<table>
+  <tr>
+    <td></td>
+    <td>Name</td>
+    <td>Profile</td>
+    <td>Bio</td>
+    <td>Website</td>
+    <td>Art</td>
+  </tr>
+  <% @artists.each do |artist| %>
+  <tr>
+    <td> <%= artist.avatar %> </td>
+    <td> <%= artist.name %> </td>
+    <td> <%= link_to("Artist", artist_path(artist)) %> </td>
+    <td> <%= artist.bio %> </td>
+    <td> <%= artist.website %> </td>
+    <td> <img src="<%= artist.pieces.sample.img %>"></td>
+  </tr>
+  <% end %>
+</table>

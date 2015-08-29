@@ -54,17 +54,6 @@ ActiveRecord::Schema.define(version: 20150829012858) do
     t.datetime "updated_at",      null: false
   end
 
-  create_table "orgscenes", force: :cascade do |t|
-    t.string   "img"
-    t.string   "title"
-    t.text     "guidelines"
-    t.integer  "organization_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  add_index "orgscenes", ["organization_id"], name: "index_orgscenes_on_organization_id", using: :btree
-
   create_table "pieces", force: :cascade do |t|
     t.string   "img"
     t.string   "title"
@@ -95,7 +84,6 @@ ActiveRecord::Schema.define(version: 20150829012858) do
 
   add_foreign_key "categories", "pieces"
   add_foreign_key "categories", "tags"
-  add_foreign_key "orgscenes", "organizations"
   add_foreign_key "pieces", "artists"
   add_foreign_key "spaces", "organizations"
 end
