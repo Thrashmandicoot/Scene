@@ -9,14 +9,20 @@ class SpacesController < ApplicationController
   end
 
   def index
+    @spaces = Space.all
   end
 
   def new
   end
 
   def show
+    @space = Space.find(params[:id])
   end
 
   def update
+  end
+
+  def space_params
+    params.require(:space).permit(:img, :guidelines, :organization_id)
   end
 end
