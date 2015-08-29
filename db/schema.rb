@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150828182016) do
+ActiveRecord::Schema.define(version: 20150829012858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,17 @@ ActiveRecord::Schema.define(version: 20150828182016) do
 
   add_index "pieces", ["artist_id"], name: "index_pieces_on_artist_id", using: :btree
 
+  create_table "spaces", force: :cascade do |t|
+    t.string   "img"
+    t.string   "title"
+    t.text     "guidelines"
+    t.integer  "organization_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "spaces", ["organization_id"], name: "index_spaces_on_organization_id", using: :btree
+
   create_table "tags", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -86,4 +97,5 @@ ActiveRecord::Schema.define(version: 20150828182016) do
   add_foreign_key "categories", "tags"
   add_foreign_key "org_scenes", "organizations"
   add_foreign_key "pieces", "artists"
+  add_foreign_key "spaces", "organizations"
 end

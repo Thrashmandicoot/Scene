@@ -1,2 +1,21 @@
-<h1>Organizations#show</h1>
-<p>Find me in app/views/organizations/show.html.erb</p>
+<h1><%= @organization.name %></h1>
+
+<img src="<%= @organization.avatar %>">
+<h3>Address: <%= @organization.address %></h3>
+<h3>Bio: <%= @organization.bio %></h3>
+<ul>Scenes
+  <% @organization.spaces.each do |space| %>
+  <li><img src="<%= space.img %>"></li>
+  <% end %>
+</ul>
+<ul>Social Media
+  <li><%= @organization.facebook %></li>
+  <li><%= @organization.twitter %></li>
+</ul>
+
+<h3>Email: <%= @organization.email %></h3>
+
+<!-- if logged in... -->
+<%= link_to "edit", edit_organization_path %>
+<%= link_to "destroy", @organization, method: :delete %>
+<!-- if logged in... -->
