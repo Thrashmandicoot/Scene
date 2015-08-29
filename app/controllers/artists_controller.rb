@@ -3,6 +3,7 @@ class ArtistsController < ApplicationController
   end
 
   def show
+    @artist = Artist.find(1)
   end
 
   def new
