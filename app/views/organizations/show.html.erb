@@ -4,16 +4,20 @@
 <h3>Address: <%= @organization.address %></h3>
 <h3>Bio: <%= @organization.bio %></h3>
 <ul>Scenes
-  <% @organization.spaces.each do |space| %>
+  <% @spaces_sample = @organization.spaces.sample(2) %>
+  <% @spaces_sample.each do |space| %>
   <li><img src="<%= space.img %>"></li>
   <% end %>
 </ul>
+<%= link_to "Show More Scenes of this Company", organization_spaces_path(@organization.id) %>
+<%= link_to "Show ALL Scenes", spaces_path %>
 <ul>Social Media
   <li><%= @organization.facebook %></li>
   <li><%= @organization.twitter %></li>
 </ul>
 
 <h3>Email: <%= @organization.email %></h3>
+
 
 <!-- if logged in... -->
 <%= link_to "edit", edit_organization_path %>

@@ -9,7 +9,7 @@ class SpacesController < ApplicationController
   end
 
   def index
-    @spaces = Space.all
+    @spaces = Organization.find_by(id: params[:organization_id]).spaces
   end
 
   def new
@@ -24,5 +24,9 @@ class SpacesController < ApplicationController
 
   def space_params
     params.require(:space).permit(:img, :guidelines, :organization_id)
+  end
+
+  def all_spaces
+    @spaces = Space.all
   end
 end
