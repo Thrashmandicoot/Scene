@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :pieces
   end
 
-  resources :sessions
+  resources :sessions, only: [:new, :create, :destroy]
 
   controller :sessions do
     get 'login' => :new
