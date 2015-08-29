@@ -1,3 +1,27 @@
 <h1>Gallery Homepage</h1>
+<h3>Featured Pieces:</h3>
+<% @random_pieces.each do |piece| %>
+	<img src="<%= piece.img %>"/>
+<% end %>
 
+<h3>Featured Scenes:</h3>
+<% @random_scenes.each do |scene| %>
+	<img src="<%= scene.img %>"/>
+<% end %>
 
+<h3>Pieces by Category</h3>
+<% @gallery_images.each do |image| %>
+	<%= image %>
+<% end %>
+
+<h1>Flickity - wrapAround</h1>
+
+<!-- Flickity HTML init -->
+<div class="gallery js-flickity"
+  data-flickity-options='{ "wrapAround": true }'>
+  <div class="gallery-cell"></div>
+  <div class="gallery-cell"></div>
+  <div class="gallery-cell"></div>
+  <div class="gallery-cell"></div>
+  <div class="gallery-cell"></div>
+</div>
