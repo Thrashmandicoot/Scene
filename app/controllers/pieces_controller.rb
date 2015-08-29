@@ -59,5 +59,5 @@ end
 # @artist.save
 # @artist.skills => ['spray paint', acryllic, oil]
 
-finding tagged objects
-@piece.tagged_with(['tag_name, tag_name2']) returns objects
+# finding tagged objects
+# @piece.tagged_with(['tag_name, tag_name2']) returns objects
