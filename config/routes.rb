@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  root 'galleryhomepage#index'
+  get 'galleryhomepage/index'
+
   resources :organizations do
     resources :spaces
   end
@@ -15,13 +18,12 @@ Rails.application.routes.draw do
     post 'login' => :create
     post 'logout' => :destroy
   end
-
+  
 end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
