@@ -1,0 +1,290 @@
+Searching 244 files for "Scene"
+
+/Users/apprentice/Desktop/Scene/README.md:
+    1: # Scene
+    2  Bringing local organizations and artists together to make boring workspaces more interesting!
+    3
+
+/Users/apprentice/Desktop/Scene/app/assets/stylesheets/scenes.scss:
+    1: // Place all the styles related to the Scenes controller here.
+    2  // They will automatically be included in application.css.
+    3  // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/Users/apprentice/Desktop/Scene/app/helpers/scenes_helper.rb:
+    1: module ScenesHelper
+    2  end
+    3
+
+/Users/apprentice/Desktop/Scene/app/views/artists/show.html.erb:
+    4  <h3>Address: <%= @artist.address %></h3>
+    5  <h3>Bio: <%= @artist.bio %></h3>
+    6: <ul>Scenes
+    7    <% @artist.pieces.each do |piece| %>
+    8    <li><img src="<%= piece.img %>"></li>
+
+/Users/apprentice/Desktop/Scene/app/views/layouts/application.html.erb:
+    2  <html>
+    3  <head>
+    4:   <title>Scene</title>
+    5    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    6    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+/Users/apprentice/Desktop/Scene/app/views/organizations/show.html.erb:
+    4  <h3>Address: <%= @organization.address %></h3>
+    5  <h3>Bio: <%= @organization.bio %></h3>
+    6: <ul>Scenes
+    7    <% @organization.spaces.each do |space| %>
+    8    <li><img src="<%= space.img %>"></li>
+
+/Users/apprentice/Desktop/Scene/app/views/pieces/edit.html.erb:
+    2  <p>Find me in app/views/pieces/edit.html.erb</p>
+    3
+    4: <%= render partial: "edit_form_piece_scene", locals: { picture: @piece } %>
+    5
+
+/Users/apprentice/Desktop/Scene/app/views/pieces/new.html.erb:
+    4  <p>form for creating a new piece</p>
+    5
+    6: <%= render partial: "form_piece_scene", locals: { user: @artist, picture: @artist.pieces.build } %>
+    7
+    8
+
+/Users/apprentice/Desktop/Scene/app/views/spaces/show.html.erb:
+    3
+    4    <div class="space-body">
+    5:       <p> Scene-id: <%= @space.id %> </p>
+    6:       <p> Scene-title:  <%=  @space.title %> </p>
+    7        <img src=" <%=  @space.img %> ">
+    8:       <p> Scene-guidelines: <%=  @space.guidelines %></p>
+    9    </div>
+   10
+
+/Users/apprentice/Desktop/Scene/config/database.yml:
+   24  development:
+   25    <<: *default
+   26:   database: Scene_development
+   27
+   28    # The specified database role being used to connect to postgres.
+   ..
+   30    # When left blank, postgres will use the default role. This is
+   31    # the same name as the operating system user that initialized the database.
+   32:   #username: Scene
+   33
+   34    # The password associated with the postgres role (username).
+   ..
+   58  test:
+   59    <<: *default
+   60:   database: Scene_test
+   61
+   62  # As with config/secrets.yml, you never want to store sensitive information,
+   ..
+   81  production:
+   82    <<: *default
+   83:   database: Scene_production
+   84:   username: Scene
+   85:   password: <%= ENV['SCENE_DATABASE_PASSWORD'] %>
+   86
+
+/Users/apprentice/Desktop/Scene/config/initializers/session_store.rb:
+    1  # Be sure to restart your server when you modify this file.
+    2
+    3: Rails.application.config.session_store :cookie_store, key: '_Scene_session'
+    4
+
+/Users/apprentice/Desktop/Scene/test/controllers/scenes_controller_test.rb:
+    1  require 'test_helper'
+    2
+    3: class ScenesControllerTest < ActionController::TestCase
+    4    test "should get index" do
+    5      get :index
+
+19 matches across 12 files
+
+
+Searching 244 files for "Space"
+
+/Users/apprentice/Desktop/Scene/README.md:
+    1  # Scene
+    2: Bringing local organizations and artists together to make boring workspaces more interesting!
+    3
+    4  # Mandatory Fun Required...
+
+/Users/apprentice/Desktop/Scene/app/assets/stylesheets/spaces.scss:
+    1: // Place all the styles related to the spaces controller here.
+    2  // They will automatically be included in application.css.
+    3  // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/Users/apprentice/Desktop/Scene/app/controllers/spaces_controller.rb:
+    1: class SpacesController < ApplicationController
+    2    def create
+    3    end
+    .
+   10
+   11    def index
+   12:     @spaces = Space.all
+   13    end
+   14
+   ..
+   17
+   18    def show
+   19:     @space = Space.find(params[:id])
+   20    end
+   21
+   ..
+   23    end
+   24
+   25:   def space_params
+   26:     params.require(:space).permit(:img, :guidelines, :organization_id)
+   27    end
+   28  end
+
+/Users/apprentice/Desktop/Scene/app/helpers/spaces_helper.rb:
+    1: module SpacesHelper
+    2  end
+    3
+
+/Users/apprentice/Desktop/Scene/app/models/organization.rb:
+    1  class Organization < ActiveRecord::Base
+    2:   has_many :spaces
+    3    has_secure_password
+    4  end
+
+/Users/apprentice/Desktop/Scene/app/models/space.rb:
+    1: class Space < ActiveRecord::Base
+    2    belongs_to :organization
+    3  end
+
+/Users/apprentice/Desktop/Scene/app/views/organizations/show.html.erb:
+    5  <h3>Bio: <%= @organization.bio %></h3>
+    6  <ul>Scenes
+    7:   <% @organization.spaces.each do |space| %>
+    8:   <li><img src="<%= space.img %>"></li>
+    9    <% end %>
+   10  </ul>
+
+/Users/apprentice/Desktop/Scene/app/views/spaces/create.html.erb:
+    1: <h1>Spaces#create</h1>
+    2: <p>Find me in app/views/spaces/create.html.erb</p>
+    3
+
+/Users/apprentice/Desktop/Scene/app/views/spaces/destroy.html.erb:
+    1: <h1>Spaces#destroy</h1>
+    2: <p>Find me in app/views/spaces/destroy.html.erb</p>
+    3
+
+/Users/apprentice/Desktop/Scene/app/views/spaces/edit.html.erb:
+    1: <h1>Spaces#edit</h1>
+    2: <p>Find me in app/views/spaces/edit.html.erb</p>
+    3
+
+/Users/apprentice/Desktop/Scene/app/views/spaces/index.html.erb:
+    1: <h1>Spaces#index</h1>
+    2
+    3: <% @spaces.each do |space|%>
+    4
+    5:  <div class="space-container">
+    6:      <p> <%= link_to space.title, organization_space_path( space.organization_id, space.id) %> </p>
+    7:      <p> Space-id: <%= space.id %> </p>
+    8:      <%= link_to image_tag( space.img ), organization_space_path( space.organization_id, space.id ) %>
+    9:      <p> Space-guidelines: <%=  space.guidelines %></p>
+   10    </div>
+   11   <% end %>
+
+/Users/apprentice/Desktop/Scene/app/views/spaces/new.html.erb:
+    1: <h1>Spaces#new</h1>
+    2: <p>Find me in app/views/spaces/new.html.erb</p>
+    3
+
+/Users/apprentice/Desktop/Scene/app/views/spaces/show.html.erb:
+    1: <h1>Spaces#show</h1>
+    2:  <h1> <%= @space.title %> <h1>
+    3
+    4:   <div class="space-body">
+    5:       <p> Scene-id: <%= @space.id %> </p>
+    6:       <p> Scene-title:  <%=  @space.title %> </p>
+    7:       <img src=" <%=  @space.img %> ">
+    8:       <p> Scene-guidelines: <%=  @space.guidelines %></p>
+    9    </div>
+   10
+
+/Users/apprentice/Desktop/Scene/app/views/spaces/update.html.erb:
+    1: <h1>Spaces#update</h1>
+    2: <p>Find me in app/views/spaces/update.html.erb</p>
+    3
+
+/Users/apprentice/Desktop/Scene/config/application.rb:
+    7  Bundler.require(*Rails.groups)
+    8
+    9: module Scene
+   10    class Application < Rails::Application
+   11      # Settings in config/environments/* take precedence over those specified here.
+
+/Users/apprentice/Desktop/Scene/config/routes.rb:
+    2
+    3    resources :organizations do
+    4:     resources :spaces
+    5    end
+    6
+    .
+   66    #   resources :photos, concerns: :toggleable
+   67
+   68:   # Example resource route within a namespace:
+   69:   #   namespace :admin do
+   70    #     # Directs /admin/products/* to Admin::ProductsController
+   71    #     # (app/controllers/admin/products_controller.rb)
+
+/Users/apprentice/Desktop/Scene/config/environments/test.rb:
+    4    # The test environment is used exclusively to run your application's
+    5    # test suite. You never need to work with it otherwise. Remember that
+    6:   # your test database is "scratch space" for the test suite and is wiped
+    7    # and recreated between test runs. Don't rely on the data there!
+    8    config.cache_classes = true
+
+/Users/apprentice/Desktop/Scene/db/schema.rb:
+   66    add_index "pieces", ["artist_id"], name: "index_pieces_on_artist_id", using: :btree
+   67
+   68:   create_table "spaces", force: :cascade do |t|
+   69      t.string   "img"
+   70      t.string   "title"
+   ..
+   75    end
+   76
+   77:   add_index "spaces", ["organization_id"], name: "index_spaces_on_organization_id", using: :btree
+   78
+   79    create_table "tags", force: :cascade do |t|
+   ..
+   86    add_foreign_key "categories", "tags"
+   87    add_foreign_key "pieces", "artists"
+   88:   add_foreign_key "spaces", "organizations"
+   89  end
+   90
+
+/Users/apprentice/Desktop/Scene/db/seeds.rb:
+   15
+   16  10.times do
+   17:  Space.create(img: Faker::Avatar.image, title:Faker::Name.title, guidelines: Faker::Lorem.sentence, organization_id: 1)
+   18
+   19  end
+
+/Users/apprentice/Desktop/Scene/db/migrate/20150829012858_create_spaces.rb:
+    1: class CreateSpaces < ActiveRecord::Migration
+    2    def change
+    3:     create_table :spaces do |t|
+    4        t.string :img
+    5        t.string :title
+
+/Users/apprentice/Desktop/Scene/test/controllers/spaces_controller_test.rb:
+    1  require 'test_helper'
+    2
+    3: class SpacesControllerTest < ActionController::TestCase
+    4    test "should get create" do
+    5      get :create
+
+/Users/apprentice/Desktop/Scene/test/models/space_test.rb:
+    1  require 'test_helper'
+    2
+    3: class SpaceTest < ActiveSupport::TestCase
+    4    # test "the truth" do
+    5    #   assert true
+
+62 matches across 22 files

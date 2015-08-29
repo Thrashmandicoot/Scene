@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  # get 'galleryhomepage/index'
+
   root 'galleryhomepage#index'
+  get 'galleryhomepage/index'
 
   resources :organizations do
-    resources :scenes
+    resources :spaces
   end
 
   resources :artists do
