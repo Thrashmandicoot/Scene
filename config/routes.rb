@@ -4,6 +4,10 @@ Rails.application.routes.draw do
     resources :spaces
   end
 
+  controller :spaces do
+    get 'spaces' => 'spaces#all_spaces'
+  end
+
   resources :artists do
     resources :pieces
   end
@@ -15,6 +19,8 @@ Rails.application.routes.draw do
     post 'login' => :create
     post 'logout' => :destroy
   end
+
+
 
 end
   # The priority is based upon order of creation: first created -> highest priority.
