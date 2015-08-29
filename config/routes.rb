@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+
   resources :organizations do
-    resources :scenes
+    resources :spaces
   end
 
   resources :artists do
