@@ -14,7 +14,6 @@ class PiecesController < ApplicationController
 
   def create
     @artist = Artist.find(params[:artist_id])
-    # @piece = @artist.pieces.new(img: params[:img], title: params[:title], description: params[:description])
     @piece = @artist.pieces.new(piece_params)
     if @piece.save
       redirect_to artist_piece_path(@artist, @piece)
@@ -44,6 +43,10 @@ class PiecesController < ApplicationController
 
   private
   def piece_params
-    params.require(:piece).permit(:img, :title, :description)
+    params.require(:piece).permit(:img, :title, :description, :tag_name)
+  end
+
+  def tag_params
+    params.require(:piece).permit(:tags)
   end
 end
