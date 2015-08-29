@@ -26,6 +26,14 @@ class ArtistsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should create artist" do
+    assert_difference('Artist.count') do
+      post :create, artist: {name: 'Kara Walker'}
+    end
+   
+    assert_redirected_to article_path(assigns(:article))
+  end
+
   test "should get update" do
     get :update
     assert_response :success
