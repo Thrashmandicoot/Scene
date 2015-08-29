@@ -26,7 +26,7 @@ class OrganizationsController < ApplicationController
   def update
     @organization = Organization.find_by(id: params[:id])
     if @organization.update(organization_params)
-      redirect_to organizations_path
+      redirect_to organization_path
     else
       render 'edit'
     end
