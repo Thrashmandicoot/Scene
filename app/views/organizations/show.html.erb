@@ -4,8 +4,8 @@
 <h3>Address: <%= @organization.address %></h3>
 <h3>Bio: <%= @organization.bio %></h3>
 <ul>Scenes
-  <% @organization.orgscenes.each do |scene| %>
-  <li><img src="<%= scene.img %>"></li>
+  <% @organization.spaces.each do |space| %>
+  <li><img src="<%= space.img %>"></li>
   <% end %>
 </ul>
 <ul>Social Media
