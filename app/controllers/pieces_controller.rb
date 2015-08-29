@@ -24,12 +24,22 @@ class PiecesController < ApplicationController
   end
 
   def edit
+    @piece = Piece.find(params[:id])
   end
 
   def update
+    @piece = Piece.find(params[:id])
+    if @piece.updates(piece_params)
+      redirect_to artist_piece_path(@piece)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
+    @piece = Piece.find(params[:id])
+    @piece.destroy
+    redirect_to artist_pieces_path
   end
 
   private

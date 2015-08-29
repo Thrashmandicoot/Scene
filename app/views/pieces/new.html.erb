@@ -3,15 +3,5 @@
 
 <p>form for creating a new piece</p>
 
-<%= form_for ([@artist, @artist.pieces.build]) do |f| %>
-  <p>Image URL</p>
-  <%= f.text_field :img %>
+<%= render partial: "form_piece_scene", locals: { user: @artist, picture: @artist.pieces.build } %>
 
-  <p>Title</p>
-  <%= f.text_field :title %>
-
-  <p>Description</p>
-  <%= f.text_field :description %>
-
-  <p><%= f.submit %></p>
-<% end %>

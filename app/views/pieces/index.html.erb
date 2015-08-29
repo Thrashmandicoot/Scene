@@ -7,8 +7,15 @@
       <div><%= link_to image_tag(piece.img), artist_piece_path(piece.artist_id, piece) %></div>
       <p>Title: <%= piece.title %></p>
       <p><%= piece.description %></p>
+
+      <!-- Show if artist is logged in -->
+      <button><%= link_to "Edit", edit_artist_piece_path(piece.artist_id, piece) %></button>
+      <button><%= link_to "Remove", artist_piece_path(piece.artist_id, piece),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></button>
     </li>
   </ul>
 <% end %>
 
 
+<!-- make partial for edit and method for delete -->
