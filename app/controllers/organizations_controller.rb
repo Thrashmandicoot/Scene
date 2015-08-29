@@ -33,6 +33,9 @@ class OrganizationsController < ApplicationController
   end
 
   def destroy
+    @organization = Organization.find_by(id: params[:id])
+    @organization.destroy
+    redirect_to root_path
   end
 
   private
