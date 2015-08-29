@@ -1,4 +1,5 @@
-artist1 = Artist.create(name: "Banksy", email: "banksy@street.org", password: "admin", avatar: "this is the avatar", bio: "I am a street artist", address: "Address Unknown", facebook: "banksy@facebook", twitter: "banksy@twitter", website: "banksyart.com")
+artist1 = Artist.create(name: "Banksy", email: "banksy@street.org", password: "adminpass", avatar: "this is the avatar", bio: "I am a street artist", address: "Address Unknown", facebook: "banksy@facebook", twitter: "banksy@twitter", website: "banksyart.com")
+
 # artist1.pieces.create(img: "This is the image", title: "Piece Title", description: "This is the description")
 
 organization1 = Organization.create(
@@ -13,7 +14,6 @@ organization1 = Organization.create(
 	website: "http://www.costco.com"
 	)
 
-
 10.times do
 	Piece.create(
 	img: Faker::Avatar.image,
@@ -26,7 +26,7 @@ end
 	img: Faker::Avatar.image,
 	title: Faker::Lorem.sentence,
 	guidelines: Faker::Lorem.sentence(3),
-	organization_id: rand(10)
+	# organization_id: rand(10)
 	)
 end
 
