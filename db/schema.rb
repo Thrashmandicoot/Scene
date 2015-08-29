@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150829012858) do
+ActiveRecord::Schema.define(version: 20150829184209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20150829012858) do
     t.datetime "updated_at",      null: false
   end
 
+
   create_table "categories", force: :cascade do |t|
     t.integer  "tag_id"
     t.integer  "piece_id"
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150829012858) do
 
   add_index "categories", ["piece_id"], name: "index_categories_on_piece_id", using: :btree
   add_index "categories", ["tag_id"], name: "index_categories_on_tag_id", using: :btree
+
 
   create_table "organizations", force: :cascade do |t|
     t.string   "name"
@@ -76,14 +78,31 @@ ActiveRecord::Schema.define(version: 20150829012858) do
 
   add_index "spaces", ["organization_id"], name: "index_spaces_on_organization_id", using: :btree
 
-  create_table "tags", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
   end
 
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+
+  create_table "tags", force: :cascade do |t|
+    t.string  "name"
+    t.integer "taggings_count", default: 0
+  end
+
+<<<<<<< HEAD
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
+
+=======
   add_foreign_key "categories", "pieces"
   add_foreign_key "categories", "tags"
+>>>>>>> development
   add_foreign_key "pieces", "artists"
   add_foreign_key "spaces", "organizations"
 end

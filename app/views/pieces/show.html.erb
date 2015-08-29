@@ -5,7 +5,19 @@
 <p>Title: <%= @piece.title %></p>
 <p>Description: </p>
 <p><%= @piece.description %></p>
+
+<!-- show tags -->
+<p><%= @piece.tag_list.join(" ") %></p>
+
+
 <p>Piece by:</p>
 <p><%= link_to @artist.name, artist_path(@artist) %></p>
+
+
+<button><%= link_to "Edit", edit_artist_piece_path(@piece.artist_id, @piece) %></button>
+<button><%= link_to "Remove", artist_piece_path(@piece.artist_id, @piece),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></button>
+
 
 
