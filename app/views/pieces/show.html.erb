@@ -15,7 +15,7 @@
 
 
 <!-- current user stuff goes here  -->
-  <% if session[:user_id] == @artist.id %>
+  <% if session[:artist_id] == @artist.id %>
     <button><%= link_to "Edit", edit_artist_piece_path(@piece.artist_id, @piece) %></button>
     <button><%= link_to "Remove", artist_piece_path(@piece.artist_id, @piece), method: :delete,data: { confirm: 'Are you sure?' } %></button>
   <% end %>
