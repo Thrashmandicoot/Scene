@@ -30,18 +30,6 @@ ActiveRecord::Schema.define(version: 20150829184209) do
     t.datetime "updated_at",      null: false
   end
 
-
-  create_table "categories", force: :cascade do |t|
-    t.integer  "tag_id"
-    t.integer  "piece_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "categories", ["piece_id"], name: "index_categories_on_piece_id", using: :btree
-  add_index "categories", ["tag_id"], name: "index_categories_on_tag_id", using: :btree
-
-
   create_table "organizations", force: :cascade do |t|
     t.string   "name"
     t.text     "bio"
@@ -97,8 +85,6 @@ ActiveRecord::Schema.define(version: 20150829184209) do
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
-  add_foreign_key "categories", "pieces"
-  add_foreign_key "categories", "tags"
 
   add_foreign_key "pieces", "artists"
   add_foreign_key "spaces", "organizations"

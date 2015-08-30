@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     get 'spaces' => 'spaces#all_spaces'
   end
 
+  controller :pieces do
+    get 'pieces' => 'pieces#all_pieces'
+  end
+
   resources :artists do
     resources :pieces
   end

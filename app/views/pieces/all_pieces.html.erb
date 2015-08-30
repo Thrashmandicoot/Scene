@@ -1,0 +1,14 @@
+<h1>Show all pieces</h1>
+
+<% @pieces.each do |piece| %>
+<div>
+  <ul>
+    <div>
+      <%= link_to image_tag(piece.img), artist_piece_path(piece.artist_id, piece) %>
+    </div>
+  </ul>
+</div>
+<% end %>
+
+
+

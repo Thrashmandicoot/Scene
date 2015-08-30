@@ -1,4 +1,8 @@
 class PiecesController < ApplicationController
+  def all_pieces
+    @pieces = Piece.all
+  end
+
   def index
     @pieces = Piece.all
   end
