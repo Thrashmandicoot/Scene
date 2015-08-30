@@ -1,24 +1,33 @@
 <h1><%= @organization.name %></h1>
 
 <img src="<%= @organization.avatar %>">
-<h3>Address: <%= @organization.address %></h3>
-<h3>Bio: <%= @organization.bio %></h3>
-<ul>Scenes
-  <% @spaces_sample = @organization.spaces.sample(2) %>
-  <% @spaces_sample.each do |space| %>
-  <li><img src="<%= space.img %>"></li>
-  <% end %>
-</ul>
-<%= link_to "Show More Scenes of this Company", organization_spaces_path(@organization.id) %>
-<%= link_to "Show ALL Scenes", spaces_path %>
-<ul>Social Media
+<h3>Address: </h3>
+<p><%= @organization.address %></p>
+<h3>Bio: </h3>
+<p><%= @organization.bio %></p>
+
+<h5>Email: <%= @organization.email %></h5>
+
+<h3>Social Media</h3>
+<ul>
   <li><%= @organization.facebook %></li>
   <li><%= @organization.twitter %></li>
 </ul>
 
-<h3>Email: <%= @organization.email %></h3>
+<h3>Available Scenes</h3>
+<div>
+  <% @spaces_sample = @organization.spaces.sample(3) %>
+  <% @spaces_sample.each do |space| %>
+  <div><%= link_to image_tag(space.img), organization_space_path(@organization, space) %></div>
 
-<% if session[:organization_id] == @organization.id %>
-  <%= link_to "edit", edit_organization_path %>
-  <%= link_to "destroy", @organization, method: :delete %>
-<% end %>
+  <% if session[:organization_id] == @organization.id %>
+    <button><%= link_to "edit", edit_organization_path %></button>
+    <button><%= link_to "destroy", @organization, method: :delete %></button>
+    <% end %>
+  <% end %>
+</div>
+
+<h3>--Completed Scenes--</h3>
+<p>--Database not set up for this yet--</p>
+
+<%= link_to "All of our Scenes", organization_spaces_path(@organization) %>
