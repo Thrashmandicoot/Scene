@@ -8,7 +8,24 @@
 
 </head>
 <body>
-<div class="collapse navbar-collapse" ng-controller="HeaderController">
+
+<div ng-controller="ModalSignupCtrl">
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Sign Up</h3>
+        </div>
+        <div class="modal-body">
+              <div ng-repeat="item in items">
+                  <a class="btn btn-default btn-block" href="{{ item.link }}" selected.item = item>{{ item.title }}</a>
+              </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+</div>
+
+<div class="collapse navbar-collapse" ng-controller="HeaderCtrl">
     <ul class="nav navbar-nav">
         <li ng-class="{ active: isActive('/')}"><a href="/">Home</a></li>
         <li ng-class="{ active: isActive('/Artists')}"><a href="/artists">Artists</a></li>
@@ -18,7 +35,7 @@
         <li ng-class="{ active: isActive('/Logout')}"><a href="/logout" data-method="post">Logout</a></li>
         <% else %>
         <li ng-class="{ active: isActive('/Login')}"><a href="/login">Login</a></li>
-        <li ng-class="{ active: isActive('/Signup')}"><a href="#">Sign Up</a></li>
+        <li ng-class="{ active: isActive('/Signup')}"><a href="" ng-click="open()" ng-controller="ModalSignupCtrl">Sign Up</a></li>
         <% end %>
     </ul>
 </div>
