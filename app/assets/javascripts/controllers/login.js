@@ -18,17 +18,7 @@ app.controller('ModalLoginCtrl', function($scope, $modal, $log){
   };
 });
 
-app.controller('LModalInstanceCtrl', function ($scope, $modalInstance, items) {
-
-  $scope.items = items;
-
-  $scope.selected = {
-    // $http.get('/login', msg);
-  };
-
-  $scope.ok = function () {
-    $modalInstance.close($scope.selected);
-  };
+app.controller('LModalInstanceCtrl', function ($scope, $modalInstance) {
 
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
