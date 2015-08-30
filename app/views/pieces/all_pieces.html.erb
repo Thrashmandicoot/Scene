@@ -1,14 +1,21 @@
 <h1>Show all pieces</h1>
 
+<h3>Show by Category</h3>
+  <% @tags.each do |tag| %>
+     <p><%= link_to tag, tag_path(tag) %></p>
+  <% end %>
+
+
 <% @pieces.each do |piece| %>
-<div>
   <ul>
     <div>
       <%= link_to image_tag(piece.img), artist_piece_path(piece.artist_id, piece) %>
     </div>
   </ul>
-</div>
+<h3><%= piece.title %></h3>
+<p>Tags: <%= piece.tag_list.join(" ") %></p>
 <% end %>
+
 
 
 

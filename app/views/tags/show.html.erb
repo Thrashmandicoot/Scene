@@ -1,0 +1,9 @@
+<h1>Tags#show</h1>
+
+<h2><%= @tag %></h2>
+
+<% @pieces.each do |piece| %>
+  <div><%= link_to image_tag(piece.img), artist_piece_path(piece.artist_id, piece) %></div>
+  <p>Title: <%= piece.title %></p>
+  <p>Description: <%= piece.description %></p>
+<% end %>
