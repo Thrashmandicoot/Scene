@@ -20,14 +20,9 @@
 
 <h3>Email: <%= @organization.email %></h3>
 
-
-
-<!-- if logged in... -->
+<% if session[:user_id] == @organization.id %>
 <%= link_to 'Create New Space', new_organization_space_path(@organization) %>
-
-<!-- <% current_user.id equal to @organization.id %> -->
-
-
-<%= link_to "edit", edit_organization_path %>
-<%= link_to "destroy", @organization, method: :delete %>
-<!-- <% %> -->
+  <%= link_to "edit", edit_organization_path %>
+  <%= link_to "destroy", @organization, method: :delete %>
+<% end %>
+>>>>>>> development
