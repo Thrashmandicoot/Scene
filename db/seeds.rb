@@ -56,7 +56,7 @@ end
 	Space.create(
 	img: Faker::Avatar.image,
 	title: Faker::Lorem.sentence,
-	guidelines: Faker::Lorem.sentence(3),
+	description: Faker::Lorem.sentence(3),
 	organization_id: (1..10).to_a.sample
 	)
 end
