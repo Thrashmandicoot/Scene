@@ -15,5 +15,7 @@
 
 <h3>Email: <%= @artist.email %></h3>
 
+<% if current_user.id == @artist.id %>
   <%= link_to "edit", edit_artist_path %>
   <%= link_to "destroy", @artist, method: :delete %>
+<% end %>

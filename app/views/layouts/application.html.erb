@@ -11,8 +11,15 @@
 <div class="collapse navbar-collapse" ng-controller="HeaderController">
     <ul class="nav navbar-nav">
         <li ng-class="{ active: isActive('/')}"><a href="/">Home</a></li>
-        <li ng-class="{ active: isActive('/dogs')}"><a href="/dogs">Dogs</a></li>
-        <li ng-class="{ active: isActive('/cats')}"><a href="/cats">Cats</a></li>
+        <li ng-class="{ active: isActive('/Artists')}"><a href="/artists">Artists</a></li>
+        <li ng-class="{ active: isActive('/Pieces')}"><a href="/pieces">Pieces</a></li>
+        <li ng-class="{ active: isActive('/Spaces')}"><a href="/Spaces">Spaces</a></li>
+        <% if current_user.present? %>
+        <li ng-class="{ active: isActive('/Logout')}"><a href="/logout" data-method="post">Logout</a></li>
+        <% else %>
+        <li ng-class="{ active: isActive('/Login')}"><a href="/login">Login</a></li>
+        <li ng-class="{ active: isActive('/Signup')}"><a href="#">Sign Up</a></li>
+        <% end %>
     </ul>
 </div>
 <div ng-view></div>
