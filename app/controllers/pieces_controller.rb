@@ -12,7 +12,7 @@ class PiecesController < ApplicationController
 
   def index
     @artist = Artist.find(params[:artist_id])
-    @pieces = Piece.all
+    @pieces = @artist.pieces
   end
 
   def show
