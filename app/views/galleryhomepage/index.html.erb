@@ -4,18 +4,13 @@
 <h3>Featured Pieces:</h3>
 <div>
 	<% @random_pieces.each do |piece| %>
-		<div> <%= link_to image_tag(piece.img), artist_piece_path(piece.artist_id, piece.id) %></div>
+		<%= link_to image_tag(piece.img), artist_piece_path(piece.artist_id, piece.id) %>
 
 	<% end %>
 
 	<h3>Featured Scenes:</h3>
 	<% @random_scenes.each do |scene| %>
 		<%= link_to image_tag(scene.img), organization_space_path(scene.organization_id, scene.id) %>
-	<% end %>
-
-	<h3>Pieces by Category</h3>
-	<% @gallery_images.each do |image| %>
-		<%= image %>
 	<% end %>
 
 </div>

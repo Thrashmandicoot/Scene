@@ -1,22 +1,19 @@
 <h1>Pieces#index</h1>
-<p>Find me in app/views/pieces/index.html.erb</p>
+
+<h2><%= @artist.name  %> Pieces</h2>
 
 <% @pieces.each do |piece| %>
-  <ul>
-    <li>
-      <div><%= link_to image_tag(piece.img), artist_piece_path(piece.artist_id, piece) %></div>
-      <p>Title: <%= piece.title %></p>
-      <p>Description: <%= piece.description %></p>
-      <p>Tags: <%= piece.tag_list.join(" ") %></p>
+  <div>
+    <div><%= link_to image_tag(piece.img), artist_piece_path(piece.artist_id, piece) %></div>
+    <p>Title: <%= piece.title %></p>
+    <p>Description: <%= piece.description %></p>
+    <p>Tags: <%= piece.tag_list.join(" ") %></p>
 
-      <!-- Show if artist is logged in -->
-      <button><%= link_to "Edit", edit_artist_piece_path(piece.artist_id, piece) %></button>
-      <button><%= link_to "Remove", artist_piece_path(piece.artist_id, piece),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></button>
-    </li>
-  </ul>
+  <% if session[:artist_id] == @artist.id %>
+    <button><%= link_to "Edit", edit_artist_piece_path(piece.artist_id, piece) %></button>
+    <button><%= link_to "Remove", artist_piece_path(piece.artist_id, piece), method: :delete,data: { confirm: 'Are you sure?' } %></button>
+  <% end %>
+  </div>
+
 <% end %>
 
-
-<!-- make partial for edit and method for delete -->

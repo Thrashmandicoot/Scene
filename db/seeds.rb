@@ -41,8 +41,8 @@ end
 end
 
 
+tags = ["Street", "Fine Art", "Graffiti", "Abstract", "Scenic", "Minimal"].sample(2)
 15.times do
-	tags = ["Street", "Fine Art", "Graffiti", "Abstract", "Scenic", "Minimal"].sample(2)
 	piece = Piece.create(
 	artist_id: (1..10).to_a.sample,
 	img: Faker::Avatar.image,

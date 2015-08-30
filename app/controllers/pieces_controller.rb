@@ -1,9 +1,17 @@
 class PiecesController < ApplicationController
   def all_pieces
     @pieces = Piece.all
+    @tags = []
+    @pieces.each do |piece|
+      piece.tag_list.each do |tag|
+        @tags << tag
+      end
+    end
+    @tags.uniq!
   end
 
   def index
+    @artist = Artist.find(params[:artist_id])
     @pieces = Piece.all
   end
 
@@ -28,13 +36,14 @@ class PiecesController < ApplicationController
   end
 
   def edit
+    @artist = Artist.find(params[:artist_id])
     @piece = Piece.find(params[:id])
   end
 
   def update
     @piece = Piece.find(params[:id])
-    if @piece.updates(piece_params)
-      redirect_to artist_piece_path(@piece)
+    if @piece.update(piece_params)
+      redirect_to artist_piece_path(@piece.artist_id, @piece)
     else
       render 'edit'
     end

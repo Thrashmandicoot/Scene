@@ -4,15 +4,16 @@ class SessionsController < ApplicationController
   	if Artist.find_by(email: params[:session][:email]).present?
   		user = Artist.find_by(email: params[:session][:email])
   		if user && user.authenticate(params[:session][:password])
-  			session[:user_id] = user.id
+  			session[:artist_id] = user.id
   			redirect_to artist_path(user)
   		else
   			redirect_to '/login'
   		end
+
   	elsif Organization.find_by(email: params[:session][:email]).present?
   		user = Organization.find_by(email: params[:session][:email])
   		if user && user.authenticate(params[:session][:password])
-  			session[:user_id] = user.id
+  			session[:organization_id] = user.id
   			redirect_to organization_path(user)
   		else
   			redirect_to '/login'
@@ -24,7 +25,11 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-  	session[:user_id] = nil
+    if session[:artist_id]
+  	  session[:artist_id] = nil
+    else
+      session[:orgranization_id] = nil
+    end
   	redirect_to '/login'
   end
 

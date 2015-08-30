@@ -1,4 +1,4 @@
-<%= form_for :picture do |f| %>
+<%= form_for ([user, picture]) do |f| %>
   <p>Image URL</p>
   <%= f.text_field :img %>
 

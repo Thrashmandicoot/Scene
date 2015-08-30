@@ -25,14 +25,12 @@ class SpacesController < ApplicationController
 
 
   def edit
-    puts "EDITTTTTTTTTTTTTTTTTTTTTTTTT"
     @space = Space.find(params[:id])
     @organization = Organization.find(params[:organization_id])
   end
 
 
   def update
-    puts "UPDATEEEEEEEEEEEEE"
     @space = Space.find(params[:id])
     @organization = Organization.find(params[:organization_id])
     if @space.update(space_params)
