@@ -4,7 +4,7 @@ Organization.create(
 	avatar: Faker::Company.logo,
 	address: Faker::Address.city,
 	email: "Admin@admin.com",
-	password: "123456", 
+	password: "123456",
 	website: Faker::Internet.domain_name
 	)
 
@@ -17,19 +17,19 @@ Artist.create(
 		password: "123456"
 		)
 
-20.times do
+10.times do
 	Organization.create(
 		name: Faker::Company.name,
 		bio: Faker::Company.catch_phrase,
 		avatar: Faker::Company.logo,
 		address: Faker::Address.city,
 		email: Faker::Internet.email,
-		password: Faker::Internet.password(6), 
+		password: Faker::Internet.password(6),
 		website: Faker::Internet.domain_name
 	)
 end
 
-20.times do 
+10.times do
 	Artist.create(
 		name: Faker::Name.name,
 		bio: Faker::Lorem.paragraph,
@@ -40,23 +40,19 @@ end
 	)
 end
 
-tags = []
 
-5.times do 
-	tags << Faker::Hacker.adjective
-end
-
-50.times do
+15.times do
+	tags = ["Street", "Fine Art", "Graffiti", "Abstract", "Scenic", "Minimal"].sample(2)
 	piece = Piece.create(
-	artist_id: (1..20).to_a.sample,
+	artist_id: (1..10).to_a.sample,
 	img: Faker::Avatar.image,
 	title: Faker::Lorem.sentence,
-	description: Faker::Lorem.sentence(3)
+	description: Faker::Lorem.sentence(3),
+	tag_list: tags
 	)
-	piece.tag_list.add(tags)
 end
 
-50.times do
+15.times do
 	Space.create(
 	img: Faker::Avatar.image,
 	title: Faker::Lorem.sentence,
