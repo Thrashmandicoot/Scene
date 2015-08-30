@@ -1,2 +1,16 @@
 <h1>Spaces#edit</h1>
-<p>Find me in app/views/spaces/edit.html.erb</p>
+
+<%= form_for [@organization,@space]  do |f| %>
+
+  <%= f.label :img %>
+  <%= f.text_field :img %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :guidelines %>
+  <%= f.text_field :guidelines %>
+
+  <%= f.submit %>
+
+<% end %>
