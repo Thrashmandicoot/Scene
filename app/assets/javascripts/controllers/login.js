@@ -1,13 +1,13 @@
-app.controller('ModalSignupCtrl', function($scope, $modal, $log){
+app.controller('ModalLoginCtrl', function($scope, $modal, $log){
 
-  $scope.items = [{title: "I'm an Artist", link: "/artists/new"}, {title: "I'm an Organization", link: "/organizations/new"}]
+  $scope.items = [{title: "Email", type:"text"}, {title: "Password", type:"password"}]
 
   $scope.open = function () {
 
     var modalInstance = $modal.open({
       animation: true,
-      templateUrl: 'signupmodal.html',
-      controller: 'ModalInstanceCtrl',
+      templateUrl: 'loginmodal.html', //change this variable
+      controller: 'LModalInstanceCtrl',
       size: 'sm',
       resolve: {
         items: function () {
@@ -24,9 +24,17 @@ app.controller('ModalSignupCtrl', function($scope, $modal, $log){
   };
 });
 
-app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
+app.controller('LModalInstanceCtrl', function ($scope, $modalInstance, items) {
 
   $scope.items = items;
+
+  $scope.selected = {
+    // $http.get('/login', msg);
+  };
+
+  $scope.ok = function () {
+    $modalInstance.close($scope.selected);
+  };
 
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
