@@ -1,32 +1,59 @@
 class SpacesController < ApplicationController
-  def create
-  end
-
-  def destroy
-  end
-
-  def edit
-  end
-
   def index
     @spaces = Organization.find_by(id: params[:organization_id]).spaces
-  end
-
-  def new
+    @organization = Organization.find(params[:organization_id])
   end
 
   def show
     @space = Space.find(params[:id])
   end
 
-  def update
+  def new
+    @organization = Organization.find(params[:organization_id])
+    @space = Space.new
   end
 
-  def space_params
-    params.require(:space).permit(:img, :guidelines, :organization_id)
+  def create
+    @organization = Organization.find(params[:organization_id])
+    @space = @organization.spaces.new( space_params )
+      if @space.save
+        redirect_to organization_space_path(@organization, @space)
+      else
+        render 'new'
+      end
+  end
+
+
+  def edit
+    @space = Space.find(params[:id])
+    @organization = Organization.find(params[:organization_id])
+  end
+
+
+  def update
+    @space = Space.find(params[:id])
+    @organization = Organization.find(params[:organization_id])
+    if @space.update(space_params)
+      redirect_to organization_space_path(@organization, @space)
+    else
+      render 'edit'
+    end
+
+  end
+
+  def destroy
+    @space = Space.find(params[:id])
+    @space.destroy
+    redirect_to organization_spaces_path
   end
 
   def all_spaces
     @spaces = Space.all
+  end
+
+  private
+
+  def space_params
+    params.require(:space).permit(:img, :title, :description)
   end
 end
