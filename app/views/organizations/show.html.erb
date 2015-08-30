@@ -19,9 +19,7 @@
 <h3>Email: <%= @organization.email %></h3>
 
 
-<!-- <% current_user.id equal to @organization.id %> -->
-
->>>>>>> e480b1673a7c7b0247a27bf42e3e38c3971cb0f3
-<%= link_to "edit", edit_organization_path %>
-<%= link_to "destroy", @organization, method: :delete %>
-<!-- <% %> -->
+<% if current_user.id == @organization.id %>
+  <%= link_to "edit", edit_organization_path %>
+  <%= link_to "destroy", @organization, method: :delete %>
+<% end %>
