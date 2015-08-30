@@ -11,6 +11,7 @@ class PiecesController < ApplicationController
   end
 
   def index
+    @artist = Artist.find(params[:artist_id])
     @pieces = Piece.all
   end
 
