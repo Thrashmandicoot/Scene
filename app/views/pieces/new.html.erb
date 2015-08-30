@@ -3,5 +3,5 @@
 
 <p>form for creating a new piece</p>
 
-<%= render partial: "_new_form_piece_space", locals: { user: @organization, picture: @organization.spaces.build } %>
+<%= render partial: "partials/form_new_piece_space", locals: { user: @artist, picture: @artist.pieces.build } %>
 
