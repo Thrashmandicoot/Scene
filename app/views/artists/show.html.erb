@@ -1,11 +1,10 @@
 <h1><%= @artist.name %></h1>
 
 <img src="<%= @artist.avatar %>">
-<h3>Bio: </h3>
-<p><%= @artist.bio %></p>
 <h3>Address: </h3>
 <p><%= @artist.address %></p>
-
+<h3>Bio: </h3>
+<p><%= @artist.bio %></p>
 
 <h5>Email: <%= @artist.email %></h5>
 
@@ -15,20 +14,20 @@
   <li><%= @artist.twitter %></li>
 </ul>
 
-
-<h3>Scenes Completed</h3>
-<p>Database isn't set up for this yet</p>
-
 <h3>Pieces</h3>
 <div>
-  <% @pieces.each do |piece| %>
+  <% @pieces_sample = @artist.pieces.sample(3) %>
+  <% @pieces_sample.each do |piece| %>
     <div><%= link_to image_tag(piece.img), artist_piece_path(@artist, piece) %></div>
-
 
     <% if session[:artist_id] == @artist.id %>
       <button><%= link_to "edit", edit_artist_path %></button>
       <button><%= link_to "destroy", @artist, method: :delete %></button>
     <% end %>
-
   <% end %>
 </div>
+
+<h3>--Scenes Completed--</h3>
+<p>--Database not set up for this yet--</p>
+
+<%= link_to "All of my Pieces", artist_pieces_path(@artist) %>
