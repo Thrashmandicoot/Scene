@@ -6,7 +6,7 @@ app.controller('ModalSignupCtrl', function($scope, $modal, $log){
 
     var modalInstance = $modal.open({
       animation: true,
-      templateUrl: 'myModalContent.html',
+      templateUrl: 'signupmodal.html',
       controller: 'ModalInstanceCtrl',
       size: 'sm',
       resolve: {
@@ -14,12 +14,6 @@ app.controller('ModalSignupCtrl', function($scope, $modal, $log){
           return $scope.items;
         }
       }
-    });
-
-    modalInstance.result.then(function (selectedItem) {
-      $scope.selected = selectedItem;
-    }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
     });
   };
 });
