@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20150829184209) do
   create_table "spaces", force: :cascade do |t|
     t.string   "img"
     t.string   "title"
-    t.text     "guidelines"
+    t.text     "description"
     t.integer  "organization_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false

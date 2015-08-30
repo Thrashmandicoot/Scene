@@ -7,6 +7,8 @@
   <% @spaces_sample = @organization.spaces.sample(2) %>
   <% @spaces_sample.each do |space| %>
   <li><img src="<%= space.img %>"></li>
+  <li><p><%= space.title %></p></li>
+
   <% end %>
 </ul>
 <%= link_to "Show More Scenes of this Company", organization_spaces_path(@organization.id) %>
@@ -18,7 +20,12 @@
 
 <h3>Email: <%= @organization.email %></h3>
 
+<% if session[:user_id] == @organization.id %>
+  <%= link_to 'Create New Space', new_organization_space_path(@organization) %>
+<% end %>
+
 <% if session[:organization_id] == @organization.id %>
   <%= link_to "edit", edit_organization_path %>
   <%= link_to "destroy", @organization, method: :delete %>
 <% end %>
+
