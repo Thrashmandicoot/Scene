@@ -1,5 +1,5 @@
 class Piece < ActiveRecord::Base
   belongs_to :artist
-  has_many :categories
-  has_many :tags, through: :categories
+  acts_as_taggable
+  acts_as_taggable_on :skills, :interests
 end

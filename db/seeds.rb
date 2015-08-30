@@ -1,61 +1,68 @@
-artist1 = Artist.create(name: "Banksy", email: "banksy@street.org", password: "adminpass", avatar: "this is the avatar", bio: "I am a street artist", address: "Address Unknown", facebook: "banksy@facebook", twitter: "banksy@twitter", website: "banksyart.com")
-
-# artist1.pieces.create(img: "This is the image", title: "Piece Title", description: "This is the description")
-
-organization1 = Organization.create(
-	name: "Costco",
-	bio: "We got it all",
-	avatar: "https://upload.wikimedia.org/wikipedia/commons/3/34/CostcoMoncton.JPG",
-	address: "1234 Fake St., Columbus, OH",
-	email: "costco@costco.com",
-	password: "1234",
-	twitter: "@costco",
-	facebook: "http://www.facebook.com/costco",
-	website: "http://www.costco.com"
+Organization.create(
+	name: "Admin",
+	bio: Faker::Company.catch_phrase,
+	avatar: Faker::Company.logo,
+	address: Faker::Address.city,
+	email: "Admin@admin.com",
+	password: "123456", 
+	website: Faker::Internet.domain_name
 	)
 
-10.times do
-	Piece.create(
-	img: Faker::Avatar.image,
-	title: Faker::Lorem.sentence,
-	description: Faker::Lorem.sentence(3))
+Artist.create(
+		name: "Artist",
+		bio: Faker::Lorem.paragraph,
+		avatar: Faker::Avatar.image,
+		address: Faker::Address.city,
+		email: "artist@artist.org",
+		password: "123456"
+		)
+
+20.times do
+	Organization.create(
+		name: Faker::Company.name,
+		bio: Faker::Company.catch_phrase,
+		avatar: Faker::Company.logo,
+		address: Faker::Address.city,
+		email: Faker::Internet.email,
+		password: Faker::Internet.password(6), 
+		website: Faker::Internet.domain_name
+	)
 end
 
-10.times do
+20.times do 
+	Artist.create(
+		name: Faker::Name.name,
+		bio: Faker::Lorem.paragraph,
+		avatar: Faker::Avatar.image,
+		address: Faker::Address.city,
+		email: Faker::Internet.safe_email,
+		password: Faker::Internet.password(6)
+	)
+end
+
+tags = []
+
+5.times do 
+	tags << Faker::Hacker.adjective
+end
+
+50.times do
+	piece = Piece.create(
+	artist_id: (1..20).to_a.sample,
+	img: Faker::Avatar.image,
+	title: Faker::Lorem.sentence,
+	description: Faker::Lorem.sentence(3)
+	)
+	piece.tag_list.add(tags)
+end
+
+50.times do
 	Space.create(
 	img: Faker::Avatar.image,
 	title: Faker::Lorem.sentence,
 	guidelines: Faker::Lorem.sentence(3),
-	# organization_id: rand(10)
+	organization_id: (1..10).to_a.sample
 	)
 end
 
-# # Artists
-# artist1 = Artist.create(name: "Banksy", email: "banksy@street.org", password: "admin", avatar: "Banksy's Avatar", bio: "I am a street artist", address: "Address Unknown", facebook: "banksy@facebook", twitter: "banksy@twitter", website: "banksyart.com")
 
-# # Pieces
-# artist1.pieces.create(img: "http://news.bbcimg.co.uk/media/images/70222000/jpg/_70222444_banksy.jpg", title: "No Graffiti", description: "This is the description")
-# artist1.pieces.create(img: "http://ecx.images-amazon.com/images/I/41y48nhPGPL....", title: "Boom", description: "Butterfly's in the sky")
-# artist1.pieces.create(img: "http://www.opticalspy.com/uploads/1/4/4/9/144966/_2912056_orig.jpg", title: "Maid", description: "This is the description")
-
-# # Organizations
-# Organization.create(name: "DBC", bio: "stuff", avatar: "stuff", address: "stuff", email: "stuff", password_digest: "stuff", twitter: "stuff", facebook: "stuff", website: "stuff")
-
-
-# Organization.create(name:"DBC", bio:"DBC", avatar:"DBC", address:"DBC",email:"DBC",password_digest:"DBC", twitter:"DBC", facebook:"DBC", website:"DBC")
-
-# 10.times do
-#  Space.create(img: Faker::Avatar.image, title:Faker::Name.title, guidelines: Faker::Lorem.sentence, organization_id: 1)
-
-# end
-#Andre's Seed File
-# 10.times do
-
-# name = Faker::Company.name
-
-# Organization.create(name: name, bio:Faker::Company.catch_phrase, avatar:Faker::Company.logo, address: Faker::Address.street_address, email:Faker::Internet.email, password_digest:Faker::Internet.password, twitter: name, facebook: name, website: name)
-
-# end
-
-# 10.times do
-#  Space.create(img: Faker::Avatar.image, title:Faker::Name.title, guidelines: Faker::Lorem.sentence, organization_id: 1 + rand(10))
