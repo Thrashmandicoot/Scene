@@ -1,12 +1,17 @@
 <h1>Spaces#index</h1>
 
+<!-- if session = current_user-->
+<!-- end -->
+
 <% @spaces.each do |space|%>
 
  <div class="space-container">
      <p> <%= link_to space.title, organization_space_path( space.organization_id, space.id) %> </p>
      <p> Space-id: <%= space.id %> </p>
      <%= link_to image_tag( space.img ), organization_space_path( space.organization_id, space.id ) %>
-     <p> Space-guidelines: <%=  space.guidelines %></p>
+     <p> Space-guidelines: <%=  space.description %></p>
+     <%= link_to 'Edit', {action: 'edit', id: space.id}%>
+     <%= link_to 'Delete', organization_space_path(space.organization_id, space.id), method: :delete %>
   </div>
  <% end %>
 

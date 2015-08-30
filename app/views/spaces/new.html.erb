@@ -1,2 +1,3 @@
 <h1>Spaces#new</h1>
-<p>Find me in app/views/spaces/new.html.erb</p>
+
+<%= render partial: "partials/form_new_piece_space", locals: { user: @organization, picture: @organization.spaces.build } %>
