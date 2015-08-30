@@ -10,14 +10,21 @@
     <td>Art</td>
   </tr>
   <% @artists.each do |artist| %>
+  <% find_artist_tags(artist) %>
+
   <tr>
-    <td> <%= artist.avatar %> </td>
+    <td> <%= link_to image_tag(artist.avatar), artist_path(artist) %> </td>
     <td> <%= artist.name %> </td>
     <td> <%= link_to("Artist", artist_path(artist)) %> </td>
-    <td> <%= artist.bio %> </td>
+    <td>
+      <%= artist.bio %> <br>
+      <strong>Tags: </strong><%= @tags.join(" ") %>
+    </td>
+
     <td> <%= artist.website %> </td>
     <td> <% if !artist.pieces.empty? %>
-          <img src="<%= artist.pieces.sample.img %>"></td>
+          <% sample_piece = artist.pieces.sample %>
+          <%= link_to image_tag(sample_piece.img), artist_piece_path(sample_piece.artist_id, sample_piece) %></td>
         <% end %>
   </tr>
   <% end %>

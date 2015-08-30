@@ -4,7 +4,7 @@
 <h3>Featured Pieces:</h3>
 <div>
 	<% @random_pieces.each do |piece| %>
-		<div> <%= link_to image_tag(piece.img), artist_piece_path(piece.artist_id, piece.id) %></div>
+		<%= link_to image_tag(piece.img), artist_piece_path(piece.artist_id, piece.id) %>
 
 	<% end %>
 
