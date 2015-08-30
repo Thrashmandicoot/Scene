@@ -96,13 +96,10 @@ ActiveRecord::Schema.define(version: 20150829184209) do
     t.integer "taggings_count", default: 0
   end
 
-<<<<<<< HEAD
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
-
-=======
   add_foreign_key "categories", "pieces"
   add_foreign_key "categories", "tags"
->>>>>>> development
+
   add_foreign_key "pieces", "artists"
   add_foreign_key "spaces", "organizations"
 end
