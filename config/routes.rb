@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'tags/show'
+
   root 'galleryhomepage#index'
   get 'galleryhomepage/index'
 
@@ -14,6 +16,8 @@ Rails.application.routes.draw do
   controller :pieces do
     get 'pieces' => 'pieces#all_pieces'
   end
+
+  resources :tags, only: [:show]
 
   resources :artists do
     resources :pieces
