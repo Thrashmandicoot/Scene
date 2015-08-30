@@ -6,7 +6,8 @@
     <li>
       <div><%= link_to image_tag(piece.img), artist_piece_path(piece.artist_id, piece) %></div>
       <p>Title: <%= piece.title %></p>
-      <p><%= piece.description %></p>
+      <p>Description: <%= piece.description %></p>
+      <p>Tags: <%= piece.tag_list.join(" ") %></p>
 
       <!-- Show if artist is logged in -->
       <button><%= link_to "Edit", edit_artist_piece_path(piece.artist_id, piece) %></button>

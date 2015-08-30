@@ -1,3 +1,21 @@
+<div ng-controller="ModalSignupCtrl">
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Sign Up</h3>
+        </div>
+        <div class="modal-body">
+              <div ng-repeat="item in items">
+                  <a class="btn btn-default btn-block" href="{{ item.link }}" selected.item = item>{{ item.title }}</a>
+              </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+
+    <button type="button" class="btn btn-default" ng-click="open()">Sign Up</button>
+</div>
+
 <h1>Gallery Homepage</h1>
 <h3>Featured Pieces:</h3>
 <div>
