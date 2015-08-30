@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 
-
+# Angular
+gem 'angularjs-rails'
+gem 'angular-ui-bootstrap-rails'
+# Bootstrap
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use postgresql as the database for Active Record
@@ -13,6 +18,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+
+gem 'acts-as-taggable-on', '~> 3.4'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

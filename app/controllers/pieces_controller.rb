@@ -1,4 +1,8 @@
 class PiecesController < ApplicationController
+  def all_pieces
+    @pieces = Piece.all
+  end
+
   def index
     @pieces = Piece.all
   end
@@ -14,9 +18,9 @@ class PiecesController < ApplicationController
 
   def create
     @artist = Artist.find(params[:artist_id])
-    # @piece = @artist.pieces.new(img: params[:img], title: params[:title], description: params[:description])
     @piece = @artist.pieces.new(piece_params)
     if @piece.save
+      @piece.tag_list.add(params[:tag_list])
       redirect_to artist_piece_path(@artist, @piece)
     else
       render 'new'
@@ -44,6 +48,20 @@ class PiecesController < ApplicationController
 
   private
   def piece_params
-    params.require(:piece).permit(:img, :title, :description)
+    params.require(:piece).permit(:img, :title, :description, :tag_list)
   end
 end
+
+# add and remove multiple tags in an array
+# @user.tag_list.add("graffiti", "awesome")
+# @user.tag_list.remove("graffiti", "awesome")
+# @user.tag_list to return of tag.names
+# @user.tags to return tag objects
+
+# add skills to artist
+# @artist.skill_list = "spray paint, acryllic, oil"
+# @artist.save
+# @artist.skills => ['spray paint', acryllic, oil]
+
+# finding tagged objects
+# @piece.tagged_with(['tag_name, tag_name2']) returns objects
