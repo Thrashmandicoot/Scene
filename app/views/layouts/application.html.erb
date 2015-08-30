@@ -32,7 +32,7 @@
     <li><%=link_to 'Pieces', pieces_path %></li>
     <li><%=link_to 'Spaces', spaces_path %></li>
     <% if current_user %>
-    <li><%=link_to'Logout', logout_path%></li>
+    <li><%=link_to 'Logout', logout_path, method: :post %></li>
     <% else %>
     <li><%= link_to 'Login', login_path %></li>
     <li><a href="" ng-click="open()" ng-controller="ModalSignupCtrl">Sign Up</a></li>
