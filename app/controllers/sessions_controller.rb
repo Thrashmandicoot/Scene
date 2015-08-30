@@ -28,9 +28,9 @@ class SessionsController < ApplicationController
     if session[:artist_id]
   	  session[:artist_id] = nil
     else
-      session[:orgranization_id] = nil
+      session[:organization_id] = nil
     end
-  	redirect_to '/login'
+  	redirect_to root_path
   end
 
 end
