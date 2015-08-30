@@ -3,11 +3,15 @@
 <img src="<%= @artist.avatar %>">
 <h3>Address: <%= @artist.address %></h3>
 <h3>Bio: <%= @artist.bio %></h3>
+
+
 <ul>Scenes
   <% @artist.pieces.each do |piece| %>
-  <li><img src="<%= piece.img %>"></li>
+    <div><%= link_to image_tag(piece.img), artist_piece_path(@artist, piece) %></div>
   <% end %>
 </ul>
+
+
 <ul>Social Media
   <li><%= @artist.facebook %></li>
   <li><%= @artist.twitter %></li>

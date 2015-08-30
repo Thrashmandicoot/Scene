@@ -1,6 +1,13 @@
 class PiecesController < ApplicationController
   def all_pieces
     @pieces = Piece.all
+    @tags = []
+    @pieces.each do |piece|
+      piece.tag_list.each do |tag|
+        @tags << tag
+      end
+    end
+    @tags.uniq!
   end
 
   def index
