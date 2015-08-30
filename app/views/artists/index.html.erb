@@ -1,12 +1,12 @@
 <h1>Artists In Your Area</h1>
 
 <table>
-  <tr>
+<!--   this row may not be neccessary, thoughts?
+ -->  <tr>
     <td></td>
     <td>Name</td>
     <td>Profile</td>
     <td>Bio</td>
-    <td>Website</td>
     <td>Art</td>
   </tr>
   <% @artists.each do |artist| %>
@@ -15,13 +15,11 @@
   <tr>
     <td> <%= link_to image_tag(artist.avatar), artist_path(artist) %> </td>
     <td> <%= artist.name %> </td>
-    <td> <%= link_to("Artist", artist_path(artist)) %> </td>
+    <td> <%= link_to("Profile", artist_path(artist)) %> </td>
     <td>
       <%= artist.bio %> <br>
       <strong>Tags: </strong><%= @tags.join(" ") %>
     </td>
-
-    <td> <%= artist.website %> </td>
     <td> <% if !artist.pieces.empty? %>
           <% sample_piece = artist.pieces.sample %>
           <%= link_to image_tag(sample_piece.img), artist_piece_path(sample_piece.artist_id, sample_piece) %></td>
