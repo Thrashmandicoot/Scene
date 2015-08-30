@@ -1,11 +1,15 @@
-<%= form_for :picture do |f| %>
+<%= form_for ([user, picture]) do |f| %>
   <p>Image URL</p>
+
+  <%= f.label :img %>
   <%= f.text_field :img %>
 
   <p>Title</p>
+  <%= f.label :title %>
   <%= f.text_field :title %>
 
   <p>Description</p>
+  <%= f.label :description %>
   <%= f.text_field :description %>
 
   <p><%= f.submit %></p>

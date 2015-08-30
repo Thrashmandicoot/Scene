@@ -25,15 +25,18 @@ class SpacesController < ApplicationController
 
 
   def edit
-    @organization = Organization.find(params[:organization_id])
+    puts "EDITTTTTTTTTTTTTTTTTTTTTTTTT"
     @space = Space.find(params[:id])
+    @organization = Organization.find(params[:organization_id])
   end
 
 
   def update
+    puts "UPDATEEEEEEEEEEEEE"
     @space = Space.find(params[:id])
+    @organization = Organization.find(params[:organization_id])
     if @space.update(space_params)
-      redirect_to organization_spaces_path
+      redirect_to organization_space_path(@organization, @space)
     else
       render 'edit'
     end
@@ -53,6 +56,6 @@ class SpacesController < ApplicationController
   private
 
   def space_params
-    params.require(:space).permit(:img, :title, :description, :organization_id)
+    params.require(:space).permit(:img, :title, :description)
   end
 end
