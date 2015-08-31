@@ -5,3 +5,4 @@ angular.element(document).on('ready page:load', function() {
 });
 
 var gallery = angular.module('galleryApp', ['ui.bootstrap','ngAnimate']);
+
