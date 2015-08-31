@@ -1,17 +1,21 @@
 <h1>Gallery Homepage</h1>
-<h3>Featured Pieces and Scenes:</h3>
-
-<div ng-app='galleryApp'>
-	<div ng-controller="CarouselDemoCtrl">
-	  <div style="height: 305px">
-	    <carousel interval="myInterval" no-wrap="noWrapSlides">
-	      <slide ng-repeat="slide in slides" active="slide.active">
-	        <img ng-src="{{slide.image}}" style="margin:auto;">
-	        <div class="carousel-caption">
-	          <p>{{slide.text}}</p>
-	        </div>
-	      </slide>
-	    </carousel>
-	  </div>
-	</div>
+<h3>Featured Pieces:</h3>
+<div ng-app="galleryApp">
+  <div ng-controller="CarouselDemoCtrl">
+    <div style="height: 305px">
+      <carousel interval="myInterval" no-wrap="noWrapSlides">
+        <slide ng-repeat="slide in slides" active="slide.active">
+          <img ng-src="{{slide.image}}" style="margin:auto;">
+          <div class="carousel-caption">
+            <h4>Slide {{$index}}</h4>
+            <p>{{slide.text}}</p>
+          </div>
+        </slide>
+      </carousel>
+    </div>
+  </div>
 </div>
+
+<script type="text/javascript">
+  Gallery.images = JSON.parse('<%= @random_pieces.html_safe %>');
+</script>
