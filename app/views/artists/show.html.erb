@@ -22,12 +22,11 @@
 
     <% if session[:artist_id] == @artist.id %>
       <button><%= link_to "edit", [:edit, piece.artist, piece] %></button>
-      <button><%= link_to "destroy", [piece.artist, piece] method: :delete, data: {confirm: 'Are you sure?'} %></button>
+      <button><%= link_to "destroy", [piece.artist, piece], method: :delete, data: {confirm: 'Are you sure?'} %></button>
     <% end %>
   <% end %>
 </div>
 <button><%= link_to "New", new_artist_piece_path(@artist) %></button>
-
 
 <h3>--Scenes Completed--</h3>
 <p>--Database not set up for this yet--</p>
@@ -38,4 +37,3 @@
       <button><%= link_to "Edit Profile", edit_artist_path %></button>
       <button><%= link_to "Destroy Profile", @artist, method: :delete %></button>
     <% end %>
-
