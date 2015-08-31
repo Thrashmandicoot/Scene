@@ -1,31 +1,28 @@
 <h1>Pieces#show</h1>
 
-<div ng-app="showPiece" >
-<div ng-controller="PieceCtrl as piece">
-  <h1> {{piece.elmt.description}} </h1>
+<div ng-app="ShowPiece" ng-controller="PieceCtrl as piece">
+    <h1> {{piece.elmt.description}} </h1>
+    <h1> {{testing}} </h1>
+
+  <!-- <div ng-init="init(<%= @artist.name, @artist.bio %>)"> -->
+
+  <!-- </div> -->
 
 
 
 <img src="<%= @piece.img %>" alt="Artist's Piece.img">
-
 <p>Title: <%= @piece.title %></p>
 <p>Description: </p>
 <p><%= @piece.description %></p>
-
-<!-- show tags -->
 <p><%= @piece.tag_list.join(" ") %></p>
-
 
 <p>Piece by:</p>
 <p><%= link_to @artist.name, artist_path(@artist) %></p>
 
-
-<!-- current user stuff goes here  -->
   <% if session[:artist_id] == @artist.id %>
     <button><%= link_to "Edit", edit_artist_piece_path(@piece.artist_id, @piece) %></button>
     <button><%= link_to "Remove", artist_piece_path(@piece.artist_id, @piece), method: :delete,data: { confirm: 'Are you sure?' } %></button>
   <% end %>
 
+</div>
 
-</div>
-</div>
