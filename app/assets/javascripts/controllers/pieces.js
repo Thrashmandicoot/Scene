@@ -8,10 +8,12 @@ showPiece.controller('PieceCtrl', function($scope, $http){
 
   function getArtist() {
     return $http.get("/artists/10/pieces/4").success(function(data){
-      console.log(data)
+      $scope.piece = data;
+      console.log($scope.piece)
     })
   }
 
+  // grabs the @artist from html and inits that info here
   $scope.init = function(name){
     $scope.artist = {
       name: name

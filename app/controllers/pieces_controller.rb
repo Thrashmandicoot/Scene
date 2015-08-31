@@ -55,6 +55,15 @@ class PiecesController < ApplicationController
     redirect_to artist_pieces_path
   end
 
+  # FIGURE OUT HOW TO PASS IN PARAMS
+  # def api_piece
+  #   @artist = Artist.find_by(id: params[:artist_id])
+  #   @piece = Piece.find_by(artist_id: params[:artist_id])
+  #   p "************************"
+  #   p params
+  #   render json: @piece
+  # end
+
   private
   def piece_params
     params.require(:piece).permit(:img, :title, :description, :tag_list)

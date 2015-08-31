@@ -3,11 +3,16 @@
 <div ng-app="ShowPiece" ng-controller="PieceCtrl as piece">
     <h1> {{piece.elmt.description}} </h1>
     <h1> {{testing}} </h1>
+    <p>input piece title here</p>
+    <h1> {{piece.title}} </h1>
 
     <!-- grabbing @artist.name needs to be in qoutes -->
   <div ng-init="init('<%= @artist.name %>')">
+    <p>Input artist name here</p>
     <p>{{artist.name}}</p>
   </div>
+
+
 
 
 
