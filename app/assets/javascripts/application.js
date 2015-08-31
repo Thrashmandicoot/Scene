@@ -13,9 +13,9 @@
 // line 14 is w/out templates (for reference), line 15 is with
 
 //= require angular
-// require angular-ui-bootstrap
-// require angular-animate
-// require angular-resource
+//= require angular-ui-bootstrap
+//= require angular-animate
+//= require angular-resource
 //= require angular-ui-bootstrap-tpls
 //= require jquery
 //= require jquery_ujs

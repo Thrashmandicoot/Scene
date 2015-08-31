@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   root 'galleryhomepage#index'
   get 'galleryhomepage/index'
 
+  get 'api/pieces' => 'galleryhomepage#api'
+
   resources :organizations do
     resources :spaces
   end
