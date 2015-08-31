@@ -21,8 +21,9 @@
     <div><%= link_to image_tag(piece.img), artist_piece_path(@artist, piece) %></div>
 
     <% if session[:artist_id] == @artist.id %>
-      <button><%= link_to "edit", edit_artist_path %></button>
-      <button><%= link_to "destroy", @artist, method: :delete %></button>
+      <button><%= link_to "New", new_artist_path %></button>
+      <button><%= link_to "Edit", edit_artist_path %></button>
+      <button><%= link_to "Destroy", @artist, method: :delete %></button>
     <% end %>
   <% end %>
 </div>
