@@ -1,16 +1,18 @@
-
-
 <h1>Gallery Homepage</h1>
-<h3>Featured Pieces:</h3>
-<div>
-	<% @random_pieces.each do |piece| %>
-		<%= link_to image_tag(piece.img), artist_piece_path(piece.artist_id, piece.id) %>
+<h3>Featured Pieces and Scenes:</h3>
 
-	<% end %>
-
-	<h3>Featured Scenes:</h3>
-	<% @random_scenes.each do |scene| %>
-		<%= link_to image_tag(scene.img), organization_space_path(scene.organization_id, scene.id) %>
-	<% end %>
-
+<div ng-app='galleryApp'>
+	<div ng-controller="CarouselDemoCtrl">
+	  <div style="height: 305px">
+	    <carousel ng-init="init()" interval="myInterval" no-wrap="noWrapSlides">
+	      <slide ng-repeat="slide in slides" active="slide.active">
+	        <img ng-src="{{slide.image}}" style="margin:auto;">
+	        <div class="carousel-caption">
+	          <h4>Slide {{$index}}</h4>
+	          <p>{{slide.text}}</p>
+	        </div>
+	      </slide>
+	    </carousel>
+	  </div>
+	</div>
 </div>
