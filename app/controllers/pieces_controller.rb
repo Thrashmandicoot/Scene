@@ -52,7 +52,7 @@ class PiecesController < ApplicationController
   def destroy
     @piece = Piece.find(params[:id])
     @piece.destroy
-    redirect_to artist_pieces_path
+    redirect_to artist_path
   end
 
   private

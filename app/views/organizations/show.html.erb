@@ -18,16 +18,22 @@
 <div>
   <% @spaces_sample = @organization.spaces.sample(3) %>
   <% @spaces_sample.each do |space| %>
-  <div><%= link_to image_tag(space.img), organization_space_path(@organization, space) %></div>
+    <div><%= link_to image_tag(space.img), organization_space_path(space, @organization) %></div>
 
   <% if session[:organization_id] == @organization.id %>
-    <button><%= link_to "edit", edit_organization_path %></button>
-    <button><%= link_to "destroy", @organization, method: :delete %></button>
+    <button><%= link_to "edit", [:edit, space.organization, space] %></button>
+    <button><%= link_to "destroy", [space.organization, space], method: :delete, data: {confirm: 'Are you sure?'} %></button>
     <% end %>
   <% end %>
 </div>
+<button><%= link_to "New", new_organization_space_path(@organization) %></button>
+
 
 <h3>--Completed Scenes--</h3>
 <p>--Database not set up for this yet--</p>
 
 <%= link_to "All of our Scenes", organization_spaces_path(@organization) %>
+<% if session[:organization_id] == @organization.id %>
+    <button><%= link_to "Edit Profile", edit_organization_path %></button>
+    <button><%= link_to "Destroy Profile", @organization, method: :delete %></button>
+  <% end %>

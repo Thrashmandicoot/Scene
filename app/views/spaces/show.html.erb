@@ -1,11 +1,21 @@
 <h1>Spaces#show</h1>
-<%= link_to 'Back to organization', organization_path(@space.organization_id)%>
- <h1> <%= @space.title %> <h1>
 
-  <div class="space-body">
-      <p> Scene-id: <%= @space.id %> </p>
-      <p> Scene-title:  <%=  @space.title %> </p>
-      <img src=" <%=  @space.img %> ">
-      <p> Scene-guidelines: <%=  @space.description %></p>
-  </div>
+<img src="<%= @space.img %>" alt="Organization's Space.img">
 
+<p>Title: <% @space.title %></p>
+<p>Description: </p>
+<p><%= @space.description %></p>
+
+
+
+
+
+
+<%= link_to @organization.name, organization_path(@organization)%>
+
+
+
+ <% if session[:organization_id] == @organization.id %>
+    <button><%= link_to "Edit", edit_organization_space_path(@space.organization_id, @space) %></button>
+    <button><%= link_to "Remove", organization_space_path(@space.organization_id, @space), method: :delete,data: { confirm: 'Are you sure?' } %></button>
+  <% end %>

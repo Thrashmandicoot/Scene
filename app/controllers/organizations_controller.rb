@@ -4,6 +4,7 @@ class OrganizationsController < ApplicationController
 
   def show
     @organization = Organization.find(params[:id])
+    @spaces = @organization.spaces
   end
 
   def new
