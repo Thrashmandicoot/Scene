@@ -1,5 +1,11 @@
 <h1>Pieces#show</h1>
 
+<div ng-app="showPiece" >
+<div ng-controller="PieceCtrl as piece">
+  <h1> {{piece.elmt.description}} </h1>
+
+
+
 <img src="<%= @piece.img %>" alt="Artist's Piece.img">
 
 <p>Title: <%= @piece.title %></p>
@@ -19,3 +25,7 @@
     <button><%= link_to "Edit", edit_artist_piece_path(@piece.artist_id, @piece) %></button>
     <button><%= link_to "Remove", artist_piece_path(@piece.artist_id, @piece), method: :delete,data: { confirm: 'Are you sure?' } %></button>
   <% end %>
+
+
+</div>
+</div>
