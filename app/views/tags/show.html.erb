@@ -1,9 +1,16 @@
 <h1>Tags#show</h1>
 
+<h3>Show by Category</h3>
+  <% @tags.each do |tag| %>
+     <p><%= link_to tag, tag_path(tag) %></p>
+  <% end %>
+
 <h2><%= @tag %></h2>
 
 <% @pieces.each do |piece| %>
-  <div><%= link_to image_tag(piece.img), artist_piece_path(piece.artist_id, piece) %></div>
-  <p>Title: <%= piece.title %></p>
-  <p>Description: <%= piece.description %></p>
+  <div>
+    <%= link_to image_tag(piece.img), artist_piece_path(piece.artist_id, piece) %>
+    <p>Title: <%= piece.title %></p>
+    <p>Description: <%= piece.description %></p>
+  </div>
 <% end %>
