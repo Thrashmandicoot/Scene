@@ -18,7 +18,7 @@
 <div>
   <% @spaces_sample = @organization.spaces.sample(3) %>
   <% @spaces_sample.each do |space| %>
-    <div><%= link_to image_tag(space.img), organization_space_path(space, @organization) %></div>
+    <div><%= link_to image_tag(space.img), organization_space_path( @organization,space) %></div>
 
   <% if session[:organization_id] == @organization.id %>
     <button><%= link_to "edit", [:edit, space.organization, space] %></button>
