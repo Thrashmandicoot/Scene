@@ -9,7 +9,7 @@ class SpacesController < ApplicationController
   end
 
   def show
-    @organization = Organization.find(params[:id])
+    @organization = Organization.find(params[:organization_id])
     @space = Space.find(params[:id])
   end
 
@@ -45,8 +45,9 @@ class SpacesController < ApplicationController
 
   def destroy
     @space = Space.find(params[:id])
+    @organization = Organization.find(params[:organization_id])
     @space.destroy
-    redirect_to organization_path
+    redirect_to organization_path(@organization)
   end
 
   private

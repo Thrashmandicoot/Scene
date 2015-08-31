@@ -51,8 +51,9 @@ class PiecesController < ApplicationController
 
   def destroy
     @piece = Piece.find(params[:id])
+    @artist = Artist.find(params[:artist_id])
     @piece.destroy
-    redirect_to artist_path
+    redirect_to artist_path(@artist)
   end
 
   private
