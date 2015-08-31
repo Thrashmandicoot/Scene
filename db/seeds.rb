@@ -1,3 +1,12 @@
+random_descriptions = ['Canvas', 'Card stock', 'Fabric' , 'Glass', 'Human body', 'Metal', 'Paper', 'Plaster', 'Scratchboard', 'Vellum', 'Walls', 'Wood', 'Airbrush', 'Acrylic paint', 'Charcoal', 'Colored pencil', 'Conté', 'Crayon', 'Gouache', 'Graphite', 'Human finger', 'Marker', 'Oil paint', 'Pastel', 'Pen and ink', 'Pencil', 'Sand', 'Watercolor', 'Tempera']
+
+random_tags = ['Graffiti', 'Magick Realizm', 'Glitch', 'Figurative', 'Folk', 'Religious', 'Avant Garde', 'Participatory', 'Street', 'Southern', 'Micography', 'Marine Art', 'Fine Art', 'Antiquities', 'Animal Style', 'Cybersexual', 'Eclecticism in art', 'New Media', 'Victimless', 'Painted', 'Nouvelle Vagrance', 'New Chimney', 'Shoe', 'General Surveillance', 'Sound Art', 'Pleorama', 'Dada', 'Massurealism', 'Decorative', 'Elvis', 'Mall Goth', 'Environmental']
+
+random_addresses_sf = []
+File.readlines("/Users/laurynporte/Desktop/finalProject/Scene/db/latlnges.txt").each do |address|
+	random_addresses_sf << address.strip
+end
+
 #=================ADMIN LOGIN
 
 Organization.create(
@@ -12,12 +21,15 @@ Organization.create(
 
 #=================ORGANIZATIONS + SCENES
 
+empty_space = ["http://rudekitten.net/wp-content/uploads/2013/04/empty-room.jpg", "http://static.guim.co.uk/sys-images/Money/Pix/pictures/2013/2/18/1361192238248/A-man-standing-in-an-empt-008.jpg", "http://www.andysowards.com/blog/assets/facebook-office-wall.jpg?b91b38", "http://sidigital.co/public/img/blog/2012/08/WhiteWallBlank.jpg", "http://www.mycyfi.com/wp-content/uploads/2013/12/Wonderful-White-Bookshelves-With-Gray-Concrete-Floor-And-White-Wall.jpg", "http://www.tnhsyracuse.com/wp-content/uploads/2014/02/wide-white-alleyway-with-white-wall-and-white-lamps.jpg", "http://www.tavistockhouse-wc1.com/sites/default/files/node_gallery/IMG_1860.jpg", "http://officesnapshots.com/wp-content/uploads/2014/05/1_Seeyond_Office_Design.jpg"]
+
+
 30.times do
 	Organization.create(
 		name: Faker::Company.name + ['Immersion', 'Art', 'Imaginarium', 'Nose', 'Officetorium'].sample,
 		bio: Faker::Company.catch_phrase,
 		avatar: Faker::Company.logo,
-		address: Faker::Address.city,
+		address: random_addresses_sf.sample,
 		email: Faker::Internet.email,
 		password: Faker::Internet.password(6),
 		website: Faker::Internet.domain_name
@@ -26,7 +38,7 @@ end
 
 30.times do
 	Space.create(
-	img: Faker::Avatar.image,
+	img: empty_space.sample,
 	title: Faker::Lorem.sentence,
 	description: Faker::Lorem.sentence(3),
 	organization_id: (1..10).to_a.sample
@@ -34,15 +46,6 @@ end
 end
 
 #=================ARTISTS + PIECES + TAGS
-
-random_descriptions = ['Canvas', 'Card stock', 'Fabric' , 'Glass', 'Human body', 'Metal', 'Paper', 'Plaster', 'Scratchboard', 'Vellum', 'Walls', 'Wood', 'Airbrush', 'Acrylic paint', 'Charcoal', 'Colored pencil', 'Conté', 'Crayon', 'Gouache', 'Graphite', 'Human finger', 'Marker', 'Oil paint', 'Pastel', 'Pen and ink', 'Pencil', 'Sand', 'Watercolor', 'Tempera']
-
-random_tags = ['Graffiti', 'Magick Realizm', 'Glitch', 'Figurative', 'Folk', 'Religious', 'Avant Garde', 'Participatory', 'Street', 'Southern', 'Micography', 'Marine Art', 'Fine Art', 'Antiquities', 'Animal Style', 'Cybersexual', 'Eclecticism in art', 'New Media', 'Victimless', 'Painted', 'Nouvelle Vagrance', 'New Chimney', 'Shoe', 'General Surveillance', 'Sound Art', 'Pleorama', 'Dada', 'Massurealism', 'Decorative', 'Elvis', 'Mall Goth', 'Environmental']
-
-random_addresses_sf = []
-File.readlines("/Users/laurynporte/Desktop/finalProject/Scene/db/latlnges.txt").each do |address|
-	random_addresses_sf << address.strip
-end
 
 # SF Artists from City Arts
 response = HTTParty.get('https://www.kimonolabs.com/api/aeongt2c?apikey=OJQIQILpmhaUZHWM2iTIHALjlCkYOIHf')
