@@ -1,10 +1,15 @@
 class SpacesController < ApplicationController
+  def all_spaces
+    @spaces = Space.all
+  end
+
   def index
     @spaces = Organization.find_by(id: params[:organization_id]).spaces
     @organization = Organization.find(params[:organization_id])
   end
 
   def show
+    @organization = Organization.find(params[:id])
     @space = Space.find(params[:id])
   end
 
@@ -23,12 +28,10 @@ class SpacesController < ApplicationController
       end
   end
 
-
   def edit
     @space = Space.find(params[:id])
     @organization = Organization.find(params[:organization_id])
   end
-
 
   def update
     @space = Space.find(params[:id])
@@ -38,17 +41,12 @@ class SpacesController < ApplicationController
     else
       render 'edit'
     end
-
   end
 
   def destroy
     @space = Space.find(params[:id])
     @space.destroy
-    redirect_to organization_spaces_path
-  end
-
-  def all_spaces
-    @spaces = Space.all
+    redirect_to organization_path
   end
 
   private
