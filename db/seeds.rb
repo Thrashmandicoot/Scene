@@ -3,10 +3,10 @@ random_descriptions = ['Canvas', 'Card stock', 'Fabric' , 'Glass', 'Human body',
 random_tags = ['Graffiti', 'Magick Realizm', 'Glitch', 'Figurative', 'Folk', 'Religious', 'Avant Garde', 'Participatory', 'Street', 'Southern', 'Micography', 'Marine Art', 'Fine Art', 'Antiquities', 'Animal Style', 'Cybersexual', 'Eclecticism in art', 'New Media', 'Victimless', 'Painted', 'Nouvelle Vagrance', 'New Chimney', 'Shoe', 'General Surveillance', 'Sound Art', 'Pleorama', 'Dada', 'Massurealism', 'Decorative', 'Elvis', 'Mall Goth', 'Environmental']
 
 random_addresses_sf = []
-File.readlines("/Users/laurynporte/Desktop/finalProject/Scene/db/latlnges.txt").each do |address|
+file = File.open(File.join(Rails.root, 'db', 'address.txt'))
+file.readlines.each do |address|
 	random_addresses_sf << address.strip
 end
-
 #=================ADMIN LOGIN
 
 Organization.create(
@@ -70,7 +70,6 @@ response["results"]["collection1"].each do |artist|
 		title: artist["images"]["alt"],
 		description: random_descriptions.sample(3).to_s,
 		artist_id: new_artist.id,
-		tag_list: random_tags.sample(3).to_s	
+		tag_list: random_tags.sample(3).to_s
 		)
 	end
-
