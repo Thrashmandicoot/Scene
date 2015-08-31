@@ -12,6 +12,12 @@ showPiece.controller('PieceCtrl', function($scope, $http){
     })
   }
 
+  $scope.init = function(name){
+    $scope.artist = {
+      name: name
+    }
+  }
+
   getArtist();
 })
 

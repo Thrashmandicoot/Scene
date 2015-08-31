@@ -4,9 +4,10 @@
     <h1> {{piece.elmt.description}} </h1>
     <h1> {{testing}} </h1>
 
-  <!-- <div ng-init="init(<%= @artist.name, @artist.bio %>)"> -->
-
-  <!-- </div> -->
+    <!-- grabbing @artist.name needs to be in qoutes -->
+  <div ng-init="init('<%= @artist.name %>')">
+    <p>{{artist.name}}</p>
+  </div>
 
 
 
