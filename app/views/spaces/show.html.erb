@@ -1,13 +1,11 @@
 <h1>Spaces#show</h1>
 
 <img src="<%= @space.img %>" alt="Organization's Space.img">
+<%= image_tag @space.image.url(:thumb) %>
 
 <p>Title: <%= @space.title %></p>
 <p>Description: </p>
 <p><%= @space.description %></p>
-
-
-
 
 
 
