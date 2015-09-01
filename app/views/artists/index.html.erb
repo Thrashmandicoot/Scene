@@ -1,27 +1,48 @@
 <% if session[:organization_id] || session[:artist_id] %>
-    <h1>Artists In Your Area</h1>
+    <h1 class="center-text">Artists In Your Area</h1>
   <% else %>
-    <h1>Artists on Scene</h1>
+    <h1 class="center-text">Artists on Scene</h1>
   <% end %>
+	<div class="row">
+<% @artists.each do |artist| %>
+		<div class="col-sm-3">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
-<table class="table-striped table-condensed">
-  <tr>
-    <td></td>
-    <td>Name</td>
-    <td>Profile</td>
-    <td>Art</td>
-  </tr>
+            <div class="card hovercard">
+                <div class="cardheader">
 
-  <% @artists.each do |artist| %>
+                </div>
+                <% unless artist.pieces[0].nil? %>
+                <script type="text/javascript">
+                  $('div .cardheader').last().css('background', "url(<%= "#{artist.pieces.sample.img}" %>)")
+                </script>
+                <% end %>
+                <div class="avatar">
+                    <%= link_to image_tag(artist.avatar), artist_path(artist) %>
+                </div>
+                <div class="info">
+                    <div class="title">
+                        <%= link_to artist.name, artist_path(artist) %>
+                    </div>
+                    <div class=""><%= link_to artist.website, "http://#{artist.website}" %></div>
+                    <div class="desc">Passionate designer</div>
+                    <div class="desc">Curious developer</div>
+                    <div class="desc">Tech geek</div>
+                </div>
+                <div class="bottom">
+                    <% if artist.twitter %>
+                    <a class="btn btn-primary btn-twitter btn-sm" href="<%= "http://twitter.com/#{artist.twitter}" %>">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <% end %>
+                    <% if artist.facebook %>
+                    <a class="btn btn-primary btn-sm" rel="publisher"
+                       href="<%= "http://#{artist.facebook}" %>">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <% end %>
+                </div>
+            </div>
 
-  <tr>
-    <td> <%= link_to image_tag(artist.avatar), artist_path(artist) %> </td>
-    <td> <%= artist.name %> </td>
-    <td> <%= link_to("Profile", artist_path(artist)) %> </td>
-    <td> <% if !artist.pieces.empty? %>
-          <% sample_piece = artist.pieces.sample %>
-          <%= link_to image_tag(sample_piece.img), artist_piece_path(sample_piece.artist_id, sample_piece) %></td>
-        <% end %>
-  </tr>
-  <% end %>
-</table>
+        </div>
+<% end %>
