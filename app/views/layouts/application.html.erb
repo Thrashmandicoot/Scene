@@ -52,7 +52,7 @@
     </script>
 </div>
 
-<div class="collapse navbar-collapse">
+<nav class='navbar navbar-inverse navbar-fixed-top'>
   <ul class="nav navbar-nav">
     <li><%= link_to 'Home', root_path %></li>
     <li><%= link_to 'Artists', artists_path %></li>
@@ -71,7 +71,7 @@
     <li><a href="" ng-click="open()" ng-controller="ModalSignupCtrl">Sign Up</a></li>
     <% end %>
   </ul>
-</div>
+</nav>
 
   <div class="container-fluid">
     <%= yield %>

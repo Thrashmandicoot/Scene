@@ -1,4 +1,19 @@
 // Place all the styles related to the galleryhomepage controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.bg {
+  background: url("carousel2.jpg") no-repeat center center;
+  position: fixed;
+  width: 100%;
+  height: 350px;
+  /*same height as jumbotron */
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
 
+#main {
+  margin-top: 350px;
+  position: relative;
+  background: #fff;
+}
