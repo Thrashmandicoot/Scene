@@ -3,13 +3,10 @@ class ArtistsController < ApplicationController
   def index
     @artists = Artist.all
     @organization = Organization.find_by(id: session[:organization_id])
-    if session[:organization_id] || session[:artist_id]
-    @artists = Artist.near([current_user.latitude, current_user.longitude], 20)
-    end
   end
 
   def local_artists
-   puts "hello there! local artists!"
+   @artists = Artist.near([current_user.latitude, current_user.longitude], 20)
   end
 
   def show

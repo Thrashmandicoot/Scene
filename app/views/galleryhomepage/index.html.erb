@@ -57,7 +57,11 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
       </div>
       <div class="col-md-4">
-        <a class="btn btn-lg btn-default btn-block" href="#">Call to Action</a>
+        <% if current_user %>
+        <button class="btn btn-lg btn-default btn-block"> <%=link_to 'Local Artists', local_artists_path %> </button>
+        <% else %>
+          <button class="btn btn-lg btn-default btn-block"> <%=link_to 'Sign Up To View Artists In Your Area'%> </button>
+        <% end %>
       </div>
     </div>
   </div>
@@ -74,7 +78,7 @@
       </div>
     </div>
     <!-- /.row -->
-<button> <%= link_to 'Local', local_artists_path %> </button>
+
     <!-- Projects Row -->
 
     <div class="row">
@@ -204,10 +208,3 @@
 <!-- /.row -->
 
     <hr>
-
-<<<<<<< HEAD
-
-</div>
-=======
-  </div>
->>>>>>> d073e6fe7bd5d293847e17aaca11098fa17a2a9b

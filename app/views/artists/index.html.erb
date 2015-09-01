@@ -4,7 +4,7 @@
     <h1>Artists on Scene</h1>
   <% end %>
 
-<table>
+<table class="table-striped table-condensed">
   <tr>
     <td></td>
     <td>Name</td>
@@ -13,13 +13,11 @@
   </tr>
 
   <% @artists.each do |artist| %>
-  <% find_artist_tags(artist) %>
 
   <tr>
     <td> <%= link_to image_tag(artist.avatar), artist_path(artist) %> </td>
     <td> <%= artist.name %> </td>
     <td> <%= link_to("Profile", artist_path(artist)) %> </td>
-    <td><strong>Tags: </strong><%= @tags.join(" ") %></td>
     <td> <% if !artist.pieces.empty? %>
           <% sample_piece = artist.pieces.sample %>
           <%= link_to image_tag(sample_piece.img), artist_piece_path(sample_piece.artist_id, sample_piece) %></td>
