@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'lightbox2-rails', '~> 2.7.1'
 # Angular
 gem 'angularjs-rails'
 gem 'angular-ui-bootstrap-rails'
@@ -18,6 +19,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+
+
 
 gem 'acts-as-taggable-on', '~> 3.4'
 
