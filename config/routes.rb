@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   get 'tags/show'
 
-
   get 'api/pieces' => 'galleryhomepage#api'
 
   resources :organizations do
