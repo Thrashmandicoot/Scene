@@ -1,9 +1,7 @@
-<div class="background">
-
 <% if session[:organization_id] || session[:artist_id] %>
-    <h1>Artists In Your Area</h1>
+    <h1 class="center-text">Artists In Your Area</h1>
   <% else %>
-    <h1>Artists on Scene</h1>
+    <h1 class="center-text">Artists on Scene</h1>
   <% end %>
 	<div class="row">
 <% @artists.each do |artist| %>
@@ -48,4 +46,3 @@
 
         </div>
 <% end %>
-</div>
