@@ -1,6 +1,15 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+      showPiece();
+      zoomHover();
+  })
+</script>
+
+
+
 <h1 class="debug row">Pieces</h1>
 
-<div class="debug col span-1-d ">
+<div class="debugx col span-1-d fix ml-4">
   <h3>Category</h3>
     <% @tags.each do |tag| %>
        <p><%= link_to tag, tag_path(tag) %></p>
@@ -8,17 +17,17 @@
 </div>
 
 
-<div class="debug col span-11-d">
-  <div class="ml-4">
-
+<div class="debugx col span-11-d">
+  <div class="ml-25">
 <div id="target"></div>
 
   <div class="allpics">
   <% @pieces.each do |piece| %>
+  <% artist = Artist.find(piece.artist_id) %>
 
       <div class="debug fl-end m-1 viewport">
         <a class="pic" href="<%= artist_piece_path(piece.artist_id, piece) %>" >
-          <span class="dark-background"> <%= piece.title %> <em>Photo by Andrew Pham</em></span>
+          <span class="dark-background"> <%= piece.title %> <em>by <%= artist.name %></em></span>
           <img src="<%= piece.img %>" alt="Piece Pic" />
         </a>
       </div>

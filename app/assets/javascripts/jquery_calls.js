@@ -1,11 +1,9 @@
-  $(document).ready(function() {
-    showPiece();
-    zoomHover();
-  });
+
 
 
   var showPiece = function(){
     $(".pic").on('click', function(event){
+
       event.preventDefault();
       smoothScroll();
 
