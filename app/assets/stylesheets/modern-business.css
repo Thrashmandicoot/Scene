@@ -23,6 +23,59 @@ body {
     opacity: 0.8;
 }
 
+/* carousel images*/
+.crop-height {
+  /* max-width: 1200px; /* img src width (if known) */
+  max-height: 450px;
+  overflow: hidden; 
+}
+
+img.scale {
+  /* corrects inline gap in enclosing div */
+  display: block;
+  max-width: 100%;
+  /* just in case, to force correct aspect ratio */
+  height: auto !important;
+  width: auto\9; /* ie8+9 */
+  /* lt ie8 */
+  -ms-interpolation-mode: bicubic; 
+}
+
+
+.flip {
+    -webkit-transform: rotate(180deg);
+    -moz-transform:    rotate(180deg);
+    -ms-transform:     rotate(180deg);
+    -o-transform:      rotate(180deg);
+    transform:         rotate(180deg);
+    /* needed? not sure */
+    zoom: 1; }
+
+img.flip {
+    /* actually, aligns left within .cropheight */
+  float: right;
+    /* clearfix after? */ }
+
+/* presentational CSS below */
+
+.page-wrap { 
+  padding: .5em 2em 2em;}
+
+h2 { 
+  margin-top: -.5em; 
+  font-style: italic; }
+
+figure {
+    margin: 2em 0; }
+
+figcaption {
+    margin: .5em 0;
+    font-size: 85%;
+    font-style: italic;
+    color: #888; }
+
+
+
 /* Home Page Carousel */
 
 header.carousel {
