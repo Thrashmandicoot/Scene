@@ -1,15 +1,18 @@
-<%= form_for ([user, picture]) do |f| %>
-  <p>Image URL</p>
+<%= form_for ([user, picture]), html: { multipart: true } do |f| %>
+  <%= f.label :Upload_Image %>
+  <%= f.file_field :image, as: :file %>
+
+  <%= f.label :Image_URL %>
   <%= f.text_field :img %>
 
-  <p>Title</p>
+  <%= f.label :Title %>
   <%= f.text_field :title %>
 
-  <p>Description</p>
+  <%= f.label :Description %>
   <%= f.text_field :description %>
 
-  <p>Tags</p>
+  <%= f.label :Tags %>
   <%= f.text_field :tag_list %>
 
-  <p><%= f.submit %></p>
+  <%= f.submit %> 
 <% end %>

@@ -43,6 +43,9 @@ gem 'geocoder'
 gem 'httparty'
 gem 'jquery-turbolinks'
 
+# Paperclip
+gem "paperclip"
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
