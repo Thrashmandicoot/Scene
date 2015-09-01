@@ -10,9 +10,9 @@
 <p class="debug"><%= @piece.description %></p>
 
   <div class="debug">
-    <img src="http://www.wrapchic.in/images/offer.png" height=20, width=20>
+    <img src="http://www.wrapchic.in/images/offer.png" height=15, width=15>
     <% @piece.tag_list.each do |tag| %>
-      <button class="btn btn-default-sm"><%= link_to tag, tag_path(tag) %></button>
+      <button class="ft-sm"><%= link_to tag, tag_path(tag), class: "gray" %></button>
     <% end %>
   </div>
 

@@ -31,7 +31,7 @@
     mobile container leaves some whitespace on the sides
 */
 .container {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -142,3 +142,4 @@
     .gutters-d .span-11-d { width: 91.5%; }
     .gutters-d .span-12-d { width: 100%; }
 }
+

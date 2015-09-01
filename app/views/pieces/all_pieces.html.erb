@@ -1,20 +1,34 @@
-<h1>Show all pieces</h1>
+<h1 class="debug row">Pieces</h1>
 
-<h3>Show by Category</h3>
-  <% @tags.each do |tag| %>
-     <p><%= link_to tag, tag_path(tag) %></p>
+<div class="debug col span-1-d ">
+  <h3>Category</h3>
+    <% @tags.each do |tag| %>
+       <p><%= link_to tag, tag_path(tag) %></p>
+    <% end %>
+</div>
+
+
+<div class="debug col span-11-d">
+  <div class="ml-4">
+
+<div id="target"></div>
+
+  <div class="allpics">
+  <% @pieces.each do |piece| %>
+
+      <div class="debug fl-end m-1 viewport">
+        <a class="pic" href="<%= artist_piece_path(piece.artist_id, piece) %>" >
+          <span class="dark-background"> <%= piece.title %> <em>Photo by Andrew Pham</em></span>
+          <img src="<%= piece.img %>" alt="Piece Pic" />
+        </a>
+      </div>
+
   <% end %>
+  </div>
 
 
-<% @pieces.each do |piece| %>
-  <ul>
-    <div>
-      <h3><%= piece.title %></h3>
-      <%= link_to image_tag(piece.img), artist_piece_path(piece.artist_id, piece) %>
-      <p>Tags: <%= piece.tag_list.join(" ") %></p>
-    </div>
-  </ul>
-<% end %>
+  </div>
+</div>
 
 
 

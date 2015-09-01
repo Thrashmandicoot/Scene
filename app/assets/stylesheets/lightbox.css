@@ -64,7 +64,7 @@ body:after {
 }
 /*************change the position of the container********************/
 .lb-container {
-  margin-top: 7em;
+  margin-top: 0em;
   padding: 4px;
 }
 /************************/
