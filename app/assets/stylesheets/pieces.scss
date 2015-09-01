@@ -16,11 +16,17 @@
 .d-inb { display: inline-block; }
 .d-in { display: inline; }
 
+.ml-reset { margin-left: -39%; }
 .ml-2 { margin-left: 2em; }
+.ml-4 { margin-left: 4em; }
 .ml-10 { margin-left: 10em; }
-.ml-half { margin-left: 32%; }
+.ml-half { margin-left: 39%; }
 .ml-23 { margin-left: 23em;}
+
+.mb-4 { margin-bottom: 4em;}
+.mb-8 { margin-bottom: 8em;}
 .mt-2 { margin-top: 2em; }
+.mr-2 {margin-right: 2em;}
 
 .m-1 {margin: 1em;}
 .m-2 {margin: 2em;}
@@ -32,9 +38,7 @@ xpic-size {
   width: 15em;
 }
 
-.center-children {
-  text-align: center;
-}
+.line {border: 1px solid black; }
 
 
 

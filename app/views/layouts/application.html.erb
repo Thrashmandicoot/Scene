@@ -9,8 +9,10 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
+
   <!-- Fonts -->
   <link href='https://fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
+
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
@@ -55,10 +57,11 @@
     </script>
 </div>
 
-<div class="collapse navbar-collapse">
+<nav class='navbar navbar-inverse navbar-fixed-top'>
   <ul class="nav navbar-nav">
     <li><%= link_to 'Home', root_path %></li>
-    <li><%= link_to 'Artists', artists_path %></li>
+    <li><%= link_to 'About Us', about_us_path %></li>
+    <li><%= link_to 'Browse', artists_path %></li>
     <li><%= link_to 'Pieces', pieces_path %></li>
     <li><%= link_to 'Scenes', spaces_path %></li>
     <% if session[:organization_id] %>
@@ -74,9 +77,9 @@
     <li><a href="" ng-click="open()" ng-controller="ModalSignupCtrl">Sign Up</a></li>
     <% end %>
   </ul>
-</div>
+</nav>
 
-  <div class="container-fluid">
+  <div class="container-fluid" style="margin-top: 60px;">
     <%= yield %>
   </div>
 

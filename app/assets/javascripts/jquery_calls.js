@@ -27,7 +27,6 @@
   var closeButton = function(){
     $(".x-btn").on('click', function(event){
       $('.r-this').remove()
-      // $('.allpics').show()
     })
   }
 

@@ -19,6 +19,45 @@
 ul
   list-style-type: none
 
+.divotron
+  height: 535px
+  background-color: transparent
+  top: 0
+
+.scene-welcome
+  color: white
+  text-shadow: #6FC8A5 0 6px 0px
+  text-align: center
+  font-size: 8.75em
+  padding-top: 68px
+
+.img-center
+  display: block
+  margin: auto
+
+.twitter
+  color: #0096ff
+  &:hover
+    animation: twitterAnim 0.4s normal forwards linear
+    -webkit-animation: twitterAnim 0.4s normal forwards linear
+
+@keyframes githubAnim
+  50%
+    background-color: #0096ff
+
+  100%
+    background-color: #0096ff
+    border: 1px solid #0096ff
+    color: #fff
+
+
+@-webkit-keyframes twitterAnim
+  50%
+    background-color: #0096ff
+
+  100%
+    background-color: #0096ff
+    color: #fff
+
 @import "bootstrap-sprockets"
 @import "bootstrap"
-

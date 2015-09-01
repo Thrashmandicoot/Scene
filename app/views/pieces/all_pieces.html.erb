@@ -1,7 +1,7 @@
-<h1 class="debug row">Show all pieces</h1>
+<h1 class="debug row">Pieces</h1>
 
-<div class="debug col span-1-d">
-  <h3>Show by Category</h3>
+<div class="debug col span-1-d ">
+  <h3>Category</h3>
     <% @tags.each do |tag| %>
        <p><%= link_to tag, tag_path(tag) %></p>
     <% end %>
@@ -9,6 +9,7 @@
 
 
 <div class="debug col span-11-d">
+  <div class="ml-4">
 
 <div id="target"></div>
 
@@ -26,6 +27,7 @@
   </div>
 
 
+  </div>
 </div>
 
 

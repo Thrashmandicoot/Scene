@@ -50,7 +50,7 @@
 
 /* --- Dark hover background ------------------------------------------------------------ */
 .dark-background {
-    background-color: rgba(15, 15, 15, 0.2);
+    background-color: rgba(15, 15, 15, 0.4);
     color: #fff;
     text-shadow: #000 0px 0px 20px;
 }
