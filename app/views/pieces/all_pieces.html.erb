@@ -9,11 +9,14 @@
 
 
 <div class="debug col span-11-d">
+
+<div id="target"></div>
+
   <div class="allpics">
   <% @pieces.each do |piece| %>
 
-      <div class="debug fl-end m-2 viewport">
-        <a href="<% artist_piece_path(piece.artist_id, piece) %>" class="pic">
+      <div class="debug fl-end m-1 viewport">
+        <a class="pic" href="<%= artist_piece_path(piece.artist_id, piece) %>" >
           <span class="dark-background"> <%= piece.title %> <em>Photo by Andrew Pham</em></span>
           <img src="<%= piece.img %>" alt="Piece Pic" />
         </a>
@@ -21,7 +24,8 @@
 
   <% end %>
   </div>
-  <div id="target"></div>
+
+
 </div>
 
 

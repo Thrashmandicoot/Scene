@@ -22,11 +22,11 @@
 }
 
 .viewport a img {
-    height: 332px;
-    left: -20px;
+    height: 299px;
+    left: 0px;
     position: relative;
-    top: -20px;
-    width: 500px;
+    top: 0px;
+    width: 450px;
 }
 
 /* --- Label configuration -------------------------------------------------------------- */
@@ -50,7 +50,7 @@
 
 /* --- Dark hover background ------------------------------------------------------------ */
 .dark-background {
-    background-color: rgba(15, 15, 15, 0.6);
+    background-color: rgba(15, 15, 15, 0.2);
     color: #fff;
     text-shadow: #000 0px 0px 20px;
 }
