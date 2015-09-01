@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     resources :spaces
   end
 
+  controller :artists do
+    get 'local_artists' => 'artists#local_artists'
+  end
+
   controller :spaces do
     get 'spaces' => 'spaces#all_spaces'
   end
@@ -25,6 +29,7 @@ Rails.application.routes.draw do
 
   resources :artists do
     resources :pieces
+
   end
 
   resources :sessions, only: [:new, :create, :destroy]

@@ -1,6 +1,12 @@
 class ArtistsController < ApplicationController
+  include ArtistsHelper
   def index
     @artists = Artist.all
+    @organization = Organization.find_by(id: session[:organization_id])
+  end
+
+  def local_artists
+   @artists = Artist.near([current_user.latitude, current_user.longitude], 20)
   end
 
   def show

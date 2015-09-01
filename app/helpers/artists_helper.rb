@@ -9,4 +9,12 @@ module ArtistsHelper
     @tags.uniq!
   end
 
+  def current_user
+    if Artist.find_by_id(session[:artist_id])
+      @current_user ||= Artist.find_by_id(session[:artist_id])
+    elsif Organization.find_by_id(session[:organization_id])
+      @current_user ||= Organization.find_by_id(session[:organization_id])
+    end
+  end
+
 end

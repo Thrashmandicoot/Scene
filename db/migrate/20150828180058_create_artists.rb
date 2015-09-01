@@ -7,6 +7,8 @@ class CreateArtists < ActiveRecord::Migration
       t.string :avatar
       t.text :bio
       t.string :address
+      t.float :latitude
+      t.float :longitude
       t.string :facebook
       t.string :twitter
       t.string :website
