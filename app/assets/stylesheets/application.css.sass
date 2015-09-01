@@ -32,5 +32,33 @@ ul
   font-size: 147px
   padding-top: 68px
 
+.img-center
+  display: block
+  margin: auto
+
+.twitter
+  color: #0096ff
+  &:hover
+    animation: twitterAnim 0.4s normal forwards linear
+    -webkit-animation: twitterAnim 0.4s normal forwards linear
+
+@keyframes githubAnim
+  50%
+    background-color: #0096ff
+
+  100%
+    background-color: #0096ff
+    border: 1px solid #0096ff
+    color: #fff
+
+
+@-webkit-keyframes twitterAnim
+  50%
+    background-color: #0096ff
+
+  100%
+    background-color: #0096ff
+    color: #fff
+
 @import "bootstrap-sprockets"
 @import "bootstrap"
