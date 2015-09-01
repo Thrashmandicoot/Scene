@@ -56,7 +56,7 @@ class PiecesController < ApplicationController
 
   private
   def piece_params
-    params.require(:piece).permit(:img, :title, :description, :tag_list)
+    params.require(:piece).permit(:img, :title, :description, :tag_list, :image)
   end
 end
 
