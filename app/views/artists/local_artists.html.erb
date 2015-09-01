@@ -3,15 +3,33 @@
 <head>
 <script src="http://maps.googleapis.com/maps/api/js"></script>
 <script>
+$(document).ready(function(){
+  initialize();
+})
 function initialize() {
+
   var mapProp = {
     center:new google.maps.LatLng(<%= current_user.latitude %>,<%= current_user.longitude %>),
-    zoom:10,
+    zoom:13,
     mapTypeId:google.maps.MapTypeId.ROADMAP
   };
   var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+   var image = new google.maps.MarkerImage(
+            "http://www.thamesclippers.com/assets/img/icon-art.png", //url
+            new google.maps.Size(10, 10), //size
+            new google.maps.Point(10,10) //origin
+            )
+
+  <% @artists.each do |artist| %>
+  var myLatlng = new google.maps.LatLng(<%= artist.latitude %>,<%= artist.longitude %>);
+  var marker = new google.maps.Marker({
+    position: myLatlng
+
+})
+marker.setMap(map);
+  <% end %>
 }
-google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 </head>
 
