@@ -1,17 +1,9 @@
-
-<h1>Artists Using Scene</h1>
+<h1 class="center-text">Artists Using Scene</h1>
 <% if current_user %>
         <button class="btn btn-lg btn-default btn-block"> <%=link_to 'Local Artists', local_artists_path %> </button>
         <% else %>
           <button class="btn btn-lg btn-default btn-block"> <%=link_to 'Sign Up To View Artists In Your Area'%> </button>
         <% end %>
-<table class="table-striped table-condensed">
-  <tr>
-    <td></td>
-    <td>Name</td>
-    <td>Profile</td>
-    <td>Art</td>
-  </tr>
 
 	<div class="row">
 <% @artists.each do |artist| %>
