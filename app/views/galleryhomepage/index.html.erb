@@ -8,24 +8,27 @@
             <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
 
+<!--  <div class="crop-height flip">
+      <img class="scale flip" -->
+
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
-                <div class="fill">
-                    <%= image_tag 'carousel.jpg' %>
+                <div class="fill crop-height flip">
+                    <%= image_tag 'carousel4.jpg', :class => "scale flip" %>
                 </div>
                 <div class="carousel-caption">
                     <h2>Caption 1</h2>
                 </div>
             </div>
             <div class="item">
-                <div class="fill"> <%= image_tag 'carousel1.jpg' %> </div>
+                <div class="fill crop-height"> <%= image_tag 'carousel1.jpg' %> </div>
                 <div class="carousel-caption">
                     <h2>Caption 2</h2>
                 </div>
             </div>
             <div class="item">
-                <div class="fill"> <%= image_tag 'carousel2.jpg' %></div>
+                <div class="fill crop-height"> <%= image_tag 'carousel2.jpg' %></div>
                 <div class="carousel-caption">
                     <h2>Caption 3</h2>
                 </div>
