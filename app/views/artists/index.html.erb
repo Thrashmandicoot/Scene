@@ -1,14 +1,14 @@
+<div class="background">
+
 <% if session[:organization_id] || session[:artist_id] %>
     <h1>Artists In Your Area</h1>
   <% else %>
     <h1>Artists on Scene</h1>
   <% end %>
-
-<% @artists.each do |artist| %>
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<div class="container">
 	<div class="row">
-		<div class="col-lg-3 col-sm-6">
+<% @artists.each do |artist| %>
+		<div class="col-sm-3">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
             <div class="card hovercard">
                 <div class="cardheader">
@@ -47,6 +47,5 @@
             </div>
 
         </div>
-
-	</div>
 <% end %>
+</div>
