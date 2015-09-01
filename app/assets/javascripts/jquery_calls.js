@@ -32,8 +32,9 @@
 // zoom hover
 var zoomHover = function(){
   $('.viewport').mouseenter(function(e) {
-          $(this).children('a').children('img').animate({ height: '16em', left: '-5', top: '-5', width: '21em'}, 100);
+          $(this).children('a').children('img').animate({ height: '16em', left: '-10', top: '-10', width: '21em'}, 100);
           $(this).children('a').children('span').fadeIn(200);
+
       }).mouseleave(function(e) {
           $(this).children('a').children('img').animate({ height: '15em', left: '0', top: '0', width: '20em'}, 200);
           $(this).children('a').children('span').fadeOut(200);
