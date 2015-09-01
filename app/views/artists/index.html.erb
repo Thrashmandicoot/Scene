@@ -1,8 +1,10 @@
-<% if session[:organization_id] || session[:artist_id] %>
-    <h1 class="center-text">Artists In Your Area</h1>
-  <% else %>
-    <h1 class="center-text">Artists on Scene</h1>
-  <% end %>
+<h1 class="center-text">Artists Using Scene</h1>
+<% if current_user %>
+        <button class="btn btn-lg btn-default btn-block"> <%=link_to 'Local Artists', local_artists_path %> </button>
+        <% else %>
+          <button class="btn btn-lg btn-default btn-block"> <%=link_to 'Sign Up To View Artists In Your Area'%> </button>
+        <% end %>
+
 	<div class="row">
 <% @artists.each do |artist| %>
 		<div class="col-sm-3">
