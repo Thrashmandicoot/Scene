@@ -5,12 +5,11 @@
   })
 </script>
 
-
-
-<h1 class="debug row">Pieces</h1>
+<h1 class="debugx b-dbot mb-2">Pieces</h1>
 
 <div class="debugx col span-1-d fix ml-4">
   <h3>Category</h3>
+  <p><%= link_to "All", pieces_path %></p>
     <% @tags.each do |tag| %>
        <p><%= link_to tag, tag_path(tag) %></p>
     <% end %>

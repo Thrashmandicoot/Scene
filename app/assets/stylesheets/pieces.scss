@@ -24,6 +24,7 @@
 .ml-half { margin-left: 39%; }
 .ml-23 { margin-left: 23em;}
 
+.mb-2 { margin-bottom: 2em;}
 .mb-4 { margin-bottom: 4em;}
 .mb-8 { margin-bottom: 8em;}
 .mt-2 { margin-top: 2em; }
@@ -34,26 +35,19 @@
 .m-3 {margin: 3em;}
 .m-4 {margin: 4em;}
 
-
+.pic {
+  margin-right: 50%;
+}
 
 .fix {position: fixed;}
 .line {border: 1px solid black; }
-
-
-
-
-/*make the category bar fixed*/
-.grid-item--gigante {
-  width: 200%;
-  height: 200%;
-  background: #F90;
+.b-dbot {
+  text-align: center;
+  border-bottom: double 1px black;
 }
 
-.grid-item:hover {
-  background: #A2C;
-  border-color: white;
-  cursor: pointer;
-}
+
+
 
 
 
