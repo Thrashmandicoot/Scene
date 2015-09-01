@@ -9,11 +9,11 @@
 <% @pieces.each do |piece| %>
   <ul>
     <div>
+      <h3><%= piece.title %></h3>
       <%= link_to image_tag(piece.img), artist_piece_path(piece.artist_id, piece) %>
+      <p>Tags: <%= piece.tag_list.join(" ") %></p>
     </div>
   </ul>
-<h3><%= piece.title %></h3>
-<p>Tags: <%= piece.tag_list.join(" ") %></p>
 <% end %>
 
 

@@ -1,5 +1,4 @@
 random_descriptions = ['Canvas', 'Card stock', 'Fabric' , 'Glass', 'Human body', 'Metal', 'Paper', 'Plaster', 'Scratchboard', 'Vellum', 'Walls', 'Wood', 'Airbrush', 'Acrylic paint', 'Charcoal', 'Colored pencil', 'Conté', 'Crayon', 'Gouache', 'Graphite', 'Human finger', 'Marker', 'Oil paint', 'Pastel', 'Pen and ink', 'Pencil', 'Sand', 'Watercolor', 'Tempera']
-
 random_tags = ['Graffiti', 'Magick Realizm', 'Glitch', 'Figurative', 'Folk', 'Religious', 'Avant Garde', 'Participatory', 'Street', 'Southern', 'Micography', 'Marine Art', 'Fine Art', 'Antiquities', 'Animal Style', 'Cybersexual', 'Eclecticism in art', 'New Media', 'Victimless', 'Painted', 'Nouvelle Vagrance', 'New Chimney', 'Shoe', 'General Surveillance', 'Sound Art', 'Pleorama', 'Dada', 'Massurealism', 'Decorative', 'Elvis', 'Mall Goth', 'Environmental']
 
 random_addresses_sf = []
@@ -67,9 +66,13 @@ response["results"]["collection1"].each do |artist|
 
 	Piece.create(
 		img: artist["images"]["src"],
-		title: artist["images"]["alt"],
-		description: random_descriptions.sample(3).to_s,
+		title: Faker::App.name,
+		description: random_descriptions.sample(3),
 		artist_id: new_artist.id,
-		tag_list: random_tags.sample(3).to_s
+		tag_list: random_tags.sample(3)
 		)
 	end
+
+	manual_edit = Piece.find(10)
+	manual_edit.artist_id = 10
+	manual_edit.save!
