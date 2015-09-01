@@ -4,3 +4,46 @@
 
 
 .bg-red { background-color: red }
+
+.ft-sm { font-size: 80%; }
+
+.red { color: #E43838;}
+.gray { color: #8A9298;}
+
+.fl-st { float: left; }
+.fl-end { float: right; }
+
+.d-inb { display: inline-block; }
+.d-in { display: inline; }
+
+.ml-2 { margin-left: 2em; }
+.ml-10 { margin-left: 10em; }
+.mt-2 { margin-top: 2em; }
+
+.m-2 {margin: 2em;}
+.m-3 {margin: 3em;}
+.m-4 {margin: 4em;}
+
+.pic-size {
+  height: 15em;
+  width: 15em;
+}
+
+
+
+
+/*make the category bar fixed*/
+.grid-item--gigante {
+  width: 200%;
+  height: 200%;
+  background: #F90;
+}
+
+.grid-item:hover {
+  background: #A2C;
+  border-color: white;
+  cursor: pointer;
+}
+
+
+

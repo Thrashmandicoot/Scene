@@ -9,11 +9,13 @@ class PiecesController < ApplicationController
   def index
     @artist = Artist.find(params[:artist_id])
     @pieces = @artist.pieces
+
   end
 
   def show
     @artist = Artist.find_by(id: params[:artist_id])
     @piece = Piece.find_by(artist_id: params[:artist_id])
+    render partial: "partials/show_piece", locals: { artist: @artist, piece: @piece }
   end
 
   def new
