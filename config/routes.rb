@@ -5,10 +5,15 @@ Rails.application.routes.draw do
   root 'galleryhomepage#index'
   get 'galleryhomepage/index'
 
+
   get 'api/pieces' => 'galleryhomepage#api'
 
   resources :organizations do
     resources :spaces
+  end
+
+  controller :artists do
+    get 'local_artists' => 'artists#local_artists'
   end
 
   controller :spaces do
@@ -23,6 +28,7 @@ Rails.application.routes.draw do
 
   resources :artists do
     resources :pieces
+
   end
 
   resources :sessions, only: [:new, :create, :destroy]

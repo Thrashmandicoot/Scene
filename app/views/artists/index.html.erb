@@ -1,14 +1,17 @@
-<h1>Artists In Your Area</h1>
+<% if session[:organization_id] || session[:artist_id] %>
+    <h1>Artists In Your Area</h1>
+  <% else %>
+    <h1>Artists on Scene</h1>
+  <% end %>
 
 <table>
-<!--   this row may not be neccessary, thoughts?
- -->  <tr>
+  <tr>
     <td></td>
     <td>Name</td>
     <td>Profile</td>
-    <td>Bio</td>
     <td>Art</td>
   </tr>
+
   <% @artists.each do |artist| %>
   <% find_artist_tags(artist) %>
 
@@ -16,10 +19,7 @@
     <td> <%= link_to image_tag(artist.avatar), artist_path(artist) %> </td>
     <td> <%= artist.name %> </td>
     <td> <%= link_to("Profile", artist_path(artist)) %> </td>
-    <td>
-      <%= artist.bio %> <br>
-      <strong>Tags: </strong><%= @tags.join(" ") %>
-    </td>
+    <td><strong>Tags: </strong><%= @tags.join(" ") %></td>
     <td> <% if !artist.pieces.empty? %>
           <% sample_piece = artist.pieces.sample %>
           <%= link_to image_tag(sample_piece.img), artist_piece_path(sample_piece.artist_id, sample_piece) %></td>
