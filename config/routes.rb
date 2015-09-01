@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  root 'galleryhomepage#index'
+
+  controller :about do
+    get 'about-us' => 'about#index'
+  end
 
   get 'tags/show'
-
-  root 'galleryhomepage#index'
-  get 'galleryhomepage/index'
 
   get 'api/pieces' => 'galleryhomepage#api'
 
