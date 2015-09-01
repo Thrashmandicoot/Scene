@@ -6,7 +6,7 @@ class ArtistsController < ApplicationController
   end
 
   def local_artists
-   @artists = Artist.near([current_user.latitude, current_user.longitude], 20)
+    @artists = Artist.near([current_user.latitude, current_user.longitude], 10)
   end
 
   def show
