@@ -21,6 +21,7 @@
                     </div>
                     <div class=""><%= link_to artist.website, "http://#{artist.website}" %></div>
                     <div class="desc"><%= "#{artist.bio}" %></div>
+                    <div><%= artist.address.scan(/(.+?),\s*(.+?)(?:,\s|\s\s)(.+?)\s(\d{5})/)[0][1] + ", " + artist.address.scan(/(.+?),\s*(.+?)(?:,\s|\s\s)(.+?)\s(\d{5})/)[0][2] %></div>
                 </div>
                 <div class="bottom">
                     <% if artist.twitter %>

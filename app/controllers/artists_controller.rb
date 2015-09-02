@@ -15,6 +15,9 @@ class ArtistsController < ApplicationController
   def show
     @artist = Artist.find(params[:id])
     @pieces = @artist.pieces
+    @citystate = @artist.address.scan(/(.+?),\s*(.+?)(?:,\s|\s\s)(.+?)\s(\d{5})/)
+    @location= @citystate[0][1] + ", " + @citystate[0][2]
+
   end
 
   def new
