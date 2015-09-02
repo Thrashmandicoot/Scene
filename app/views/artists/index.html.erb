@@ -1,11 +1,7 @@
-<h1 class="center-text">Artists Using Scene</h1>
+<h1 class="c-t">Artists Using Scene</h1>
 <% if current_user %>
-<button class="btn btn-lg btn-default btn-block">
-  <%=link_to 'Local Artists', local_artists_path %>
-</button>
+<%=link_to 'Local Artists', local_artists_path, class:'btn btn-primary btn-block' %>
 <% else %>
-<button class="btn btn-lg btn-default btn-block">
-  <%=link_to 'Sign Up To View Artists In Your Area'%>
-</button>
+<%=link_to 'Sign Up To View Artists In Your Area', class:'btn btn-lg btn-default btn-block'%>
 <% end %>
 <%= render 'artists' %>
