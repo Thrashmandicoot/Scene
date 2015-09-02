@@ -7,9 +7,9 @@
                 <div class="cardheader">
 
                 </div>
-                <% unless artist.pieces[0].nil? %>
+                <% unless artist.pieces.empty? %>
                 <script type="text/javascript">
-                    $('div .cardheader').last().css('background', "url(<%= "#{artist.pieces.sample.img}" %>)");
+                    $('div .cardheader').last().css('background', "url(<%= "#{artist.pieces.sample.image.url}" %>)");
                 </script>
                 <% end %>
                 <div class="avatar">
@@ -19,9 +19,10 @@
                     <div class="title">
                         <%= link_to artist.name, artist_path(artist) %>
                     </div>
-                    <div class=""><%= link_to artist.website, "http://#{artist.website}" %></div>
+                    
                     <div class="desc"><%= "#{artist.bio}" %></div>
                 </div>
+
                 <div class="bottom">
                     <% if artist.twitter %>
                     <a class="btn card-btn btn-primary btn-twitter btn-sm" href="<%= "http://twitter.com/#{artist.twitter}" %>">
@@ -32,6 +33,12 @@
                     <a class="btn card-btn btn-primary btn-sm" rel="publisher"
                        href="<%= "http://#{artist.facebook}" %>">
                         <i class="fa fa-facebook"></i>
+                    </a>
+                    <% end %>
+                    <% if artist.website %>
+                    <a class="btn card-btn btn-primary btn-sm" rel="publisher"
+                       href="<%= "#{artist.website}" %>">
+                        <i class="fa fa-laptop"></i>
                     </a>
                     <% end %>
                 </div>
