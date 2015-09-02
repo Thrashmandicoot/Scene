@@ -12,7 +12,7 @@ class ArtistsController < ApplicationController
   def local_artists
     puts "I CAME IN HEREEEE BITCHHHHHHHHH!!!!!!"
     p params
-      @artists =  Artist.near([params[:lat], params[:lng]], 5)
+    @artists =  Artist.near([params[:lat], params[:lng]], 5)
   end
 
   def show

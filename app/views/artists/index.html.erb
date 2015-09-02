@@ -1,27 +1,7 @@
-<% if session[:organization_id] || session[:artist_id] %>
-    <h1>Artists In Your Area</h1>
-  <% else %>
-    <h1>Artists on Scene</h1>
-  <% end %>
-
-<table class="table-striped table-condensed">
-  <tr>
-    <td></td>
-    <td>Name</td>
-    <td>Profile</td>
-    <td>Art</td>
-  </tr>
-
-  <% @artists.each do |artist| %>
-
-  <tr>
-    <td> <%= link_to image_tag(artist.avatar), artist_path(artist) %> </td>
-    <td> <%= artist.name %> </td>
-    <td> <%= link_to("Profile", artist_path(artist)) %> </td>
-    <td> <% if !artist.pieces.empty? %>
-          <% sample_piece = artist.pieces.sample %>
-          <%= link_to image_tag(sample_piece.img), artist_piece_path(sample_piece.artist_id, sample_piece) %></td>
-        <% end %>
-  </tr>
-  <% end %>
-</table>
+<h1 class="c-t">Artists Using Scene</h1>
+<% if current_user %>
+<%=link_to 'Local Artists', local_artists_path, class:'btn btn-primary btn-block' %>
+<% else %>
+<%=link_to 'Log In To View Artists In Your Area', '', class:'btn btn-warning btn-block' %>
+<% end %>
+<%= render 'artists' %>

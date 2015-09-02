@@ -6,6 +6,7 @@
      <p> <%= link_to space.title, organization_space_path( space.organization_id, space.id) %> </p>
      <p> Space-id: <%= space.id %> </p>
      <%= link_to image_tag( space.img ), organization_space_path( space.organization_id, space.id ) %>
+     <%= image_tag space.image.url(:thumb) %>
      <p> Space-guidelines: <%=  space.description %></p>
   </div>
  <% end %>

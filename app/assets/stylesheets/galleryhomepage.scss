@@ -1,8 +1,15 @@
 // Place all the styles related to the galleryhomepage controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@font-face{
+  font-family: "DK Liquid Embrace";
+  src: url('/assets/DKLiquidEmbrace.ttf') format('truetype');
+}
+
 .bg {
-  background: url("carousel5.jpg") no-repeat center center;
+  background: url("burn2.jpg") no-repeat center center;
+  background-size: cover;
   background-color: black;
   position: fixed;
   width: 100%;
