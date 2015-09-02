@@ -20,9 +20,7 @@
                         <%= link_to artist.name, artist_path(artist) %>
                     </div>
                     <div class=""><%= link_to artist.website, "http://#{artist.website}" %></div>
-                    <div class="desc">Passionate designer</div>
-                    <div class="desc">Curious developer</div>
-                    <div class="desc">Tech geek</div>
+                    <div class="desc"><%= "#{artist.bio}" %></div>
                 </div>
                 <div class="bottom">
                     <% if artist.twitter %>
