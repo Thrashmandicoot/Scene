@@ -70,7 +70,7 @@
     <li><%= link_to 'Profile', artist_path(session[:artist_id]) %></li>
     <% end %>
   </ul>
-  <ul class="nav navbar-nav navbar-right" style="font-size: large;">
+  <ul class="nav navbar-nav navbar-right" style="font-size: large; padding-right: 14px;">
     <% if current_user %>
     <li><%= link_to 'Logout', logout_path, method: :post %></li>
     <% else %>
@@ -84,5 +84,14 @@
     <%= yield %>
   </div>
 
+ <div class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="container">
+      <p class="navbar-text center">© 2015 Made quickly by: <a href="http://laurynporte.com">Lauryn</a>, <a href="#">Ashton</a>, <a href="#">Andres</a>, <a href="#">Alex</a>, and <a href="#">Andrew</a>.
+      </p>
+       <a class="btn card-btn btn-primary btn-sm navbar-btn btn-default pull-right" rel="publisher" href="#"> <i class="fa fa-twitter"></i></a> 
+    </div>
+    
+    
+  </div>
 </body>
 </html>
