@@ -69,6 +69,8 @@
     <% if session[:artist_id] %>
     <li><%= link_to 'Profile', artist_path(session[:artist_id]) %></li>
     <% end %>
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
     <% if current_user %>
     <li><%= link_to 'Logout', logout_path, method: :post %></li>
     <% else %>
