@@ -167,7 +167,7 @@ Dir.foreach('app/assets/images/pieces') do |item|
 	 		title: Faker::Hacker.adjective,
 			image: File.open(File.join(Rails.root, 'app/assets/images/pieces', "#{item}")),
 			description: random_descriptions.sample(3),
-			artist_id: (4..28).to_a.sample,
+			artist_id: (4..27).to_a.sample,
 			tag_list: random_tags.sample(2)
 		)
  	end
