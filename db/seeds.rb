@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+=======
+
+# Artist.create(name: "Alex", bio: "I'm from sconny", avatar: "http://media1.santabanta.com/full1/Miscellaneous/Cartoon%20Characters/cartoon-characters-76a.jpg", address: "Grand Ave, Eau Claire, WI, 54703", email: "alex@alex.com", password: "123456",website: "www.devbootcamp.com")
+
+# Artist.create(name: "Andres", bio: "Latin Thunder", avatar: "http://www.toonpool.com/user/1667/files/andres_iniesta_837505.jpg", address: "Folsom St, San Francisco, CA", email: "andres@andres.com", password: "123456",website: "www.devbootcamp.com")
+
+>>>>>>> ff2ccc5c4b905abe559643f97466f74abbcb1464
 random_descriptions = ['Canvas', 'Card stock', 'Fabric' , 'Glass', 'Human body', 'Metal', 'Paper', 'Plaster', 'Scratchboard', 'Vellum', 'Walls', 'Wood', 'Airbrush', 'Acrylic paint', 'Charcoal', 'Colored pencil', 'Conté', 'Crayon', 'Gouache', 'Graphite', 'Human finger', 'Marker', 'Oil paint', 'Pastel', 'Pen and ink', 'Pencil', 'Sand', 'Watercolor', 'Tempera']
 
 random_tags = ['Graffiti', 'Magick Realizm', 'Glitch', 'Folk', 'Religious', 'Avant Garde', 'Street', 'Southern', 'Micography', 'Marine Art', 'Fine Art', 'Animal Style', 'Cybersexual', 'Eclecticism in art', 'New Media', 'Painted', 'Sound Art', 'Pleorama', 'Dada', 'Massurealism', 'Decorative', 'Mall Goth', 'Environmental']

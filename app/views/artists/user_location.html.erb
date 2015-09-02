@@ -1,0 +1,45 @@
+<html>
+<head>
+  <title></title>
+  <script src="http://maps.googleapis.com/maps/api/js"></script>
+<script>
+
+$('document').ready(function(){
+
+  initializeMap();
+
+});
+
+
+
+var data;
+function initializeMap() {
+  var mapOptions = {
+    zoom: 14 ,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById("googleMap"),mapOptions);
+   navigator.geolocation.getCurrentPosition(function(position) {
+
+            var geolocate = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude
+            newDoc(lat, lng);
+            console.log(data);
+
+
+});
+}
+
+
+ function newDoc(lat, lng) {
+    window.location = "http://localhost:3000/local_artists?lat=" + lat +"&lng=" +lng;
+}
+</script>
+</head>
+<body>
+<div id="googleMap" style="width:700px;height:500px;"></div>
+
+</body>
+</html>

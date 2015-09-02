@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   controller :artists do
     get 'local_artists' => 'artists#local_artists'
+    get 'user_location' => 'artists#user_location'
   end
 
   controller :spaces do
