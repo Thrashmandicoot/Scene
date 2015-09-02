@@ -22,11 +22,16 @@ function initialize() {
             )
 
   <% @artists.each do |artist| %>
+  var infowindow = new google.maps.InfoWindow({
+    content: "HEY YOU CLICKED ME"
+  })
+
   var myLatlng = new google.maps.LatLng(<%= artist.latitude %>,<%= artist.longitude %>);
   var marker = new google.maps.Marker({
-    position: myLatlng
-
+    position: myLatlng,
+    clickable: true,
 })
+
 marker.setMap(map);
   <% end %>
 }

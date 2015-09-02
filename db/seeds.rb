@@ -3,6 +3,8 @@
 
 # Artist.create(name: "Andres", bio: "Latin Thunder", avatar: "http://www.toonpool.com/user/1667/files/andres_iniesta_837505.jpg", address: "Folsom St, San Francisco, CA", email: "andres@andres.com", password: "123456",website: "www.devbootcamp.com")
 
+Artist.create(name: "Majd", bio: "Oh jeez", avatar: "http://static1.squarespace.com/static/530fc5f5e4b0e44d7fb1964c/t/55070a07e4b0481afcf6aee2/1426524684112/website+image?format=500w", address: "San Francisco", email: "artemasks@gmail.com", password: "123456", website: "artemasks.com")
+
 random_descriptions = ['Canvas', 'Card stock', 'Fabric' , 'Glass', 'Human body', 'Metal', 'Paper', 'Plaster', 'Scratchboard', 'Vellum', 'Walls', 'Wood', 'Airbrush', 'Acrylic paint', 'Charcoal', 'Colored pencil', 'Conté', 'Crayon', 'Gouache', 'Graphite', 'Human finger', 'Marker', 'Oil paint', 'Pastel', 'Pen and ink', 'Pencil', 'Sand', 'Watercolor', 'Tempera']
 random_tags = ['Graffiti', 'Magick Realizm', 'Glitch', 'Figurative', 'Folk', 'Religious', 'Avant Garde', 'Participatory', 'Street', 'Southern', 'Micography', 'Marine Art', 'Fine Art', 'Antiquities', 'Animal Style', 'Cybersexual', 'Eclecticism in art', 'New Media', 'Victimless', 'Painted', 'Nouvelle Vagrance', 'New Chimney', 'Shoe', 'General Surveillance', 'Sound Art', 'Pleorama', 'Dada', 'Massurealism', 'Decorative', 'Elvis', 'Mall Goth', 'Environmental']
 
