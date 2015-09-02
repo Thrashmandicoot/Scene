@@ -5,8 +5,12 @@ class ArtistsController < ApplicationController
     @organization = Organization.find_by(id: session[:organization_id])
   end
 
+  def user_location
+
+  end
+
   def local_artists
-    @artists = Artist.near([current_user.latitude, current_user.longitude], 10 )
+    @artists =  Artist.near([params[:lat], params[:lng]], 5)
   end
 
   def show

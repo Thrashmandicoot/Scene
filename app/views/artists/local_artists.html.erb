@@ -1,31 +1,41 @@
 <script src="http://maps.googleapis.com/maps/api/js"></script>
+
 <script>
 $(document).ready(function(){
-  initialize();
-})
-function initialize() {
+    initializeMap();
+});
 
-  var mapProp = {
-    center:new google.maps.LatLng(<%= current_user.latitude %>,<%= current_user.longitude %>),
-    zoom:13,
+function initializeMap() {
+  var mapOptions = {
+    zoom: 13 ,
     mapTypeId:google.maps.MapTypeId.ROADMAP
   };
-  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+  var map = new google.maps.Map(document.getElementById("googleMap"),mapOptions);
+   navigator.geolocation.getCurrentPosition(function(position) {
+   var geolocate = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+   var infowindow = new google.maps.InfoWindow({
+                map: map,
+                position: geolocate,
+                content:
+                    '<h6>Location pinned from HTML5 Geolocation!</h6>' +
+                    '<h6>Latitude: ' + position.coords.latitude + '</h6>' +
+                    '<h6>Longitude: ' + position.coords.longitude + '</h6>'
+            });
+    var data = [position.coords.latitude, position.coords.longitude];
+            console.log(data);
 
-  <% @artists.each do |artist| %>
-    var myLatlng = new google.maps.LatLng(<%= artist.latitude %>,<%= artist.longitude %>);
-    var marker = new google.maps.Marker({
-      position: myLatlng,
-      clickable: true
-})
-  marker.setMap(map);
-    <% end %>
-  //   marker.addListener('click', function() {
-  //   infowindow.open(map, marker);
-  // });
-  // var infowindow = new google.maps.InfoWindow({
-  //   content: "HEY YOU CLICKED ME"
-  // })
+         map.setCenter(geolocate);
+
+         <% @artists.each do |artist|%>
+         var markerLatLong = new google.maps.LatLng(<%= artist.latitude%>, <%= artist.longitude %>);
+         var marker = new google.maps.Marker({
+          position: markerLatLong,
+         })
+         marker.setMap(map);
+         <% end %>
+
+});
+
 }
 </script>
 <h1 class='c-t'>Local Artists</h1>
