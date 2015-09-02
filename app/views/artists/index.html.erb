@@ -2,6 +2,6 @@
 <% if current_user %>
 <%=link_to 'Local Artists', local_artists_path, class:'btn btn-primary btn-block' %>
 <% else %>
-<%=link_to 'Sign Up To View Artists In Your Area', class:'btn btn-lg btn-default btn-block'%>
+<%=link_to 'Log In To View Artists In Your Area', '', class:'btn btn-warning btn-block' %>
 <% end %>
 <%= render 'artists' %>
