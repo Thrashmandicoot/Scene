@@ -1,3 +1,4 @@
+<!-- Show all pieces -->
 <script type="text/javascript">
   $(document).ready(function(){
       showPiece();
@@ -32,7 +33,7 @@
           <div class="debugx fl-end m-1 viewport">
             <a class="pic" href="<%= artist_piece_path(piece.artist_id, piece) %>" >
               <span class="dark-background"> <%= piece.title %> <em>by <%= artist.name %></em></span>
-              <img src="<%= piece.img %>" alt="Piece Pic" class="image-style" />
+              <img src="<%= piece.image.url(:thumb) %>" alt="Piece Pic" class="image-style" />
             </a>
           </div>
 

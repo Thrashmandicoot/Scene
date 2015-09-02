@@ -1,20 +1,18 @@
-
 <div class="r-this span-12-d ml-12" >
 
 <div class="debugx pic">
 
     <button class="x-btn ml-23">
       <img src="https://cdn3.iconfinder.com/data/icons/interface/100/close_button_1-512.png" height=20, width=20>
-  </button>
+    </button>
 
   <div class="debugx">
   <h2><%= piece.title %></h2>
-    <a href="<%= piece.img %>" data-lightbox="ex-1">
-      <img src="<%= piece.img %>" alt="Artist's Piece.img">
+    <a href="<%= piece.image.url %>" data-lightbox="ex-1">
+      <img src="<%= piece.image.url(:medium) %>" alt="Artist's Piece.img">
     </a>
   </div>
   <br>
-
 
     <div class="debugx hov">
       <img src="http://www.wrapchic.in/images/offer.png" height=15, width=15>
@@ -23,7 +21,6 @@
       <% end %>
     </div>
   <h3 class="debugx mb-4"><strong>Artist: <%= link_to artist.name, artist_path(@artist) %></strong></h3>
-
 
 </div>
 
