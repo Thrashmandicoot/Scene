@@ -797,5 +797,7 @@ td {
 .source_table .skipped:nth-child(even) {
   background-color: #fbffcf; }
 
-
+body > .container {
+  padding-top: 60px;
+}
 

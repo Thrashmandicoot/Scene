@@ -1,7 +1,37 @@
+<script src="http://maps.googleapis.com/maps/api/js"></script>
 <h1 class="c-t">Artists Using Scene</h1>
-<% if current_user %>
-<%=link_to 'Local Artists', local_artists_path, class:'btn btn-primary btn-block' %>
-<% else %>
-<%=link_to 'Log In To View Artists In Your Area', '', class:'btn btn-warning btn-block' %>
-<% end %>
+<script>
+$(document).ready(function(){
+    initializeMap();
+});
+
+function initializeMap() {
+  var mapOptions = {
+    zoom: 8,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById("googleMap"),mapOptions);
+   navigator.geolocation.getCurrentPosition(function(position) {
+   var geolocate = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    var data = [position.coords.latitude, position.coords.longitude];
+            console.log(data);
+
+         map.setCenter(geolocate);
+
+         <% @artists.each do |artist|%>
+         var markerLatLong = new google.maps.LatLng(<%= artist.latitude%>, <%= artist.longitude %>);
+         var marker = new google.maps.Marker({
+          position: markerLatLong,
+         })
+         marker.setMap(map);
+         <% end %>
+
+});
+
+}
+</script>
+
+<div class='m0-a' id="googleMap" style="width:100%;height:500px;"></div>
+
+<%=link_to 'Local Artists', user_location_path, class:'btn btn-primary btn-block' %>
 <%= render 'artists' %>
