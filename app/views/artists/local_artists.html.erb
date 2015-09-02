@@ -20,7 +20,7 @@ function initialize() {
             new google.maps.Size(10, 10), //size
             new google.maps.Point(10,10) //origin
             )
-
+  var markers = [];
   <% @artists.each do |artist| %>
   var infowindow = new google.maps.InfoWindow({
     content: "HEY YOU CLICKED ME"
@@ -31,7 +31,11 @@ function initialize() {
     position: myLatlng,
     clickable: true,
 })
-
+  markers.push(marker)
+  for (i=0; i < markers.length; i++){
+  marker[i].addListener('click', function() {
+    infowindow.open(map, marker);
+  });}
 marker.setMap(map);
   <% end %>
 }
