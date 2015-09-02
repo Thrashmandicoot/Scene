@@ -43,7 +43,7 @@ var zoomHover = function(){
 
 // Smooth Scroll
 var smoothScroll = function(){
-    window.scrollTo(0,0)
+    window.scrollTo(0,140)
 }
 
 

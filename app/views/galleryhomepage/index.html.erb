@@ -1,207 +1,79 @@
-<!-- Header -->
-<div class="bg divotron">
+ <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- Video  -->
+<div id="wistia_wdf369ilyi" class="wistia_embed bg divotron" style="width:1500;height:940px;" data-video-width="1500" data-video-height="450">&nbsp;
 </div>
+<script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js"></script>
+<script>
+wistiaEmbed = Wistia.embed("wdf369ilyi", {
+  canonicalTitle: "SCENE",
+  version: "v1",
+  autoPlay: true,
+  endVideoBehavior: "loop",
+  volumeControl: false,
+  chromeless: true,
+  playbar: false,
+  controlsVisibleOnLoad: false,
+  volume: 0
+});
+</script>
+
 <!-- Marketing Icons Section -->
   <div class="row">
-    <div style='height:370px;'  class="col-lg-12">
 
-      <div class="scene-welcome">
-        Scene
-      </div>
+    <div class="col-lg-12">
+      <%= image_tag'logo3.png', :class => "logo"%>
+      <a class="btn-home btn-black" href="<%= user_location_path%>" style="margin-bottom: 80px;">FIND LOCAL ARTISTS</a>
     </div>
-    <div class="col-md-4">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4>
-            <i class="fa fa-fw fa-check"></i>
-            Bootstrap v3.2.0</h4>
-        </div>
-        <div class="panel-body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-          <a class="btn btn-default" href="#">Learn More</a>
-        </div>
-      </div>
+    
+    <h4 style="color:#E505D2; padding-top:40px; display:block; text-align: center; font-weight:bold;">See Featured Artists and Scenes</h4> 
+
+    <a href="#featured">
+      <i class="fa fa-angle-double-down fa-5x" style="color:#E505D2; display:block; text-align: center;"></i>
+    </a>
+
+<div class="buffer" style="height: 150px;"></div>
+
+<!-- Page Heading/Breadcrumbs -->
+<div class="row">
+    <div class="col-lg-12" id="featured">
+        <h1 class="page-header">Featured Artists and Scenes</h1>
     </div>
-    <div class="col-md-4">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4>
-            <i class="fa fa-fw fa-gift"></i>
-            Free &amp; Open Source</h4>
-        </div>
-        <div class="panel-body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-          <a class="btn btn-default" href="#">Learn More</a>
-        </div>
+</div>
+<!-- /.row -->
+
+ <!-- Featured Pieces Row -->
+  <div class="row" style="margin-bottom:20px;">
+    <% @pieces.each do |piece| %>
+      <div class="col-md-4 img-portfolio">
+          <a href="portfolio-item.html">
+              <img class="img-responsive img-hover" src="<%= piece.image.url %>" alt="piece.title">
+          </a>
+          <h3>
+              <%= link_to piece.title, artist_piece_path(piece.artist_id, piece)%>
+          </h3>
+          <p>
+            Medium: <%= piece.description.gsub(/[\[\]]/, "") %>
+          </p>
       </div>
-    </div>
-    <div class="col-md-4">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4>
-            <i class="fa fa-fw fa-compass"></i>
-            Easy to Use</h4>
-        </div>
-        <div class="panel-body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-          <a class="btn btn-default" href="#">Learn More</a>
-        </div>
-      </div>
-    </div>
+    <% end %>
   </div>
 
-<!-- Call to Action Section -->
-  <div class="well">
-    <div class="row">
-      <div class="col-md-8">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-lg btn-default btn-block"> <%=link_to 'Local Artists', user_location_path %> </button>
+  <!-- Featured Scenes Row -->
+   <div class="row" style="margin-bottom:20px;">
+       <% @scenes.each do |scene| %>
+         <div class="col-md-4 img-portfolio">
+             <a href="portfolio-item.html">
+                 <img class="img-responsive img-hover" src="<%= scene.image.url %>" alt="scene.title">
+             </a>
+             <h3>
+                 <%= link_to scene.title, organization_space_path(scene.organization_id, scene)%>
+             </h3>
+             <p>
+               Description: <%= scene.description.gsub(/[\[\]]/, "") %>
+             </p>
+         </div>
+       <% end %>
+     </div>
 
-      </div>
-    </div>
-  </div>
-
-<!-- Page Content -->
-  <div class="container">
-
-<!-- Page Header -->
-    <div class="row">
-      <div class="col-lg-12">
-        <h1 class="page-header">Find Local Artists
-          <small>Or Find Local Scenes</small>
-        </h1>
-      </div>
-    </div>
-    <!-- /.row -->
-
-    <!-- Projects Row -->
-
-    <div class="row">
-      <div class="col-md-4 portfolio-item">
-        <a href="#">
-          <img alt="" class="img-responsive" src="http://placehold.it/700x400">
-        </a>
-        <h3>
-          <a href="#">Project Name</a>
-        </h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-      </div>
-      <div class="col-md-4 portfolio-item">
-        <a href="#">
-          <img alt="" class="img-responsive" src="http://placehold.it/700x400">
-        </a>
-        <h3>
-          <a href="#">Project Name</a>
-        </h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-      </div>
-      <div class="col-md-4 portfolio-item">
-        <a href="#">
-          <img alt="" class="img-responsive" src="http://placehold.it/700x400">
-        </a>
-        <h3>
-          <a href="#">Project Name</a>
-        </h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-      </div>
-    </div>
-<!-- /.row -->
-
-<!-- Projects Row -->
-    <div class="row">
-      <div class="col-md-4 portfolio-item">
-        <a href="#">
-          <img alt="" class="img-responsive" src="http://placehold.it/700x400">
-        </a>
-        <h3>
-          <a href="#">Project Name</a>
-        </h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-      </div>
-      <div class="col-md-4 portfolio-item">
-        <a href="#">
-          <img alt="" class="img-responsive" src="http://placehold.it/700x400">
-        </a>
-        <h3>
-          <a href="#">Project Name</a>
-        </h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-      </div>
-      <div class="col-md-4 portfolio-item">
-        <a href="#">
-          <img alt="" class="img-responsive" src="http://placehold.it/700x400">
-        </a>
-        <h3>
-          <a href="#">Project Name</a>
-        </h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-      </div>
-    </div>
-
-<!-- Projects Row -->
-    <div class="row">
-      <div class="col-md-4 portfolio-item">
-        <a href="#">
-          <img alt="" class="img-responsive" src="http://placehold.it/700x400">
-        </a>
-        <h3>
-          <a href="#">Project Name</a>
-        </h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-      </div>
-      <div class="col-md-4 portfolio-item">
-        <a href="#">
-          <img alt="" class="img-responsive" src="http://placehold.it/700x400">
-        </a>
-        <h3>
-          <a href="#">Project Name</a>
-        </h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-      </div>
-      <div class="col-md-4 portfolio-item">
-        <a href="#">
-          <img alt="" class="img-responsive" src="http://placehold.it/700x400">
-        </a>
-        <h3>
-          <a href="#">Project Name</a>
-        </h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-      </div>
-    </div>
-<!-- /.row -->
-
-    <hr>
-
-<!-- Pagination -->
-    <div class="row text-center">
-      <div class="col-lg-12">
-        <ul class="pagination">
-          <li>
-            <a href="#">&laquo;</a>
-          </li>
-          <li class="active">
-            <a href="#">1</a>
-          </li>
-          <li>
-            <a href="#">2</a>
-          </li>
-          <li>
-            <a href="#">3</a>
-          </li>
-          <li>
-            <a href="#">4</a>
-          </li>
-          <li>
-            <a href="#">5</a>
-          </li>
-          <li>
-            <a href="#">&raquo;</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-<!-- /.row -->
-
-    <hr>
+<div class="buffer" style="height: 100px;"></div>

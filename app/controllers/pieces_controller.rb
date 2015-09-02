@@ -3,18 +3,19 @@ class PiecesController < ApplicationController
 
   def all_pieces
     @pieces = Piece.all
+    @pieces.shuffle
     pull_tags(@pieces)
   end
 
   def index
     @artist = Artist.find(params[:artist_id])
     @pieces = @artist.pieces
-
   end
 
   def show
-    @artist = Artist.find_by(id: params[:artist_id])
-    @piece = Piece.find_by(artist_id: params[:artist_id])
+    @artist = Artist.find(params[:artist_id])
+    # @piece = Piece.find_by(artist_id: params[:artist_id])
+    @piece = Piece.find(params[:id])
     render partial: "partials/show_piece", locals: { artist: @artist, piece: @piece }
   end
 

@@ -1,4 +1,4 @@
-random_descriptions = ['Canvas', 'Card stock', 'Fabric' , 'Glass', 'Human body', 'Metal', 'Paper', 'Plaster', 'Scratchboard', 'Vellum', 'Walls', 'Wood', 'Airbrush', 'Acrylic paint', 'Charcoal', 'Colored pencil', 'Conté', 'Crayon', 'Gouache', 'Graphite', 'Human finger', 'Marker', 'Oil paint', 'Pastel', 'Pen and ink', 'Pencil', 'Sand', 'Watercolor', 'Tempera']
+random_descriptions = [Faker::Hacker.say_something_smart, 'Canvas', 'Card stock', 'Fabric' , 'Glass', 'Human body', 'Metal', 'Paper', 'Plaster', 'Scratchboard', 'Vellum', 'Walls', 'Wood', 'Airbrush', 'Acrylic paint', 'Charcoal', 'Colored pencil', 'Conté', 'Crayon', 'Gouache', 'Graphite', 'Human finger', 'Marker', 'Oil paint', 'Pastel', 'Pen and ink', 'Pencil', 'Sand', 'Watercolor', 'Tempera']
 
 random_tags = ['Graffiti', 'Magick Realizm', 'Glitch', 'Folk', 'Religious', 'Avant Garde', 'Street', 'Southern', 'Micography', 'Marine Art', 'Fine Art', 'Animal Style', 'Cybersexual', 'Eclecticism in art', 'New Media', 'Painted', 'Sound Art', 'Pleorama', 'Dada', 'Massurealism', 'Decorative', 'Mall Goth', 'Environmental']
 
@@ -80,8 +80,30 @@ end
 
 
 
+# #=================ARTISTS Zoe=================#
 
+zoe = Artist.create(
+	name: "Zoe 'Yonce' Ingram",
+	email: "zingram@risd.edu",
+	password: "123456",
+	avatar: "http://static1.squarespace.com/static/548f75f7e4b06a282a4be45f/t/549e0904e4b045b4501ac452/1419643141199/?format=750w",
+	bio: "Studied Design at Rhode Island School of Design and Web Development at DevBootCamp. I can make you a bad ass website AND design it. Gucci.",
+	address: "522 Folsom st, San Francisco, CA 94105",
+	facebook: "www.facebook.com/" + "zoeingram",
+	twitter: "@zoeingram",
+	website: "http://zoe-ingram.squarespace.com/"
+	)
 
+Dir.foreach('app/assets/images/zoe') do |item|
+	if item[0] != "."
+	 	zoe.pieces.create(
+	 		title: "#{item}"[0...-4],
+			image: File.open(File.join(Rails.root, 'app/assets/images/zoe', "#{item}")),
+			description: "Handrawn",
+			tag_list: "Sketch, Animation"
+		)
+ 	end
+end
 
 # #=================ARTISTS Madj=================#
 
@@ -104,31 +126,6 @@ end
 			image: File.open(File.join(Rails.root, 'app/assets/images/majd', "#{item}")),
 			description: "All designed and constructed by the hand of the artist",
 			tag_list: "Masks"
-		)
- 	end
-end
-
-# #=================ARTISTS Zoe=================#
-
-zoe = Artist.create(
-	name: "Zoe 'Yonce' Ingram",
-	email: "zingram@risd.edu",
-	password: "123456",
-	avatar: "http://static1.squarespace.com/static/548f75f7e4b06a282a4be45f/t/549e0904e4b045b4501ac452/1419643141199/?format=750w",
-	bio: "Studied Design at Rhode Island School of Design and Web Development at DevBootCamp. I can make you a bad ass website AND design it. 'Yonce.",
-	address: "522 Folsom st, San Francisco, CA 94105",
-	facebook: "www.facebook.com/" + "zoeingram",
-	twitter: "@zoeingram",
-	website: "http://zoe-ingram.squarespace.com/"
-	)
-
-Dir.foreach('app/assets/images/zoe') do |item|
-	if item[0] != "."
-	 	zoe.pieces.create(
-	 		title: "#{item}"[0...-4],
-			image: File.open(File.join(Rails.root, 'app/assets/images/zoe', "#{item}")),
-			description: "Handrawn",
-			tag_list: "Sketch, Animation"
 		)
  	end
 end
@@ -161,10 +158,11 @@ response = HTTParty.get('https://www.kimonolabs.com/api/aeongt2c?apikey=OJQIQILp
 end
 
 # Create pieces from dir
+titles = [Faker::Hacker.adjective, Faker::Hacker.noun, Faker::Hacker.verb, Faker::Hacker.ingverb, Faker::Hacker.abbreviation ]
 Dir.foreach('app/assets/images/pieces') do |item|
 	if item[0] != "."
 	 	Piece.create(
-	 		title: Faker::Hacker.adjective,
+	 		title: Faker::App.name,
 			image: File.open(File.join(Rails.root, 'app/assets/images/pieces', "#{item}")),
 			description: random_descriptions.sample(3),
 			artist_id: (4..27).to_a.sample,
