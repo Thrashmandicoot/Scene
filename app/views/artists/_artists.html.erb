@@ -9,7 +9,7 @@
                 </div>
                 <% unless artist.pieces[0].nil? %>
                 <script type="text/javascript">
-                    $('div .cardheader').last().css('background', "url(<%= "#{artist.pieces.sample.img}" %>)");
+                    $('div .cardheader').last().css('background', "url(<%= "#{artist.pieces.sample.image.url(:medium)}" %>)");
                 </script>
                 <% end %>
                 <div class="avatar">
