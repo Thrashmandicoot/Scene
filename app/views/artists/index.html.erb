@@ -1,50 +1,7 @@
-<h1 class="center-text">Artists Using Scene</h1>
+<h1 class="c-t">Artists Using Scene</h1>
 <% if current_user %>
-        <button class="btn btn-lg btn-default btn-block"> <%=link_to 'Local Artists', local_artists_path %> </button>
-        <% else %>
-          <button class="btn btn-lg btn-default btn-block"> <%=link_to 'Sign Up To View Artists In Your Area'%> </button>
-        <% end %>
-
-	<div class="row">
-<% @artists.each do |artist| %>
-		<div class="col-sm-3">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-
-            <div class="card hovercard">
-                <div class="cardheader">
-
-                </div>
-                <% unless artist.pieces[0].nil? %>
-                <script type="text/javascript">
-                    $('div .cardheader').last().css('background', "url(<%= "#{artist.pieces.sample.img}" %>)");
-                </script>
-                <% end %>
-                <div class="avatar">
-                    <%= link_to image_tag(artist.avatar), artist_path(artist) %>
-                </div>
-                <div class="info">
-                    <div class="title">
-                        <%= link_to artist.name, artist_path(artist) %>
-                    </div>
-                    <div class=""><%= link_to artist.website, "http://#{artist.website}" %></div>
-                    <div class="desc">Passionate designer</div>
-                    <div class="desc">Curious developer</div>
-                    <div class="desc">Tech geek</div>
-                </div>
-                <div class="bottom">
-                    <% if artist.twitter %>
-                    <a class="btn btn-primary btn-twitter btn-sm" href="<%= "http://twitter.com/#{artist.twitter}" %>">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                    <% end %>
-                    <% if artist.facebook %>
-                    <a class="btn btn-primary btn-sm" rel="publisher"
-                       href="<%= "http://#{artist.facebook}" %>">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                    <% end %>
-                </div>
-            </div>
-
-        </div>
+<%=link_to 'Local Artists', local_artists_path, class:'btn btn-primary btn-block' %>
+<% else %>
+<%=link_to 'Log In To View Artists In Your Area', '', class:'btn btn-warning btn-block' %>
 <% end %>
+<%= render 'artists' %>
