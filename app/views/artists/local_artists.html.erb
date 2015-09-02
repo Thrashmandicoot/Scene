@@ -1,61 +1,32 @@
-<!DOCTYPE html>
-<html>
-<head>
 <script src="http://maps.googleapis.com/maps/api/js"></script>
 <script>
-$(document).ready(function(){
-  initialize();
-})
-function initialize() {
+  $(document).ready(function(){
+    initialize();
+  })
+  function initialize() {
 
-  var mapProp = {
-    center:new google.maps.LatLng(<%= current_user.latitude %>,<%= current_user.longitude %>),
-    zoom:13,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    var mapProp = {
+      center:new google.maps.LatLng(<%= current_user.latitude %>,<%= current_user.longitude %>),
+      zoom:13,
+      mapTypeId:google.maps.MapTypeId.ROADMAP
+    };
+    var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
-   var image = new google.maps.MarkerImage(
-            "http://www.thamesclippers.com/assets/img/icon-art.png", //url
-            new google.maps.Size(10, 10), //size
-            new google.maps.Point(10,10) //origin
-            )
+     var image = new google.maps.MarkerImage(
+              "http://www.thamesclippers.com/assets/img/icon-art.png", //url
+              new google.maps.Size(10, 10), //size
+              new google.maps.Point(10,10) //origin
+              )
 
-  <% @artists.each do |artist| %>
-  var myLatlng = new google.maps.LatLng(<%= artist.latitude %>,<%= artist.longitude %>);
-  var marker = new google.maps.Marker({
-    position: myLatlng
+    <% @artists.each do |artist| %>
+    var myLatlng = new google.maps.LatLng(<%= artist.latitude %>,<%= artist.longitude %>);
+    var marker = new google.maps.Marker({
+      position: myLatlng
 
-})
-marker.setMap(map);
-  <% end %>
-}
+  })
+  marker.setMap(map);
+    <% end %>
+  }
 </script>
-</head>
-
-<body>
-<div id="googleMap" style="width:700px;height:500px;"></div>
-<table class="table-striped table-condensed">
-  <tr>
-    <td></td>
-    <td>Name</td>
-    <td>Profile</td>
-    <td>Art</td>
-  </tr>
-
-  <% @artists.each do |artist| %>
-
-  <tr>
-    <td> <%= link_to image_tag(artist.avatar), artist_path(artist) %> </td>
-    <td> <%= artist.name %> </td>
-    <td> <%= link_to("Profile", artist_path(artist)) %> </td>
-    <td> <% if !artist.pieces.empty? %>
-          <% sample_piece = artist.pieces.sample %>
-          <%= link_to image_tag(sample_piece.img), artist_piece_path(sample_piece.artist_id, sample_piece) %></td>
-        <% end %>
-  </tr>
-  <% end %>
-</table>
-</body>
-
-</html>
+<div class='m0-a' id="googleMap" style="width:700px;height:500px;"></div>
+<%= render 'artists' %>
