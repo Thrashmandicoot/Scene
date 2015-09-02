@@ -6,7 +6,6 @@ class ArtistsController < ApplicationController
   end
 
   def user_location
-
   end
 
   def local_artists

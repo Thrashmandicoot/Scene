@@ -1,5 +1,5 @@
 <script src="http://maps.googleapis.com/maps/api/js"></script>
-
+<h1 class="c-t">Local Artists</h1>
 <script>
 $(document).ready(function(){
     initializeMap();
@@ -13,14 +13,6 @@ function initializeMap() {
   var map = new google.maps.Map(document.getElementById("googleMap"),mapOptions);
    navigator.geolocation.getCurrentPosition(function(position) {
    var geolocate = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-   var infowindow = new google.maps.InfoWindow({
-                map: map,
-                position: geolocate,
-                content:
-                    '<h6>Location pinned from HTML5 Geolocation!</h6>' +
-                    '<h6>Latitude: ' + position.coords.latitude + '</h6>' +
-                    '<h6>Longitude: ' + position.coords.longitude + '</h6>'
-            });
     var data = [position.coords.latitude, position.coords.longitude];
             console.log(data);
 
@@ -38,6 +30,6 @@ function initializeMap() {
 
 }
 </script>
-<h1 class='c-t'>Local Artists</h1>
 <div class='m0-a' id="googleMap" style="width:100%;height:500px;"></div>
+<%=link_to 'Artists', artists_path, class:'btn btn-primary btn-block' %>
 <%= render 'artists' %>
