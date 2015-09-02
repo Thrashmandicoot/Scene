@@ -1,5 +1,6 @@
 class GalleryhomepageController < ApplicationController
   def index
-    @pieces = Piece.all.sample(5) + Space.all.sample(5)
+    @pieces = Piece.all.sample(3)
+    @scenes = Space.all.sample(3)
   end
 end

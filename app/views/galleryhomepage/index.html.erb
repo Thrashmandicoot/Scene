@@ -1,4 +1,6 @@
-<!-- Video Parallax -->
+ <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- Video  -->
 <div id="wistia_wdf369ilyi" class="wistia_embed bg divotron" style="width:1500;height:940px;" data-video-width="1500" data-video-height="450">&nbsp;
 </div>
 <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js"></script>
@@ -21,9 +23,62 @@ wistiaEmbed = Wistia.embed("wdf369ilyi", {
 
     <div class="col-lg-12">
       <%= image_tag'logo3.png', :class => "logo"%>
-      <a class="btn-home btn-black" href="#">FIND LOCAL ARTISTS</a>
+      <a class="btn-home btn-black" href="#" style="margin-bottom: 80px;">FIND LOCAL ARTISTS</a>
     </div>
+    
+    <div>
+    </div>
+    
+    <h4 style="color:#E505D2; padding-top:40px; display:block; text-align: center; font-weight:bold;">See Featured Artists and Scenes</h4> 
+
+    <a href="#featured">
+      <i class="fa fa-angle-double-down fa-5x" style="color:#E505D2; display:block; text-align: center;"></i>
+    </a>
   </div>
 
 
+<div class="buffer" style="height: 150px;"></div>
 
+<!-- Page Heading/Breadcrumbs -->
+<div class="row">
+    <div class="col-lg-12" id="featured">
+        <h1 class="page-header">Featured Artists and Scenes</h1>
+    </div>
+</div>
+<!-- /.row -->
+
+ <!-- Featured Pieces Row -->
+  <div class="row" style="margin-bottom:20px;">
+    <% @pieces.each do |piece| %>
+      <div class="col-md-4 img-portfolio">
+          <a href="portfolio-item.html">
+              <img class="img-responsive img-hover" src="<%= piece.image.url %>" alt="piece.title">
+          </a>
+          <h3>
+              <%= link_to piece.title, artist_piece_path(piece.artist_id, piece)%>
+          </h3>
+          <p>
+            Medium: <%= piece.description.gsub(/[\[\]]/, "") %>
+          </p>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Featured Scenes Row -->
+   <div class="row" style="margin-bottom:20px;">
+       <% @scenes.each do |scene| %>
+         <div class="col-md-4 img-portfolio">
+             <a href="portfolio-item.html">
+                 <img class="img-responsive img-hover" src="<%= scene.image.url %>" alt="scene.title">
+             </a>
+             <h3>
+                 <%= link_to scene.title, organization_space_path(scene.organization_id, scene)%>
+             </h3>
+             <p>
+               Description: <%= scene.description.gsub(/[\[\]]/, "") %>
+             </p>
+         </div>
+       <% end %>
+     </div>
+
+<div class="buffer" style="height: 100px;"></div>
