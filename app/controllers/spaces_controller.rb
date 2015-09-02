@@ -11,6 +11,7 @@ class SpacesController < ApplicationController
   def show
     @organization = Organization.find(params[:organization_id])
     @space = Space.find(params[:id])
+    render partial: "partials/show_space", locals: { space: @space }
   end
 
   def new

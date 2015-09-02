@@ -1,12 +1,34 @@
-<h1>Spaces#all_spaces</h1>
+<script type="text/javascript">
+  $(document).ready(function(){
+      showPiece();
+      zoomHover();
+  })
+</script>
 
-<% @spaces.each do |space|%>
+<h1 class="debugx ta-cen mb-2 mt-1">Scenes</h1>
+<div class="line span-12-d mb-4"></div>
 
- <div class="space-container">
-     <p> <%= link_to space.title, organization_space_path( space.organization_id, space.id) %> </p>
-     <p> Space-id: <%= space.id %> </p>
-     <%= link_to image_tag( space.img ), organization_space_path( space.organization_id, space.id ) %>
-     <%= image_tag space.image.url(:thumb) %>
-     <p> Space-guidelines: <%=  space.description %></p>
+
+
+<div class="debugx span-11-d mb-15 ">
+  <div class="debugx ml-25">
+
+    <div id="target"></div>
+
+      <div class="debugx allpics">
+      <% @spaces.each do |space| %>
+
+          <div class="debugx fl-end m-1 viewport">
+            <a class="pic" href="<%= organization_space_path(space.organization_id, space) %>" >
+              <span class="dark-background"> <%= space.title %> <em>by Artist name</em></span>
+              <img src="<%= space.image.url(:thumb) %>" alt="Scene Pic" class="image-style" />
+            </a>
+          </div>
+
+      <% end %>
+      </div>
+
   </div>
- <% end %>
+</div>
+
+
