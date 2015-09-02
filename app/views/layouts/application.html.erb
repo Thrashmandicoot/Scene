@@ -57,7 +57,7 @@
 </div>
 
 <nav class='navbar navbar-inverse navbar-fixed-top'>
-  <ul class="nav navbar-nav">
+  <ul class="nav navbar-nav" style="font-size: large;">
     <li><%= link_to 'Home', root_path %></li>
     <li><%= link_to 'About Us', about_us_path %></li>
     <li><%= link_to 'Browse', artists_path %></li>
@@ -70,7 +70,7 @@
     <li><%= link_to 'Profile', artist_path(session[:artist_id]) %></li>
     <% end %>
   </ul>
-  <ul class="nav navbar-nav navbar-right">
+  <ul class="nav navbar-nav navbar-right" style="font-size: large;">
     <% if current_user %>
     <li><%= link_to 'Logout', logout_path, method: :post %></li>
     <% else %>
