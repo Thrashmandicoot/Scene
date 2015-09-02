@@ -20,40 +20,49 @@
 .ml-2 { margin-left: 2em; }
 .ml-4 { margin-left: 4em; }
 .ml-10 { margin-left: 10em; }
-.ml-half { margin-left: 39%; }
+.ml-25 { margin-left: 25em; }
+/*edit this*/
+.ml-12 { margin-left: 12em; }
 .ml-23 { margin-left: 23em;}
 
+.mb-2 { margin-bottom: 2em;}
 .mb-4 { margin-bottom: 4em;}
 .mb-8 { margin-bottom: 8em;}
+.mb-15 { margin-bottom: 15em;}
 .mt-2 { margin-top: 2em; }
 .mr-2 {margin-right: 2em;}
+.mt--2 {margin-top: -2em;}
+.mt--4 {margin-top: -4em;}
 
 .m-1 {margin: 1em;}
 .m-2 {margin: 2em;}
 .m-3 {margin: 3em;}
 .m-4 {margin: 4em;}
 
+
+.pic {
+  margin: 0 auto;
+
 .m0-a {margin: 0 auto;}
 
 xpic-size {
   height: 15em;
   width: 15em;
+
+
+.image-style {
+  /*box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);;*/
 }
 
+.fix {position: fixed;}
 .line {border: 1px solid black; }
+.b-dbot { text-align: center; }
 
 
-
-
-/*make the category bar fixed*/
-.grid-item--gigante {
-  width: 200%;
-  height: 200%;
-  background: #F90;
-}
 
 .grid-item:hover {
   background: #A2C;
   border-color: white;
   cursor: pointer;
 }
+
