@@ -18,17 +18,14 @@ function initialize() {
       position: myLatlng,
       clickable: true
 })
-
-
-
   marker.setMap(map);
     <% end %>
-    marker.addListener('click', function() {
-    infowindow.open(map, marker);
-  });
-  var infowindow = new google.maps.InfoWindow({
-    content: "HEY YOU CLICKED ME"
-  })
+  //   marker.addListener('click', function() {
+  //   infowindow.open(map, marker);
+  // });
+  // var infowindow = new google.maps.InfoWindow({
+  //   content: "HEY YOU CLICKED ME"
+  // })
 }
 </script>
 <h1 class='c-t'>Local Artists</h1>
