@@ -14,13 +14,11 @@ $('document').ready(function(){
 
 var data;
 function initializeMap() {
-console.log("CATS1")
   var mapOptions = {
     zoom: 14 ,
     mapTypeId:google.maps.MapTypeId.ROADMAP
   };
   var map = new google.maps.Map(document.getElementById("googleMap"),mapOptions);
-  console.log("CATS2")
    navigator.geolocation.getCurrentPosition(function(position) {
 
             var geolocate = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
