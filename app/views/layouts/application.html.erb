@@ -69,8 +69,15 @@
     <% if session[:artist_id] %>
     <li><%= link_to 'Profile', artist_path(session[:artist_id]) %></li>
     <% end %>
+
   </ul>
   <ul class="nav navbar-nav navbar-right" style="font-size: large; padding-right: 14px;">
+    <% if session[:organization_id] %>
+    <li><%= link_to 'Settings', edit_organization_path(session[:organization_id]) %></li>
+    <% end %>
+    <% if session[:artist_id] %>
+    <li><%= link_to 'Settings', edit_artist_path(session[:artist_id]) %></li>
+    <% end %>
     <% if current_user %>
     <li><%= link_to 'Logout', logout_path, method: :post %></li>
     <% else %>
@@ -89,7 +96,7 @@
       <p class="navbar-text">© 2015 Made quickly by: <a href="http://laurynporte.com">Lauryn</a>, <a href="#">Ashton</a>, <a href="#">Andres</a>, <a href="#">Alex</a>, and <a href="#">Andrew</a>.  Video Clip by <a href="https://www.youtube.com/watch?v=Gl96bNmRWt0">House Doodle</a>.
       </p>
 
-       <a class="btn card-btn btn-primary btn-sm navbar-btn btn-default pull-right" rel="publisher" href="http://twitter.com/@sceneteam"> <i>t</i></a>
+       <a class="btn card-btn btn-primary btn-sm navbar-btn btn-default pull-right" rel="publisher" href="http://twitter.com/scene_team"> <i>t</i></a>
 
     </div>
   </div>
