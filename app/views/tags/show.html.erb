@@ -26,7 +26,7 @@
   <% @pieces.each do |piece| %>
   <% artist = Artist.find(piece.artist_id) %>
       <div class="debug fl-end m-1 viewport">
-        <a class="pic" href="<%= piece.image.url %>" data-lightbox="ex-1">
+        <a class="pic" href="<%= piece.image.url %>" data-lightbox="ex-1" data-title="<a class='lb-title' href='/artists/<%= artist.id %>'>by: <%= artist.name %></a>">
           <span class="dark-background">
             <%= piece.title %>
             <em>by <%= artist.name %></em>

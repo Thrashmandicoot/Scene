@@ -27,11 +27,12 @@
       <% artist = Artist.find(piece.artist_id) %>
 
           <div class="debugx fl-end m-1 viewport">
-            <a class="pic" href="<%= piece.image.url %>" data-lightbox="ex-1">
+            <a class="pic" href="<%= piece.image.url %>" data-lightbox="ex-1" data-title="<a class='lb-title' href='/artists/<%= artist.id %>'>by: <%= artist.name %></a>">
               <span class="dark-background">
                 <%= piece.title %>
                 <em>by <%= artist.name %></em>
               </span>
+              <img src="<%= piece.image.url %>" alt="Piece Pic" />
             </a>
           </div>
 

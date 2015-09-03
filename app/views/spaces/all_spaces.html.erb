@@ -14,8 +14,9 @@
 
 <div class="debugx col span-10-d ml-15">
   <% @spaces.each do |space| %>
+  <% organization = Organization.find(space.organization_id)%>
     <div class="debugx viewport-m">
-      <a class="" href="<%= space.image.url %>" data-lightbox="ex-1">
+      <a class="" href="<%= space.image.url %>" data-lightbox="ex-1" data-title="<a class='lb-title' href='/organizations/<%= organization.id %>'><%= organization.name %></a>">
         <span class="dark-background-m">
           <%= space.title %>
           <em>by Artist name</em>
