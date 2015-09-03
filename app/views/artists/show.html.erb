@@ -1,69 +1,63 @@
-<img src="<%= @artist.avatar %>">
-<h1><%= @artist.name %></h1>
-<h3><%= @location %></h3>
-<h5>Email: <%= @artist.email %></h5>
-
-<h3>Social Media</h3>
-<ul>
-  <li><%= @artist.facebook %></li>
-  <li><%= @artist.twitter %></li>
-</ul>
-
-<h3>Pieces</h3>
-<div>
-  <% @pieces_sample = @artist.pieces.sample(3) %>
-  <% @pieces_sample.each do |piece| %>
-    <div><%= link_to image_tag(piece.img), artist_piece_path(@artist, piece) %></div>
-
-    <% if session[:artist_id] == @artist.id %>
-      <button><%= link_to "edit", [:edit, piece.artist, piece] %></button>
-      <button><%= link_to "destroy", [piece.artist, piece], method: :delete, data: {confirm: 'Are you sure?'} %></button>
-    <% end %>
-  <% end %>
+ <div class=" mt-2">
+ <img class="m0-a profpic b-black-1" src="<%= @artist.avatar %>">
 </div>
-<button><%= link_to "New", new_artist_piece_path(@artist) %></button>
+ <div class="bo-b-black-2 p-b-1 mb-4">
+    <div class="span-3-d m0-a ta-c">
+        <h1><%=@artist.name %></h1>
+    </div>
+    <div class="span-3-d m0-a ta-c">
+        <a href="<%=@artist.website%>"><%= @artist.website %></a>
+    </div>
 
-<h3>--Scenes Completed--</h3>
-<p>--Database not set up for this yet--</p>
-
-<%= link_to "All of my Pieces", artist_pieces_path(@artist) %>
-
-<% if session[:artist_id] == @artist.id %>
-      <button><%= link_to "Edit Profile", edit_artist_path %></button>
-      <button><%= link_to "Destroy Profile", @artist, method: :delete %></button>
-    <% end %>
-
-
-        <!-- Related Projects Row -->
-        <div class="row">
-
-            <div class="col-lg-12">
-                <h3 class="page-header">Related Projects</h3>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="#">
-                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
-                </a>
-            </div>
-
+    <div class="span-3-d m0-a ta-c p-t-2 p-b-2">
+        <%=@artist.bio %>
+    </div>
+    <div class="span-3-d m0-a ta-c">
+        <a href="<%=@artist.email%>"><%= @artist.email %></a>
+    </div>
+    <div class="span-3-d m0-a ta-c">
+        <h4><%=@location%><h4>
         </div>
-        <!-- /.row -->
+        <div class="social-media span-3-d m0-a ta-c">
+            <% if @artist.twitter %>
+            <a class="btn card-btn btn-primary btn-twitter btn-sm" href="<%= "http://twitter.com/#{@artist.twitter}" %>">
+                <i>t</i>
+            </a>
+            <% end %>
+            <% if @artist.facebook %>
+            <a class="btn card-btn btn-primary btn-sm" rel="publisher"
+            href="<%= "http://#{@artist.facebook}" %>">
+            <i>f</i>
+        </a>
+        <% end %>
+    </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+      zoomHover();
+  })
+</script>
+<div class="debugx span-11-d mb-15 ">
+  <div class="debugx ml-25">
+
+    <div id="target"></div>
+    <div class="debugx allpics">
+        <% @artist.pieces.each do |piece| %>
+        <div class="debugx fl-end m-1 viewport">
+            <a class="pic" href="<%= piece.image.url %>" data-lightbox="ex-1" >
+                <span class="dark-background"> <%= piece.title %> <em>by <%= @artist.name %></em></span>
+                <img src="<%= piece.image.url(:thumb) %>" alt="Piece Pic" class="image-style" />
+            </a>
+        </div>
+        <% end %>
+
+    </div>
+</div>
+
+</div>
+<% if session[:artist_id] == @artist.id %>
+    <%= link_to new_artist_piece_path(@artist) do %>
+    <div class="debugx fl-end m-1 viewport new"></div>
+    <% end %>
+<% end %>
+<div class="col mb-8"></div>
