@@ -44,6 +44,9 @@ gem 'jquery-turbolinks'
 # Paperclip
 gem "paperclip"
 
+# Heroku deployment
+gem 'rails_12factor', group: :production
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
