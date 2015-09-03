@@ -8,51 +8,6 @@ file.readlines.each do |address|
 	random_addresses_sf << address.strip
 end
 
-#=================DBC ORG=================#
-
-dbc = Organization.create(
-	name: "DevBootCamp",
-	bio: "Code Yourself a new Future",
-	avatar: "https://cdn.evbuc.com/images/11744831/120475400545/1/logo.png",
-	address: "633 Folsom St, San Francisco, CA",
-	email: "derek@dbc.com",
-	password: "123456",
-	website: "http://devbootcamp.com/?utm_source=google&utm_medium=cpc&utm_campaign=SF+Metro&utm_content=Branded+-+Dev+Bootcamp&utm_term=dev%20boot%20camp&gclid=CjwKEAjwmZWvBRCCqrDK_8atgBUSJACnib3l3fEeom5z4qDA_n11R9KPxyEkr6BJV37Rl-F9cmkzExoCsnvw_wcB"
-	)
-
-dbc.spaces.create(
-	title: "Welcome to DBC",
-	image: File.open(File.join(Rails.root, 'app/assets/images/primeorg', "dbc.jpg")),
-	description: "Integrity, Kindness, Wholeself",
-	organization_id: 1
-	)
-
-
-#=================ORGANIZATIONS + SCENES=================#
-
-5.times do
-	Organization.create(
-		name: Faker::Company.name + ['Immersion', 'Art', 'Imaginarium', 'Nose', 'Officetorium'].sample,
-		bio: Faker::Company.catch_phrase,
-		avatar: Faker::Company.logo,
-		address: random_addresses_sf.sample,
-		email: Faker::Internet.email,
-		password: "123456",
-		website: Faker::Internet.domain_name
-	)
-end
-
-Dir.foreach('app/assets/images/scenes') do |item|
-	if item[0] != "."
-	 	Space.create(
-	 		title: Faker::Team.creature,
-			image: File.open(File.join(Rails.root, 'app/assets/images/scenes', "#{item}")),
-			description: random_tags.sample(1),
-			organization_id: (2..6).to_a.sample
-		)
- 	end
-end
-
 # #=================ARTISTS Alice=================#
 
 alice = Artist.create(
@@ -171,6 +126,52 @@ Dir.foreach('app/assets/images/pieces') do |item|
  	end
 end
 
+#=================DBC ORG=================#
+
+dbc = Organization.create(
+	name: "DevBootCamp",
+	bio: "Code Yourself a new Future",
+	avatar: "https://cdn.evbuc.com/images/11744831/120475400545/1/logo.png",
+	address: "633 Folsom St, San Francisco, CA 94103",
+	email: "derek@dbc.com",
+	password: "123456",
+	website: "http://devbootcamp.com/?utm_source=google&utm_medium=cpc&utm_campaign=SF+Metro&utm_content=Branded+-+Dev+Bootcamp&utm_term=dev%20boot%20camp&gclid=CjwKEAjwmZWvBRCCqrDK_8atgBUSJACnib3l3fEeom5z4qDA_n11R9KPxyEkr6BJV37Rl-F9cmkzExoCsnvw_wcB"
+	)
+
+new_space = Space.create(
+	title: "Welcome to DBC",
+	image: File.open(File.join(Rails.root, 'app/assets/images/primeorg', "dbc.jpg")),
+	description: "Integrity, Kindness, Wholeself"
+	)
+
+	Artist.first.spaces << new_space
+	Organization.first.spaces << new_space
+
+#=================ORGANIZATIONS + SCENES=================#
+
+5.times do
+	Organization.create(
+		name: Faker::Company.name + ['Immersion', 'Art', 'Imaginarium', 'Nose', 'Officetorium'].sample,
+		bio: Faker::Company.catch_phrase,
+		avatar: Faker::Company.logo,
+		address: random_addresses_sf.sample,
+		email: Faker::Internet.email,
+		password: "123456",
+		website: Faker::Internet.domain_name
+	)
+end
+
+Dir.foreach('app/assets/images/scenes') do |item|
+	if item[0] != "."
+	 	Artist.all.first(3).sample.spaces << Space.create(
+	 		title: Faker::Team.creature,
+			image: File.open(File.join(Rails.root, 'app/assets/images/scenes', "#{item}")),
+			description: random_tags.sample(1),
+			organization_id: (2..6).to_a.sample
+		)
+ 	end
+end
+
 
 # Piece.create(
 # 	img: artist["images"]["src"],
@@ -201,6 +202,3 @@ end
 # 		website: artist["website"]["href"]
 # 		)
 # end
-
-
-

@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20150901184401) do
     t.string   "title"
     t.text     "description"
     t.integer  "organization_id"
+    t.integer  "artist_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "image_file_name"
@@ -76,6 +77,7 @@ ActiveRecord::Schema.define(version: 20150901184401) do
     t.datetime "image_updated_at"
   end
 
+  add_index "spaces", ["artist_id"], name: "index_spaces_on_artist_id", using: :btree
   add_index "spaces", ["organization_id"], name: "index_spaces_on_organization_id", using: :btree
 
   create_table "taggings", force: :cascade do |t|
@@ -99,5 +101,6 @@ ActiveRecord::Schema.define(version: 20150901184401) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   add_foreign_key "pieces", "artists"
+  add_foreign_key "spaces", "artists"
   add_foreign_key "spaces", "organizations"
 end
