@@ -9,6 +9,8 @@ class ArtistsController < ApplicationController
   end
 
   def local_artists
+    @lat = [params[:lat]]
+    @long = [params[:lng]]
     @artists =  Artist.near([params[:lat], params[:lng]], 5)
   end
 

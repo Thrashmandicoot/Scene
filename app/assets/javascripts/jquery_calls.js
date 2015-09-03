@@ -41,6 +41,18 @@ var zoomHover = function(){
       });
 }
 
+var zoomHoverMed = function(){
+  $('.viewport-m').mouseenter(function(e) {
+          $(this).children('a').children('img').animate({ height: '31em', left: '-10', top: '-10', width: '51em'}, 100);
+          $(this).children('a').children('span').fadeIn(200);
+
+      }).mouseleave(function(e) {
+          $(this).children('a').children('img').animate({ height: '30em', left: '0', top: '0', width: '50em'}, 200);
+          $(this).children('a').children('span').fadeOut(200);
+      });
+}
+
+
 // Smooth Scroll
 var smoothScroll = function(){
     window.scrollTo(0,140)
