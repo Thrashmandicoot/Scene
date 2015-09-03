@@ -1,12 +1,40 @@
-<h1>Spaces#all_spaces</h1>
+<script type="text/javascript">
+  $(document).ready(function(){
+      zoomHoverMed();
+  })
+</script>
 
-<% @spaces.each do |space|%>
+<h1 class="debugx ta-cen mb-2 mt-2">Scenes</h1>
+<div class="line span-12-d mb-4"></div>
 
- <div class="space-container">
-     <p> <%= link_to space.title, organization_space_path( space.organization_id, space.id) %> </p>
-     <p> Space-id: <%= space.id %> </p>
-     <%= link_to image_tag( space.img ), organization_space_path( space.organization_id, space.id ) %>
-     <%= image_tag space.image.url(:thumb) %>
-     <p> Space-guidelines: <%=  space.description %></p>
-  </div>
- <% end %>
+
+
+<!-- out div -->
+
+
+<div class="debugx col span-10-d ml-15">
+  <% @spaces.each do |space| %>
+  <% organization = Organization.find(space.organization_id)%>
+    <div class="debugx viewport-m">
+      <a class="" href="<%= space.image.url %>" data-lightbox="ex-1" data-title="<a class='lb-title' href='/organizations/<%= organization.id %>'><%= organization.name %></a>">
+        <span class="dark-background-m">
+          <%= space.title %>
+          <em>by Artist name</em>
+        </span>
+        <img src="<%= space.image.url(:medium) %>" alt="Scene Pic" class="" />
+      </a>
+      <br>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- buffer for footer -->
+<div class="col mb-8"></div>
