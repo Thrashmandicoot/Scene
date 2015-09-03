@@ -32,7 +32,7 @@
             <em>by <%= artist.name %></em>
             <em><%= piece.tag_list.join(" ") %></em>
           </span>
-          <img src="<%= piece.image.url(:thumb) %>" alt="Piece Pic" />
+          <img src="<%= piece.image.url(:thumb) %>" alt="Piece Pic" class="pic-border"/>
         </a>
       </div>
   <% end %>
