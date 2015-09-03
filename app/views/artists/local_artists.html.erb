@@ -20,8 +20,6 @@ function initializeMap() {
   var setLocation = function(map) {
    navigator.geolocation.getCurrentPosition(function(position) {
    var userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
-
         map.setCenter(userLocation);
         mapSetup(userLocation, map);
    });
@@ -29,23 +27,19 @@ function initializeMap() {
 
   var mapSetup =  function (userLocation, map){
       var userIcon = '/images/user_icon.png';
-
       var userMarker = new google.maps.Marker({
         position: userLocation,
         icon: userIcon
       });
       userMarker.setMap(map);
-
       var artistIcon =  '/images/artist_icon.png';
 
        <% @artists.each do |artist|%>
        var markerLatLong = new google.maps.LatLng(<%= artist.latitude%>, <%= artist.longitude %>);
 
        var myInfowindow = new google.maps.InfoWindow({
-        content: '<img class="c-img73 img-circle img-center center-block" src="<%= artist.avatar%>"></img>' + 'My name is <%= link_to artist.name,artist_path(artist) %>'
+        content: '<img class="c-img73 img-circle img-center center-block fl-st" src="<%= artist.avatar%>"></img>'+'<div class="c ml-2">My name is <%= link_to artist.name,artist_path(artist) %></div>'
          });
-
-        //  class="c-img73 img-circle img-center center-block"
 
        var marker = new google.maps.Marker({
         position: markerLatLong,
@@ -57,10 +51,7 @@ function initializeMap() {
       google.maps.event.addListener(marker, 'click', function(){
        this.infowindow.open(map, this);
       });
-
-
-
-        <% end %>
+      <% end %>
 }
 
 
