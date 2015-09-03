@@ -20,7 +20,6 @@ wistiaEmbed = Wistia.embed("wdf369ilyi", {
 
 <!-- Marketing Icons Section -->
   <div class="row">
-
     <div class="col-lg-12">
       <!-- for the title -->
       <%= image_tag'scene_logo.png', :class => "logo"%>
@@ -37,27 +36,39 @@ wistiaEmbed = Wistia.embed("wdf369ilyi", {
 
 <!-- Page Heading/Breadcrumbs -->
 <div class="row">
-    <div class="col-lg-12" id="featured">
-        <h1 class="page-header">Featured Scenes</h1>
+    <div class="col-lg-12 mt--7" id="featured">
+        <h1 class="page-header ta-cen " style="padding-bottom: 70px">Featured Scenes</h1>
     </div>
 </div>
 <!-- /.row -->
 
+<script type="text/javascript">
+  $(document).ready(function(){
+      zoomHoverMed();
+  })
+</script>
+
   <!-- Featured Scenes Row -->
-   <div class="row" style="margin-bottom:20px;">
+   <div class="ml-16 ">
        <% @scenes.each do |scene| %>
-         <div class="col-md-4 img-portfolio">
-             <a href="portfolio-item.html">
-                 <img class="img-responsive img-hover" src="<%= scene.image.url %>" alt="scene.title">
+       <% organization = Organization.find(scene.organization_id) %>
+       <% artist = Artist.find(scene.artist_id) %>
+
+       <div class="mb-4"></div>
+         <div class="img-portfolio viewport-m">
+             <a href="/organizations/<%= organization.id %>">
+                <span class="dark-background-m">
+                <%= scene.title %>
+                <em>by <%= artist.name %></em>
+                </span>
+                <img class="" src="<%= scene.image.url(:medium) %>" alt="scene.title">
              </a>
              <h3>
-                 <%= link_to scene.title, organization_space_path(scene.organization_id, scene)%>
+              <%= link_to organization.name, organization_path(organization) %>
              </h3>
-             <p>
-               Description: <%= scene.description.gsub(/[\[\]]/, "") %>
-             </p>
+         <p>Scene by: <%= link_to artist.name, artist_path(artist) %></p>
          </div>
        <% end %>
      </div>
 
-<div class="buffer" style="height: 100px;"></div>
+<div class="col mb-12"></div>
