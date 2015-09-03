@@ -24,8 +24,11 @@ class SpacesController < ApplicationController
 
   def create
     @organization = Organization.find(params[:organization_id])
-    @space = @organization.spaces.new( space_params )
+    @artist = Artist.find_by(email: params[:artist_id])
+    @space = Space.new( space_params )
       if @space.save
+        @artist.spaces << @space
+        @organization.spaces << @space
         redirect_to organization_space_path(@organization, @space)
       else
         render 'new'
