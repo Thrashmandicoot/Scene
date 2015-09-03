@@ -20,7 +20,7 @@ class SpacesController < ApplicationController
 
   def create
     @organization = Organization.find(params[:organization_id])
-    @artist = Artist.find_by(email: params[:email])
+    @artist = Artist.find_by(email: params[:artist_id])
     @space = Space.new( space_params )
       if @space.save
         @artist.spaces << @space
