@@ -14,5 +14,8 @@
   <%= f.label :Tags %>
   <%= f.text_field :tag_list %>
 
-  <%= f.submit %> 
+  <%= f.label 'Artist Email' %>
+  <%= f.text_field :email, placeholder:'artist@email.com' %>
+
+  <%= f.submit %>
 <% end %>
