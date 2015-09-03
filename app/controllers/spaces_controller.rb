@@ -1,6 +1,9 @@
 class SpacesController < ApplicationController
   def all_spaces
     @spaces = Space.all
+    half = @spaces.length
+    @first_half = @spaces[0..half]
+    @second_half = @spaces[half..-1]
   end
 
   def index

@@ -1,34 +1,39 @@
 <script type="text/javascript">
   $(document).ready(function(){
-      showPiece();
-      zoomHover();
+      zoomHoverMed();
   })
 </script>
 
-<h1 class="debugx ta-cen mb-2 mt-1">Scenes</h1>
+<h1 class="debugx ta-cen mb-2 mt-2">Scenes</h1>
 <div class="line span-12-d mb-4"></div>
 
 
 
-<div class="debugx span-11-d mb-15 ">
-  <div class="debugx ml-25">
+<!-- out div -->
 
-    <div id="target"></div>
 
-      <div class="debugx allpics">
-      <% @spaces.each do |space| %>
-
-          <div class="debugx fl-end m-1 viewport">
-            <a class="pic" href="<%= organization_space_path(space.organization_id, space) %>" >
-              <span class="dark-background"> <%= space.title %> <em>by Artist name</em></span>
-              <img src="<%= space.image.url(:thumb) %>" alt="Scene Pic" class="image-style" />
-            </a>
-          </div>
-
-      <% end %>
-      </div>
-
-  </div>
+<div class="debugx col span-10-d ml-15">
+  <% @spaces.each do |space| %>
+    <div class="debugx viewport-m">
+      <a class="" href="<%= space.image.url %>" data-lightbox="ex-1">
+        <span class="dark-background-m">
+          <%= space.title %>
+          <em>by Artist name</em>
+        </span>
+        <img src="<%= space.image.url(:medium) %>" alt="Scene Pic" class="" />
+      </a>
+      <br>
+    </div>
+  <% end %>
 </div>
 
 
+
+
+
+
+
+
+
+<!-- buffer for footer -->
+<div class="col mb-8"></div>
