@@ -20,13 +20,13 @@
         </div>
         <div class="social-media span-3-d m0-a ta-c">
             <% if @organization.twitter %>
-            <a class="btn card-btn btn-primary btn-twitter btn-sm" href="<%= "http://twitter.com/#{organization.twitter}" %>">
+            <a class="btn card-btn btn-primary btn-twitter btn-sm" href="<%= "http://twitter.com/#{@organization.twitter}" %>">
                 <i>t</i>
             </a>
             <% end %>
             <% if @organization.facebook %>
             <a class="btn card-btn btn-primary btn-sm" rel="publisher"
-            href="<%= "http://#{organization.facebook}" %>">
+            href="<%= "http://#{@organization.facebook}" %>">
             <i>f</i>
         </a>
         <% end %>
