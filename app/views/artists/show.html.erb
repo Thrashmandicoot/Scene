@@ -50,7 +50,14 @@
             </a>
         </div>
         <% end %>
-
+        <% @artist.spaces.each do |space| %>
+        <div class="debugx fl-end m-1 viewport">
+            <a class="pic" href="<%= space.image.url %>" data-lightbox="ex-1" >
+                <span class="dark-background"> <%= space.title %> <em>by <%= @artist.name %></em></span>
+                <img src="<%= space.image.url(:thumb) %>" alt="Piece Pic" class="image-style" />
+            </a>
+        </div>
+        <% end %>
     </div>
 </div>
 
