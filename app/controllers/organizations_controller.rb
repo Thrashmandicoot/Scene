@@ -3,8 +3,10 @@ class OrganizationsController < ApplicationController
   end
 
   def show
-    @organization = Organization.find(params[:id])
+    @organization = Organization.find_by(id: params[:id])
     @spaces = @organization.spaces
+    @citystate = @organization.address.scan(/(.+?),\s*(.+?)(?:,\s|\s\s)(.+?)\s(\d{5})/)
+    @location= @citystate[0][1] + ", " + @citystate[0][2]
   end
 
   def new

@@ -37,7 +37,9 @@
   <%= f.text_field :bio, class:"form-control", placeholder:"Here's a blurb about me" %>
   </div>
 
-  <%= f.submit 'Create Organization', class: 'btn btn-primary' %>
+  <%= f.submit class: 'btn btn-primary' %>
 
   <% end %>
 </form>
+<br>
+<%= link_to "Destroy Profile", @organization,class: 'btn btn-primary', method: :delete %>

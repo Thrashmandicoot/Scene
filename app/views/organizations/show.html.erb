@@ -1,39 +1,64 @@
-<h1><%= @organization.name %></h1>
-
-<img src="<%= @organization.avatar %>">
-<h3>Address: </h3>
-<p><%= @organization.address %></p>
-<p><%= @organization.bio %></p>
-
-<h5>Email: <%= @organization.email %></h5>
-
-<h3>Social Media</h3>
-<ul>
-  <li><%= @organization.facebook %></li>
-  <li><%= @organization.twitter %></li>
-</ul>
-
-<h3>Available Scenes</h3>
-<div>
-  <% @spaces_sample = @organization.spaces.sample(3) %>
-  <% @spaces_sample.each do |space| %>
-    <div><%= link_to image_tag(space.img), organization_space_path( @organization,space) %></div>
-
-  <% if session[:organization_id] == @organization.id %>
-    <button><%= link_to "edit", [:edit, space.organization, space] %></button>
-    <button><%= link_to "destroy", [space.organization, space], method: :delete, data: {confirm: 'Are you sure?'} %></button>
-    <% end %>
-  <% end %>
+<div class=" mt-2">
+ <img class="m0-a profpic b-black-1" src="<%= @organization.avatar %>">
 </div>
-<button><%= link_to "New", new_organization_space_path(@organization) %></button>
+ <div class="bo-b-black-2 p-b-1 mb-4">
+    <div class="span-3-d m0-a ta-c">
+        <h1><%=@organization.name %></h1>
+    </div>
+    <div class="span-3-d m0-a ta-c">
+        <a href="<%=@organization.website%>"><%= @organization.website %></a>
+    </div>
 
+    <div class="span-3-d m0-a ta-c p-t-2 p-b-2">
+        <%=@organization.bio %>
+    </div>
+    <div class="span-3-d m0-a ta-c">
+        <a href="<%=@organization.email%>"><%= @organization.email %></a>
+    </div>
+    <div class="span-3-d m0-a ta-c">
+        <h4><%=@location%><h4>
+        </div>
+        <div class="social-media span-3-d m0-a ta-c">
+            <% if @organization.twitter %>
+            <a class="btn card-btn btn-primary btn-twitter btn-sm" href="<%= "http://twitter.com/#{organization.twitter}" %>">
+                <i>t</i>
+            </a>
+            <% end %>
+            <% if @organization.facebook %>
+            <a class="btn card-btn btn-primary btn-sm" rel="publisher"
+            href="<%= "http://#{organization.facebook}" %>">
+            <i>f</i>
+        </a>
+        <% end %>
+    </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+      zoomHover();
+  })
+</script>
+<div class="debugx span-11-d mb-15 ">
+  <div class="debugx ml-25">
 
-<h3>--Completed Scenes--</h3>
-<p>--Database not set up for this yet--</p>
+    <div id="target"></div>
+    <div class="debugx allpics">
+        <% @organization.spaces.each do |space| %>
+        <div class="debugx fl-end m-1 viewport">
+            <a class="pic" href="<%= space.image.url %>" data-lightbox="ex-1" >
+                <span class="dark-background"> <%= space.title %> <em>by <%= @organization.name %></em></span>
+                <img src="<%= space.image.url(:thumb) %>" alt="Piece Pic" class="image-style" />
+            </a>
+        </div>
+        <% end %>
 
-<%= link_to "All of our Scenes", organization_spaces_path(@organization) %>
-<% if session[:organization_id] == @organization.id %>
-    <button><%= link_to "Edit Profile", edit_organization_path %></button>
-    <button><%= link_to "Destroy Profile", @organization, method: :delete %></button>
-  <% end %>
+    </div>
+    <% if session[:organization_id] == @organization.id %>
+    <%= link_to new_organization_space_path(@organization) do %>
+    <div class="debugx fl-end m-1 viewport new b-black-dashed-2"></div>
+    <% end %>
+<% end %>
+<div class="col mb-8"></div>
+</div>
+
+</div>
 

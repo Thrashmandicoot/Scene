@@ -14,10 +14,12 @@ dbc = Organization.create(
 	name: "DevBootCamp",
 	bio: "Code Yourself a new Future",
 	avatar: "https://cdn.evbuc.com/images/11744831/120475400545/1/logo.png",
-	address: "633 Folsom St, San Francisco, CA",
+	address: "633 Folsom St, San Francisco, CA 94103",
 	email: "derek@dbc.com",
 	password: "123456",
-	website: "http://devbootcamp.com/?utm_source=google&utm_medium=cpc&utm_campaign=SF+Metro&utm_content=Branded+-+Dev+Bootcamp&utm_term=dev%20boot%20camp&gclid=CjwKEAjwmZWvBRCCqrDK_8atgBUSJACnib3l3fEeom5z4qDA_n11R9KPxyEkr6BJV37Rl-F9cmkzExoCsnvw_wcB"
+	facebook: "https://www.facebook.com/devbootcamp",
+	twitter: "https://twitter.com/devbootcamp?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+	website: "http://devbootcamp.com"
 	)
 
 dbc.spaces.create(
