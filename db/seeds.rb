@@ -14,13 +14,15 @@ alice = Artist.create(
 	name: "Alice Pasquini",
 	email: "alice@street.art",
 	password: "123456",
-	avatar: "http://40.media.tumblr.com/784621cac627750c3e3e8abf22219f50/tumblr_mr2oc2vsLE1qh92blo1_1280.jpg",
+	avatar: "https://creativesparkpower.files.wordpress.com/2015/08/67732_437909877477_752647477_5263520_5178865_n_jpg_940x0_q85.jpg",
 	bio: "visual artist from Rome who works as an illustrator, set designer, and painter. Alice’s preferred canvases are city walls and she’s traveled widely, bringing her artwork to life on the streets of different cities across the globe, such as Sydney, New York, Barcelona, Oslo, Moscow, Paris, Copenhagen, Marrakech, Berlin, Saigon, London, and Rome.",
 	address: "107 Vale St, Daly City, CA 94014",
 	facebook: "www.facebook.com/" + "alicepasquini",
 	twitter: "@alicepasquini",
 	website: "http://www.alicepasquini.com/"
 	)
+
+
 
 Dir.foreach('app/assets/images/alice') do |item|
 	if item[0] != "."
@@ -153,7 +155,7 @@ new_space = Space.create(
 
 5.times do
 	Organization.create(
-		name: Faker::Company.name + ['Immersion', 'Art', 'Imaginarium', 'Nose', 'Officetorium'].sample,
+		name: Faker::Company.name + " " +['Immersion','Brothers', 'Art','Co.', 'Inc.', 'Asc.' 'Imaginarium', 'Nose', 'Officetorium'].sample,
 		bio: Faker::Company.catch_phrase,
 		avatar: Faker::Company.logo,
 		address: random_addresses_sf.sample,
@@ -166,7 +168,7 @@ end
 Dir.foreach('app/assets/images/scenes') do |item|
 	if item[0] != "."
 	 	Artist.all.first(3).sample.spaces << Space.create(
-	 		title: Faker::Team.creature,
+	 		title: Faker::App.name,
 			image: File.open(File.join(Rails.root, 'app/assets/images/scenes', "#{item}")),
 			description: random_tags.sample(1),
 			organization_id: (2..6).to_a.sample
