@@ -42,8 +42,10 @@ function initializeMap() {
        var markerLatLong = new google.maps.LatLng(<%= artist.latitude%>, <%= artist.longitude %>);
 
        var myInfowindow = new google.maps.InfoWindow({
-        content: '<img style="border-radius: 38px; align=Left" src="<%= artist.avatar%>"> My name is <%= link_to artist.name,artist_path(artist) %>'
+        content: '<img class="c-img73 img-circle img-center center-block" src="<%= artist.avatar%>"></img>' + 'My name is <%= link_to artist.name,artist_path(artist) %>'
          });
+
+        //  class="c-img73 img-circle img-center center-block"
 
        var marker = new google.maps.Marker({
         position: markerLatLong,
