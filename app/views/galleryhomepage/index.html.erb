@@ -42,20 +42,31 @@ wistiaEmbed = Wistia.embed("wdf369ilyi", {
 </div>
 <!-- /.row -->
 
+<script type="text/javascript">
+  $(document).ready(function(){
+      zoomHoverMed();
+  })
+</script>
+
   <!-- Featured Scenes Row -->
-   <div class="ml-9 ">
+   <div class="ml-16 ">
        <% @scenes.each do |scene| %>
+       <% organization = Organization.find(scene.organization_id) %>
+       <% artist = Artist.find(scene.artist_id) %>
+
        <div class="mb-4"></div>
-         <div class="col-md-4 img-portfolio">
-             <a href="portfolio-item.html">
-                 <img class="img-responsive img-hover" src="<%= scene.image.url(:thumb) %>" alt="scene.title">
+         <div class="img-portfolio viewport-m">
+             <a href="/organizations/<%= organization.id %>">
+                <span class="dark-background-m">
+                <%= scene.title %>
+                <em>by <%= artist.name %></em>
+                </span>
+                <img class="" src="<%= scene.image.url(:medium) %>" alt="scene.title">
              </a>
              <h3>
-                 <%= link_to scene.title, organization_space_path(scene.organization_id, scene)%>
+              <%= link_to organization.name, organization_path(organization) %>
              </h3>
-             <p>
-               Description: <%= scene.description.gsub(/[\[\]]/, "") %>
-             </p>
+         <p>Scene by: <%= link_to artist.name, artist_path(artist) %></p>
          </div>
        <% end %>
      </div>
