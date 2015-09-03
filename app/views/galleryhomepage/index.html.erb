@@ -26,7 +26,7 @@ wistiaEmbed = Wistia.embed("wdf369ilyi", {
       <a class="btn-home btn-black" href="<%= user_location_path%>" style="margin-bottom: 80px;">FIND LOCAL ARTISTS</a>
     </div>
 
-    <h4 style="color:#E505D2; padding-top:40px; display:block; text-align: center; font-weight:bold;">See Featured Artists and Scenes</h4>
+    <h4 style="color:#E505D2; padding-top:40px; display:block; text-align: center; font-weight:bold;">See Featured Scenes</h4>
 
     <a href="#featured">
       <i class="fa fa-angle-double-down fa-5x" style="color:#E505D2; display:block; text-align: center;"></i>
@@ -37,27 +37,10 @@ wistiaEmbed = Wistia.embed("wdf369ilyi", {
 <!-- Page Heading/Breadcrumbs -->
 <div class="row">
     <div class="col-lg-12" id="featured">
-        <h1 class="page-header">Featured Artists and Scenes</h1>
+        <h1 class="page-header">Featured Scenes</h1>
     </div>
 </div>
 <!-- /.row -->
-
- <!-- Featured Pieces Row -->
-  <div class="row" style="margin-bottom:20px;">
-    <% @pieces.each do |piece| %>
-      <div class="col-md-4 img-portfolio">
-          <a href="portfolio-item.html">
-              <img class="img-responsive img-hover" src="<%= piece.image.url %>" alt="piece.title">
-          </a>
-          <h3>
-              <%= link_to piece.title, artist_piece_path(piece.artist_id, piece)%>
-          </h3>
-          <p>
-            Medium: <%= piece.description.gsub(/[\[\]]/, "") %>
-          </p>
-      </div>
-    <% end %>
-  </div>
 
   <!-- Featured Scenes Row -->
    <div class="row" style="margin-bottom:20px;">
