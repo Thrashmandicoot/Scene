@@ -19,7 +19,7 @@
       <a class="" href="<%= space.image.url %>" data-lightbox="ex-1" data-title="<a class='lb-title' href='/organizations/<%= organization.id %>'><%= organization.name %></a>">
         <span class="dark-background-m">
           <%= space.title %>
-          <em>by <%= space.artist.name %></em>
+          <em>by <%= organization.name %></em>
         </span>
         <img src="<%= space.image.url(:medium) %>" alt="Scene Pic" class="" />
       </a>

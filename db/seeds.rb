@@ -181,7 +181,7 @@ end
 team = Organization.create(
 	name: "SCENE",
 	bio: "Connecting Businesses with Artists to create a beautiful world.",
-	avatar: File.open("app/assets/images/scene_logo.png"),
+	avatar: File.open(File.join(Rails.root, "app/assets/images/scene_logo.png")),
 	address: "633 Folsom St, San Francisco, CA 94103",
 	email: "scene@team.net",
 	password: "123456",
@@ -192,10 +192,11 @@ team = Organization.create(
 
 Dir.foreach('app/assets/images/slides') do |item|
 	if item[0] != "."
-	 	team.scenes.create(
+	 	team.spaces.create(
 	 		title: "#{item}"[0...-4],
 			image: File.open(File.join(Rails.root, 'app/assets/images/slides', "#{item}")),
 			description: "Scene Team Slides",
+			artist_id: 25,
 			organization_id: 7
 		)
  	end
