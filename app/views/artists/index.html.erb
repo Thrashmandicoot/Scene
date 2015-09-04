@@ -1,6 +1,7 @@
 <script src="http://maps.googleapis.com/maps/api/js"></script>
 <h1 class="c-t">Artists Using Scene</h1>
 <script>
+
 $(document).ready(function(){
     initializeMap();
 });
@@ -24,14 +25,25 @@ function initializeMap() {
  }
 
   var mapSetup =  function (userLocation, map){
-      var userIcon = '/images/user_icon.png';
+
+      var userIcon = {
+        url: "images/user_icon.png",
+        anchor: new google.maps.Point(14,28)
+          };
+       var userInfowindow = new google.maps.InfoWindow({
+        content: '<img class="c-img73 img-circle img-center center-block fl-st" src="/images/user_anon.png"></img>'+'<div class="c ml-2"> Hi! You are here!</div>'
+         });
       var userMarker = new google.maps.Marker({
         position: userLocation,
-        icon: userIcon
+        icon: userIcon,
+        infowindow: userInfowindow
       });
       userMarker.setMap(map);
-      var artistIcon =  '/images/artist_icon.png';
+      google.maps.event.addListener(userMarker, 'click', function(){
+        userInfowindow.open(map, this);
+      });
 
+      var artistIcon =  '/images/artist_icon.png';
        <% @artists.each do |artist|%>
        var markerLatLong = new google.maps.LatLng(<%= artist.latitude%>, <%= artist.longitude %>);
 
