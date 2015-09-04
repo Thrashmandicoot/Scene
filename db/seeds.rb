@@ -177,32 +177,29 @@ Dir.foreach('app/assets/images/scenes') do |item|
 end
 
 
-# Piece.create(
-# 	img: artist["images"]["src"],
-# 	title: Faker::App.name,
-# 	description: random_descriptions.sample(3),
-# 	artist_id: new_artist.id, #random sample
-# 	tag_list: random_tags.sample(3)
-# 	)
+# SCENE SEED
+team = Organization.create(
+	name: "SCENE",
+	bio: "Connecting Businesses with Artists to create a beautiful world.",
+	avatar: File.open("app/assets/images/scene_logo.png"),
+	address: "633 Folsom St, San Francisco, CA 94103",
+	email: "scene@team.net",
+	password: "123456",
+	facebook: "https://www.facebook.com/scene",
+	twitter: "https://twitter.com/scene",
+	website: "http://localhost:3000/"
+	)
+
+Dir.foreach('app/assets/images/slides') do |item|
+	if item[0] != "."
+	 	team.scenes.create(
+	 		title: "#{item}"[0...-4],
+			image: File.open(File.join(Rails.root, 'app/assets/images/slides', "#{item}")),
+			description: "Scene Team Slides",
+			organization_id: 7
+		)
+ 	end
+end
 
 
-# 	manual_edit = Piece.find(10)
-# 	manual_edit.artist_id = 10
-# 	manual_edit.save!
 
-
-# response["results"]["collection1"].each do |artist|
-# 	avatar = HTTParty.get('http://uifaces.com/api/v1/random')
-# 	avatar_img = avatar["image_urls"]["bigger"]
-# 	new_artist = Artist.create(
-# 		name: artist["category"]["text"],
-# 		email: artist["category"]["href"],
-# 		password: "123456",
-# 		avatar: avatar_img,
-# 		bio: ["My work explores the relationship between the Military-Industrial Complex and vegetarian ethics.", "With influences as diverse as Rousseau and Roy Lichtenstein, new tensions are manufactured from both constructed and discovered textures.", "Ever since I was a pre-adolescent I have been fascinated by the unrelenting divergence of the moment. What starts out as triumph soon becomes corroded into a dialectic of power, leaving only a sense of dread and the dawn of a new beginning.", "As shimmering forms become transformed through studious and repetitive practice, the viewer is left with an insight into the possibilities of our culture.", "As spatial forms become distorted through studious and academic practice, the viewer is left with a clue to the darkness of our culture."].sample,
-# 		address: random_addresses_sf.sample,
-# 		facebook: "www.facebook.com/" + artist["category"]["text"],
-# 		twitter: "@" + artist["category"]["text"] + "ger",
-# 		website: artist["website"]["href"]
-# 		)
-# end
