@@ -181,7 +181,7 @@ end
 team = Organization.create(
 	name: "SCENE",
 	bio: "Connecting Businesses with Artists to create a beautiful world.",
-	avatar: File.open(File.join(Rails.root, "app/assets/images/scene_logo.png")),
+	avatar: "/images/scene_logo.png",
 	address: "633 Folsom St, San Francisco, CA 94103",
 	email: "scene@team.net",
 	password: "123456",
