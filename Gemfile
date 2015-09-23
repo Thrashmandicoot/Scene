@@ -44,6 +44,11 @@ gem 'jquery-turbolinks'
 # Paperclip
 gem "paperclip"
 
+# Heroku deployment
+group :production do 
+  gem 'rails_12factor'
+end
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -59,3 +64,4 @@ group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 end
+ruby '2.2.0'

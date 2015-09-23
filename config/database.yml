@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: Scene_production
+  database: postgresql
   username: Scene
   password: <%= ENV['SCENE_DATABASE_PASSWORD'] %>

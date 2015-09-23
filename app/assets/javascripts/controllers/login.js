@@ -1,8 +1,14 @@
-app.controller('ModalLoginCtrl', function($scope, $modal, $log){
+app.controller('ModalLoginCtrl', function($scope, $modal, $log) {
 
-  $scope.items = [{title: "Email", type:"text"}, {title: "Password", type:"password"}]
+  $scope.items = [{
+    title: "Email",
+    type: "text"
+  }, {
+    title: "Password",
+    type: "password"
+  }]
 
-  $scope.open = function () {
+  $scope.open = function() {
 
     var modalInstance = $modal.open({
       animation: true,
@@ -10,7 +16,7 @@ app.controller('ModalLoginCtrl', function($scope, $modal, $log){
       controller: 'LModalInstanceCtrl',
       size: 'sm',
       resolve: {
-        items: function () {
+        items: function() {
           return $scope.items;
         }
       }
@@ -18,9 +24,9 @@ app.controller('ModalLoginCtrl', function($scope, $modal, $log){
   };
 });
 
-app.controller('LModalInstanceCtrl', function ($scope, $modalInstance) {
+app.controller('LModalInstanceCtrl', function($scope, $modalInstance) {
 
-  $scope.cancel = function () {
+  $scope.cancel = function() {
     $modalInstance.dismiss('cancel');
   };
 });
