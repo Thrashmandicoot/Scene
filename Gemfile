@@ -45,7 +45,7 @@ gem 'jquery-turbolinks'
 gem "paperclip"
 
 # Heroku deployment
-group :production do 
+group :production do
   gem 'rails_12factor'
 end
 
@@ -64,4 +64,4 @@ group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 end
-ruby '2.2.0'
+ruby '2.2.1'
