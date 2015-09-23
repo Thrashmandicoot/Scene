@@ -1,5 +1,6 @@
 class GalleryhomepageController < ApplicationController
   def index
-    @scenes = Space.all.sample(4)
+    all = Space.all
+    @scenes = all[0...-8].sample(4)
   end
 end

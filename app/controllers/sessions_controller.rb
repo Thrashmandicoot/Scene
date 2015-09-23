@@ -14,7 +14,8 @@ class SessionsController < ApplicationController
       @user = Organization.find_by(email: params[:session][:email])
       if @user && @user.authenticate(params[:session][:password])
         session[:organization_id] = @user.id
-        redirect_to organization_path(@user)
+        # redirect_to organization_path(@user)
+        redirect_to root_path
       else
         # render json: "{error: 'Invalid email/password combination'}"
         redirect_to root_path
