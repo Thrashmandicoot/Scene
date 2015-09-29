@@ -4,11 +4,16 @@ Scene
 **Scene** is a web application that connects organizations to local artists. The results are more exciting workspaces for organizations and recognition for artists in the community.
 
 ## Domain
-	- [Scene](http://scenes.herokuapp.com)
+[Scene](http://scenes.herokuapp.com)
 
 #### Screenshot
 ![Scene](https://github.com/ajdlp/ajdlp.github.io/blob/master/images/Scene.png)
 
+### Contributors on GitHub
+* [Andrew Pham](https://github.com/atp1o2)
+* [Andres Castillo Ormaechea](https://github.com/ormaechea)
+* [Ashton Alexander](https://github.com/thrashmandicoot)
+* [Lauryn Porte](https://github.com/lporte)
 
 ## License 
 * See [LICENSE](https://github.com/ajdlp/Scene/blob/master/LICENSE)
