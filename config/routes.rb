@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   controller :spaces do
     get 'spaces' => 'spaces#all_spaces'
+    
   end
 
   controller :pieces do
@@ -30,7 +31,6 @@ Rails.application.routes.draw do
 
   resources :artists do
     resources :pieces
-
   end
 
   resources :sessions, only: [:new, :create, :destroy]

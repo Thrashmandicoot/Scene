@@ -3,11 +3,9 @@
 one:
   img: MyString
   title: MyString
-  guidelines: MyText
   organization_id: 
 
 two:
   img: MyString
   title: MyString
-  guidelines: MyText
   organization_id: 
