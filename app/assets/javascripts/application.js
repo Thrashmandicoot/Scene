@@ -10,7 +10,16 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+// line 14 is w/out templates (for reference), line 15 is with
+
+//= require angular
+//= require angular-ui-bootstrap
+//= require angular-animate
+//= require angular-resource
+//= require angular-ui-bootstrap-tpls
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require lightbox
+// require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .

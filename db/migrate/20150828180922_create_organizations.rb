@@ -5,6 +5,8 @@ class CreateOrganizations < ActiveRecord::Migration
       t.text :bio
       t.string :avatar
       t.string :address
+      t.float :latitude
+      t.float :longitude
       t.string :email
       t.string :password_digest
       t.string :twitter

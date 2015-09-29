@@ -1,0 +1,13 @@
+// Place all the styles related to the galleryhomepage controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.bg {
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  background-color: transparent;
+  top: -8%;
+  left: -1px;
+}

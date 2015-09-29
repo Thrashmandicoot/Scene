@@ -2,13 +2,103 @@
 <html>
 <head>
   <title>Scene</title>
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+
+  <!-- Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
-<body>
+<body ng-app='sceneApp'>
 
-<%= yield %>
+<div ng-controller="ModalSignupCtrl">
+    <script type="text/ng-template" id="signupmodal.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Sign Up</h3>
+        </div>
+        <div class="modal-body">
+              <div ng-repeat="item in items">
+                  <a class="btn btn-default btn-block" href="{{ item.link }}">{{ item.title }}</a>
+              </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+</div>
 
+<div ng-controller="ModalLoginCtrl">
+    <script type="text/ng-template" id="loginmodal.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Login</h3>
+        </div>
+        <div class="modal-body">
+          <%= form_for(:session, url: login_path) do |f| %>
+
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'form-control' %>
+
+            <%= f.label :password %>
+            <%= f.password_field :password, class: 'form-control' %>
+          <div class="modal-footer">
+              <%= f.submit "Log in", class:"btn btn-primary" %>
+          <% end %>
+              <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+          </div>
+        </div>
+    </script>
+</div>
+
+<nav class='navbar navbar-inverse navbar-fixed-top'>
+  <ul class="nav navbar-nav" style="font-size: large;">
+    <li><%= link_to 'Home', root_path %></li>
+    <li><%= link_to 'About Us', about_us_path %></li>
+    <li><%= link_to 'Artists', artists_path %></li>
+    <li><%= link_to 'Pieces', pieces_path %></li>
+    <li><%= link_to 'Scenes', spaces_path %></li>
+    <% if session[:organization_id] %>
+    <li><%= link_to 'Profile', organization_path(session[:organization_id]) %></li>
+    <% end %>
+    <% if session[:artist_id] %>
+    <li><%= link_to 'Profile', artist_path(session[:artist_id]) %></li>
+    <% end %>
+
+  </ul>
+  <ul class="nav navbar-nav navbar-right" style="font-size: large; padding-right: 14px;">
+    <% if session[:organization_id] %>
+    <li><%= link_to 'Settings', edit_organization_path(session[:organization_id]) %></li>
+    <% end %>
+    <% if session[:artist_id] %>
+    <li><%= link_to 'Settings', edit_artist_path(session[:artist_id]) %></li>
+    <% end %>
+    <% if current_user %>
+    <li><%= link_to 'Logout', logout_path, method: :post %></li>
+    <% else %>
+    <li><a href="" ng-click="open()" ng-controller="ModalLoginCtrl">Login</a></li>
+    <li><a href="" ng-click="open()" ng-controller="ModalSignupCtrl">Sign Up</a></li>
+    <% end %>
+  </ul>
+</nav>
+
+  <div class="container-fluid" style="margin-top: 40px;">
+    <%= yield %>
+  </div>
+
+ <div class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="container">
+      <p class="navbar-text">© 2015 Made quickly by: <a href="http://laurynporte.com">Lauryn</a>, <a href="#">Ashton</a>, <a href="#">Andres</a>, <a href="#">Alex</a>, and <a href="#">Andrew</a>. <!-- <br> Video Clip by <a href="https://www.youtube.com/watch?v=Gl96bNmRWt0">House Doodle</a> -->
+      </p>
+
+       <a class="btn card-btn btn-primary btn-sm navbar-btn btn-default pull-right" rel="publisher" href="http://twitter.com/scene_team"> <i>t</i></a>
+
+    </div>
+  </div>
 </body>
 </html>

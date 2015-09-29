@@ -1,32 +1,45 @@
-<%= form_for @organization do |f| %>
+<%= form_for @organization, class:"form-horizontal" do |f| %>
+<form>
+  <div class="form-group">
+    <%= f.label :avatar %>
+    <%= f.text_field :avatar, class:"form-control", placeholder:"myimagehostingsite.com/coolavatar.jpg" %>
+  </div>
+  <div class="form-group">
+  <%= f.label :name %>
+  <%= f.text_field :name, class:"form-control", placeholder:"Chris Doe" %>
+  </div>
+  <div class="form-group">
+  <%= f.label :email %>
+  <%= f.email_field :email, class:"form-control", placeholder:"chris@example.com" %>
+  </div>
+  <div class="form-group">
+  <%= f.label :password %>
+  <%= f.password_field :password, class:"form-control", placeholder:"MyTot3sSecurePassw0r!ds" %>
+  </div>
+  <div class="form-group">
+  <%= f.label :address %>
+  <%= f.text_field :address, class:"form-control", placeholder:"Street, City, State, Zipcode" %>
+  </div>
+  <div class="form-group">
+  <%= f.label :facebook %>
+  <%= f.text_field :facebook, class:"form-control", placeholder:"facebook.com/myfacebookpage" %>
+  </div>
+  <div class="form-group">
+  <%= f.label :twitter %>
+  <%= f.text_field :twitter, class:"form-control", placeholder:"@handle" %>
+  </div>
+  <div class="form-group">
+  <%= f.label :website %>
+  <%= f.text_field :website, class:"form-control", placeholder:"www.example.com" %>
+  </div>
+  <div class="form-group">
+  <%= f.label :bio %>
+  <%= f.text_field :bio, class:"form-control", placeholder:"Here's a blurb about me" %>
+  </div>
 
-<%= f.label :avatar %>
-<%= f.url_field :avatar %>
+  <%= f.submit class: 'btn btn-primary' %>
 
-<%= f.label :name %>
-<%= f.text_field :name %>
-
-<%= f.label :email %>
-<%= f.email_field :email %>
-
-<%= f.label :password %>
-<%= f.password_field :password %>
-
-<%= f.label :address %>
-<%= f.text_field :address %>
-
-<%= f.label :facebook %>
-<%= f.url_field :facebook %>
-
-<%= f.label :twitter %>
-<%= f.url_field :twitter %>
-
-<%= f.label :website %>
-<%= f.url_field :website %>
-
-<%= f.label :bio %>
-<%= f.text_field :bio %>
-
-<%= f.submit %>
-
-<% end %>
+  <% end %>
+</form>
+<br>
+<%= link_to "Destroy Profile", @organization,class: 'btn btn-primary', method: :delete %>

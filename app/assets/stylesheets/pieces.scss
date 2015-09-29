@@ -1,3 +1,117 @@
 // Place all the styles related to the Pieces controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.bo-b-black-2{
+  border-bottom: solid black 2px;
+}
+
+.b-black-1{
+  border: solid black 1px;
+}
+
+.b-black-dashed-2{
+  border: dashed black 2px;
+}
+
+.bg-red { background-color: red }
+
+.ft-sm { font-size: 80%; }
+
+.red { color: #E43838;}
+.gray { color: #8A9298;}
+
+.fl-st { float: left; }
+.fl-end { float: right; }
+
+.d-inb { display: inline-block; }
+.d-in { display: inline; }
+
+.p-t-2 {
+  padding-top: 2em;
+}
+
+.p-b-1{
+  padding-bottom: 1em;
+}
+
+.p-b-2{
+  padding-bottom: 2em;
+}
+
+.ml-reset { margin-left: -39%; }
+.ml--2 { margin-left: -2em; }
+.ml--4 { margin-left: -4em; }
+.ml-2 { margin-left: 2em; }
+.ml-4 { margin-left: 4em; }
+.ml-9 { margin-left: 9em; }
+.ml-10 { margin-left: 10em; }
+.ml-12 { margin-left: 12em; }
+.ml-15 { margin-left: 15.5em; }
+.ml-16 { margin-left: 16em; }
+.ml-20 { margin-left: 20em;}
+.ml-23 { margin-left: 23em;}
+.ml-25 { margin-left: 25em; }
+
+.mr-2 {margin-right: 2em;}
+.mr-4 {margin-right: 4em;}
+
+.mb-2 { margin-bottom: 2em;}
+.mb-2 { margin-bottom: 2em;}
+.mb-4 { margin-bottom: 4em;}
+.mb-8 { margin-bottom: 8em;}
+.mb-12 { margin-bottom: 12em;}
+.mb-15 { margin-bottom: 15em;}
+.mt-1 { margin-top: 1em; }
+.mt-2 { margin-top: 2em; }
+
+.mt-6 {margin-top: 6em;}
+.mt-10 {margin-top: 10em;}
+.mr-2 {margin-right: 2em;}
+
+.mt--2 {margin-top: -2em;}
+.mt--4 {margin-top: -4em;}
+.mt--7 {margin-top: -7em;}
+
+.m-1 {margin: 1em;}
+.m-2 {margin: 2em;}
+.m-3 {margin: 3em;}
+.m-4 {margin: 4em;}
+
+.m0-a {margin: 0 auto;}
+
+.pad-bot4 {padding-bottom: 4em;}
+
+.p-8 { padding: 8em; }
+
+.b-top{ border-top: 1px solid black;}
+.b-bot{ border-bottom: 1px solid black;}
+
+.pic {
+  margin: 0 auto;
+}
+
+
+.image-style {
+  /*box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);;*/
+}
+
+.pic-border { border: 5px solid black; }
+
+
+.fix {position: fixed;}
+.line {border: 1px solid black; }
+.ta-cen { text-align: center;}
+.va-m {
+  vertical-align: middle;
+}
+
+.grid-item:hover {
+  background: #A2C;
+  border-color: white;
+  cursor: pointer;
+}
+
+.lb-title {font-size: 20px;}
+
+

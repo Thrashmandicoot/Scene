@@ -1,3 +1,30 @@
-// Place all the styles related to the Organizations controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/** {
+    border: solid red 1px;
+}*/
+
+.profpic {
+    width: 17em;
+    height: 17em;
+    max-width: 17em;
+    max-height: 17em;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.5);
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+
+}
+
+.ta-c {
+    text-align: center;
+}
+
+.new {
+    background-image: url("http://media-cache-ec0.pinimg.com/237x/5e/f4/c9/5ef4c9420ffc1d618658fd1bec7db821.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+}
+

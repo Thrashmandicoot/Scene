@@ -1,2 +1,26 @@
-<h1>Pieces#show</h1>
-<p>Find me in app/views/pieces/show.html.erb</p>
+
+
+<h2><%= @piece.title %></h2>
+<div class="debug">
+  <a href="<%= @piece.img %>" data-lightbox="ex-1">
+    <img src="<%= @piece.img %>" alt="Artist's Piece.img">
+  </a>
+</div>
+
+<p class="debug"><%= @piece.description %></p>
+
+  <div class="debug">
+    <img src="http://www.wrapchic.in/images/offer.png" height=15, width=15>
+    <% @piece.tag_list.each do |tag| %>
+      <button class="ft-sm"><%= link_to tag, tag_path(tag), class: "gray" %></button>
+    <% end %>
+  </div>
+
+<br>
+<h3 class="debug"><strong>Artist: <%= link_to @artist.name, artist_path(@artist) %></strong></h3>
+
+
+  <% if session[:artist_id] == @artist.id %>
+    <button><%= link_to "Edit", edit_artist_piece_path(@piece.artist_id, @piece) %></button>
+    <button><%= link_to "Remove", artist_piece_path(@piece.artist_id, @piece), method: :delete,data: { confirm: 'Are you sure?' } %></button>
+  <% end %>

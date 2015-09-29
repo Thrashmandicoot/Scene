@@ -1,0 +1,49 @@
+<!-- Show all pieces -->
+<script type="text/javascript">
+  $(document).ready(function(){
+      zoomHover();
+  })
+</script>
+
+<h1 class="debugx ta-cen mb-2 mt-2">Pieces</h1>
+<div class="line span-12-d mb-4"></div>
+
+<div class="debugx col span-1-d ml-4 mt--2 d-inb">
+  <h3>Category</h3>
+  <p><%= link_to "All", pieces_path %></p>
+    <% @tags.each do |tag| %>
+       <p><%= link_to tag, tag_path(tag) %></p>
+    <% end %>
+</div>
+
+<div class="debugx span-11-d ">
+  <div class="debugx ml-25">
+
+    <div id="target"></div>
+
+      <div class="debugx ">
+      <% @pieces.each do |piece| %>
+      <% artist = Artist.find(piece.artist_id) %>
+
+          <div class="debugx fl-end m-1 viewport">
+            <a class="pic" href="<%= piece.image.url %>" data-lightbox="ex-1" data-title="<a class='lb-title' href='/artists/<%= artist.id %>'>by: <%= artist.name %></a>">
+              <span class="dark-background">
+                <%= piece.title %>
+                <em>by <%= artist.name %></em>
+              </span>
+              <img src="<%= piece.image.url %>" alt="Piece Pic" />
+            </a>
+          </div>
+
+      <% end %>
+      </div>
+
+  </div>
+</div>
+
+<!-- buffer for footer -->
+<div class="col mb-8"></div>
+
+
+
+

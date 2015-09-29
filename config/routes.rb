@@ -1,13 +1,39 @@
 Rails.application.routes.draw do
-  resources :organizations do
-    resources :scenes
+  root 'galleryhomepage#index'
+
+  controller :about do
+    get 'about-us' => 'about#index'
   end
+
+  get 'tags/show'
+
+  get 'api/pieces' => 'galleryhomepage#api'
+
+  resources :organizations do
+    resources :spaces
+  end
+
+  controller :artists do
+    get 'local_artists' => 'artists#local_artists'
+    get 'user_location' => 'artists#user_location'
+  end
+
+  controller :spaces do
+    get 'spaces' => 'spaces#all_spaces'
+    
+  end
+
+  controller :pieces do
+    get 'pieces' => 'pieces#all_pieces'
+  end
+
+  resources :tags, only: [:show]
 
   resources :artists do
     resources :pieces
   end
 
-  resources :sessions
+  resources :sessions, only: [:new, :create, :destroy]
 
   controller :sessions do
     get 'login' => :new
@@ -20,7 +46,6 @@ end
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

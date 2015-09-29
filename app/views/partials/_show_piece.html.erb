@@ -1,0 +1,33 @@
+<div class="r-this span-12-d ml-12" >
+
+<div class="debugx pic">
+
+
+
+  <div class="debugx">
+  <h2><%= piece.title %></h2>
+    <a href="<%= piece.image.url %>" data-lightbox="ex-1">
+      <img src="<%= piece.image.url(:medium) %>" alt="Artist's Piece.img">
+    </a>
+  </div>
+  <br>
+
+    <div class="debugx hov">
+      <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS2YU_GUTchsvqfarZfusnVClCLl-_zbH7OWEqphpgARy0LXARN" height=15, width=15>
+      <% piece.tag_list.each do |tag| %>
+        <button class="ft-sm"><%= link_to tag, tag_path(tag), class: "gray" %></button>
+      <% end %>
+    </div>
+  <h3 class="debugx mb-4"><strong>Artist: <%= link_to artist.name, artist_path(@artist) %></strong></h3>
+
+</div>
+
+
+</div>
+
+<!-- align this  -->
+  <div class='r-this'>
+    <div class="line span-10-d ml-"></div>
+    <br>
+    <div class="line span-10-d mb-2 ml-"></div>
+  </div>

@@ -1,0 +1,41 @@
+<div class="row">
+<% @artists.each do |artist| %>
+		<div class="col-sm-3">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+            <div class="card hovercard">
+                <div class="cardheader">
+
+                </div>
+                <% unless artist.pieces[0].nil? %>
+                <script type="text/javascript">
+                    $('div .cardheader').last().css('background', "url(<%= "#{artist.pieces.sample.image.url(:medium)}" %>)");
+                </script>
+                <% end %>
+                <div class="avatar">
+                    <%= link_to image_tag(artist.avatar), artist_path(artist) %>
+                </div>
+                <div class="info">
+                    <div class="title">
+                        <%= link_to artist.name, artist_path(artist) %>
+                    </div>
+                    <div class=""><%= link_to artist.website, "http://#{artist.website}" %></div>
+                    <div class="desc"><%= "#{artist.bio}" %></div>
+                    <div><%= artist.address.scan(/(.+?),\s*(.+?)(?:,\s|\s\s)(.+?)\s(\d{5})/)[0][1] + ", " + artist.address.scan(/(.+?),\s*(.+?)(?:,\s|\s\s)(.+?)\s(\d{5})/)[0][2] %></div>
+                </div>
+                <div class="bottom">
+                    <% if artist.twitter %>
+                    <a class="btn card-btn btn-primary btn-twitter btn-sm" href="<%= "http://twitter.com/#{artist.twitter}" %>">
+                        <i>t</i>
+                    </a>
+                    <% end %>
+                    <% if artist.facebook %>
+                    <a class="btn card-btn btn-primary btn-sm" rel="publisher"
+                       href="<%= "http://#{artist.facebook}" %>">
+                        <i>f</i>
+                    </a>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+<% end %>

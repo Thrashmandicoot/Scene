@@ -1,2 +1,7 @@
 <h1>Pieces#new</h1>
 <p>Find me in app/views/pieces/new.html.erb</p>
+
+<p>form for creating a new piece</p>
+
+<%= render partial: "partials/form_new_piece_space", locals: { user: @artist, picture: @artist.pieces.build } %>
+

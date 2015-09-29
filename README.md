@@ -1,35 +1,24 @@
-# Scene
-Bringing local organizations and artists together to make boring workspaces more interesting!
+Scene
+======
 
-# Mandatory Fun Required...
+**Scene** is a web application that connects organizations to local artists. The results are more exciting workspaces for organizations and recognition for artists in the community.
 
-[<img src="http://www.billboard.com/files/styles/review_410/public/weird-al-mandatory-fun-410.jpg">](http://www.billboard.com/files/styles/review_410/public/weird-al-mandatory-fun-410.jpg)
+## Domain
+	- [Scene](http://scenes.herokuapp.com)
 
-Beatings will continue until morale improves ;)
+#### Screenshot
+![Scene](https://github.com/ajdlp/ajdlp.github.io/blob/master/images/Scene.png)
 
-# Git Workflow
-pre-req: git clone repo
-----
-1. git co <feature-branch-name>
-2. DO WORK
-3. git add -A
-4. git commit -m "commit message"
-5. git co development
-6. git pull origin development
-7. *fix merge conflics*
-8. git co <feature-branch>
-9. git merge development
-10. Run RSPEC
-11 git push origin <feature-branch>
-12. Create pull request on github
-13. Announce pull to team members
-14. Merge
 
-# AGILE Philosophy
-1. Take a story you want to work on by clicking start
-2. Vertical slice and complete story
-3. Click Finish in Pivotal
-4. Make a pull request!
-5. Click deliver
-6. Review Pull request w/ team
-7. Accept/Reject based on whether or not changes are good
+## License 
+* See [LICENSE](https://github.com/ajdlp/Scene/blob/master/LICENSE)
+
+
+## Contact
+#### Developer
+* Homepage: alexdelapena.me
+* e-mail: ajdlp12@gmail.com
+* Twitter: [@Spanish_Peanut](https://twitter.com/spanish_peanut)
+* LinkedIn: [AlexDeLaPena](https://linkedin.com/in/alexdelapena)
+
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=username&url=https://github.com/username/sw-name&title=sw-name&language=&tags=github&category=software) 
