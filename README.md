@@ -4,7 +4,7 @@ Scene
 **Scene** is a web application that connects organizations to local artists. The results are more exciting workspaces for organizations and recognition for artists in the community.
 
 ## Domain
-[Scene](http://scenes.herokuapp.com)
+[Scene](http://scenes.herokuapp.com) - hosted on Heroku
 
 #### Screenshot
 ![Scene](https://github.com/ajdlp/ajdlp.github.io/blob/master/images/Scene.png)
